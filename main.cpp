@@ -10,13 +10,7 @@ using namespace std;
 int main() {
     int login;
 
-// login interface
-    cout << "Welcome to the University of Adelaide Timetable interface." << endl;
-    cout << "Please select from one of the following options:" << endl;
-    cout << "1. Login" << endl;
-    cout << "2. Quit" << endl;
-    cin >> login;
-
+// user interface for logging into the timetable program
 // if the user doesnt select 1 or 2 for login or quit, make them select again
     while (login != 1 || login != 2) {
         cout << "Welcome to the University of Adelaide Timetable interface." << endl;
@@ -24,6 +18,7 @@ int main() {
         cout << "1. Login" << endl;
         cout << "2. Quit" << endl;
         cin >> login;
+        break;
     }
 
 // if they choose to Login
