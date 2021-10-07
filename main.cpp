@@ -9,7 +9,8 @@ using namespace std;
 
 int main() {
     int login = 0, idcheck = 0;
-    string name;
+    string newname, role;
+    Student Student1;
 
 // user interface for logging into the timetable program
 // if the user doesnt select 1 or 2 for login or quit, make them select again
@@ -47,13 +48,25 @@ int main() {
             cout << "5. Logout" << endl;
             cin >> studchoice;
 
+            if (studchoice == 2) {
+                Student1.getGrades();
+            }
         }
     }
 
 // if they are a new user
     if (login == 2) {
         cout << "Please enter your name: ";
-        cin >> name;
+        cin >> newname;
+        while (role != "Teacher" || role != "Student") {
+            cout << "Do you want to create a Teacher account or a Student account";
+            cin >> role;
+        }
+        if (role == "Teacher") {
+
+        } else if (role == "Student") {
+
+        }
     }
 
 // if they choose to Quit
