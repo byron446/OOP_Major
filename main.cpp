@@ -11,6 +11,7 @@ int main() {
     int login = 0, idcheck = 0;
     string newname, role;
     Student Student1;
+    Teacher Teacher1;
 
 // user interface for logging into the timetable program
 // if the user doesnt select 1 or 2 for login or quit, make them select again
@@ -31,25 +32,47 @@ int main() {
         cin >> idcheck;
         cout << endl;
 
+        // if they are a teacher
         if (idcheck <= 15000) {
             int teachchoice=0;
-            cout << "1. View Timetable" << endl;
-            cout << "2. View Grades" << endl;
-            cout << "3. Logout" << endl;
-            cin >> teachchoice;
+            while (teachchoice != 1 || teachchoice != 2 || teachchoice != 3) {
+                cout << "1. View Timetable" << endl;
+                cout << "2. View Grades" << endl;
+                cout << "3. Logout" << endl;
+                cin >> teachchoice;
+
+                if (teachchoice == 1) {
+
+                } else if (teachchoice == 2) {
+
+                } else if (teachchoice == 3) {
+                    break;
+                }
+            }
         }
 
+        // if they are a student
         if (idcheck >= 15001) {
             int studchoice = 0;
-            cout << "1. View Timetable" << endl;
-            cout << "2. View Grade" << endl;
-            cout << "3. Enrol" << endl;
-            cout << "4. Remove" << endl;
-            cout << "5. Logout" << endl;
-            cin >> studchoice;
+            while (studchoice != 1 || studchoice != 2 || studchoice != 3 || studchoice != 4 || studchoice != 5) {
+                cout << "1. View Timetable" << endl;
+                cout << "2. View Grade" << endl;
+                cout << "3. Enrol" << endl;
+                cout << "4. Remove" << endl;
+                cout << "5. Logout" << endl;
+                cin >> studchoice;
 
-            if (studchoice == 2) {
-                Student1.getGrades();
+                if (studchoice == 1) {
+                    
+                } else if (studchoice == 2) {
+                    Student1.getGrades();
+                } else if (studchoice == 3) {
+
+                } else if (studchoice == 4) {
+
+                } else if (studchoice == 5) {
+                    break;
+                }
             }
         }
     }
