@@ -3,7 +3,9 @@
 
 class Student
 {
+    Student();
 
+    
 };
 
 #endif

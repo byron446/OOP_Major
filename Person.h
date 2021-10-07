@@ -9,6 +9,7 @@ public:
     Person();
     ~Person();
     Person(int num_courses); // Constructor that takes the number of courses as a parameter
+    void enrol(std::string course_id);
     virtual void getGrades() = 0; // virtual function to print the grades a person has permission to see
 
     std::string name;
