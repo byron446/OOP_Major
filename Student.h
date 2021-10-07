@@ -3,10 +3,15 @@
 
 #include "Person.h"
 #include <string>
-class Student
+class Student: public Person
 {
     Student();
 
+
+    virtual void getGrades();
+    ~Student();
+
+    int* grades;
     
 };
 

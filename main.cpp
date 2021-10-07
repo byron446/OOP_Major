@@ -8,7 +8,7 @@
 using namespace std;
 
 int main() {
-    int login;
+    int login = 0;
 
 // user interface for logging into the timetable program
 // if the user doesnt select 1 or 2 for login or quit, make them select again

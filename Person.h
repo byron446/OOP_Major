@@ -2,6 +2,7 @@
 #define PERSON_H
 
 #include <string>
+#include "Course.h"
 // Defines the person parent class
 class Person 
 {
@@ -14,7 +15,7 @@ public:
 
     std::string name;
     int id_num;
-    std::string* enrolments;
+    Course* courses;
 };
 
 #endif
