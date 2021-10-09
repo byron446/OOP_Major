@@ -2,6 +2,7 @@
 #include "Person.h"
 #include <string>
 #include <iostream>
+#include <vector>
 
 Person::Person() 
 {
@@ -15,4 +16,9 @@ Person::Person(int num_courses)
     name = "?";
     id_num = 0;
     
+}
+
+void Person::enrol(Course* course_name)
+{
+    courses.push_back(course_name);
 }
