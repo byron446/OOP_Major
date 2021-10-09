@@ -10,7 +10,7 @@ using namespace std;
 int main() {
     int login = 0, idcheck = 0;
     string newname, role; //name and role for the new user
-    Person Person1;
+    Person Person1; // person type, data to be assigned to it once id is put in
 
 // user interface for logging into the timetable program
 // if the user doesnt select 1 or 2 for login or quit, make them select again
@@ -56,6 +56,7 @@ int main() {
         if (idcheck >= 15001) {
             int studchoice = 0;
             while (studchoice != 1 || studchoice != 2 || studchoice != 3 || studchoice != 4 || studchoice != 5) {
+                cout << "Welcome " << Person1.name << endl;
                 cout << "1. View Timetable" << endl;
                 cout << "2. View Grade" << endl;
                 cout << "3. Enrol" << endl;
