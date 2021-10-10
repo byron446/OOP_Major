@@ -36,7 +36,7 @@ int main() {
         if (idcheck <= 15000) {
             int teachchoice=0;
             while (teachchoice != 1 || teachchoice != 2 || teachchoice != 3) {
-                cout << "Welcome " << Person1.name << endl;
+                cout << "Welcome " << Person1.getName() << endl;
                 cout << "1. View Timetable" << endl;
                 cout << "2. View Grades" << endl;
                 cout << "3. Logout" << endl;
@@ -56,7 +56,7 @@ int main() {
         if (idcheck >= 15001) {
             int studchoice = 0;
             while (studchoice != 1 || studchoice != 2 || studchoice != 3 || studchoice != 4 || studchoice != 5) {
-                cout << "Welcome " << Person1.name << endl;
+                cout << "Welcome " << Person1.getName() << endl;
                 cout << "1. View Timetable" << endl;
                 cout << "2. View Grade" << endl;
                 cout << "3. Enrol" << endl;
