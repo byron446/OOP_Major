@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 
+
+// Default constructor for a person, sets name and id number to known defaults
 Person::Person() 
 {
     name = "?";
@@ -11,20 +13,36 @@ Person::Person()
     
 }
 
+// Constructor that allows for a person to be created and immediately given a name
 Person::Person(std::string pname)
 {
     name = pname;
     id_num = 0;
 }
 
+// Takes a string as input to assign a name to a person
 void Person::setName(std::string pname)
 {
     name = pname;
 }
 
-std::string Person::getName()
+// Returns the name of a person 
+std::string Person::getName() const
 {
     return name;
+}
+
+
+int* Person::setIdNum(int* pid_num)
+{
+    id_num = *pid_num;
+    *pid_num++;
+    return pid_num;
+}
+
+int Person::getIdNum()
+{
+    return id_num;
 }
 
 void Person::enrol(Course* course_name)
@@ -42,9 +60,9 @@ void Person::enrol(Course* course_name)
 
 void Person::printCourses()
 {
-    std::cout << "The courses you are currently enrolled in are: ";
+    std::cout << "The courses you are currently enrolled in are: " << std::endl;
     for(int i = 0; i < courses.size(); i++) {
-        std::cout << courses[i]->name << " " << courses[i]->course_id << std::endl;
+        std::cout << courses[i]->getCourseId() << " " << courses[i]->getName() << std::endl;
     }
   
 }
@@ -58,4 +76,9 @@ void Person::leaveCourse(Course* exit_course)
         }
     }
   
+}
+
+Person::~Person()
+{
+
 }

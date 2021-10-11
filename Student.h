@@ -7,11 +7,10 @@ class Student: public Person
 {
     Student();
 
-
-    virtual void getGrades();
+    virtual void printGrades();
     ~Student();
 
-    int* grades;
+    int* grades; // map courses to grades
     
 };
 

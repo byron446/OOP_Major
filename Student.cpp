@@ -3,13 +3,14 @@
 #include "Person.h"
 #include <string>
 #include <iostream>
+#include <map>
 
 Student::Student()
 {
 
 }
 
-void Student::getGrades()
+void Student::printGrades()
 {
     
 }

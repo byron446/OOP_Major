@@ -8,18 +8,30 @@
 class Person 
 {
 public:  
+    
+    // Default constructor/destructor, and a constructor that takes a name
     Person();
     ~Person();
     Person(std::string pname);
 
+    // Access functions for the name of a person
     void setName(std::string pname);
     std::string getName() const;
 
+    // Access functions for the id number of a person
+    int* setIdNum(int* pid_num);
+    int getIdNum();
+
+    // Functions to add or remove a course, and to print all courses a person 
+    // is currently enrolled in
     void enrol(Course* new_course);
     void leaveCourse(Course* exit_course);
     void printCourses();
 
-    virtual void getGrades() = 0; // virtual function to print the grades a person has permission to see
+
+
+    // virtual function to print the grades a person has permission to see
+    virtual void printGrades() = 0; 
 
 private:
     std::string name;
