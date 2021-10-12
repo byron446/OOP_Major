@@ -19,7 +19,7 @@ public:
     std::string getName() const;
 
     // Access functions for the id number of a person
-    int* setIdNum(int* pid_num);
+    void setIdNum(int* pid_num);
     int getIdNum();
 
     // Functions to add or remove a course, and to print all courses a person 

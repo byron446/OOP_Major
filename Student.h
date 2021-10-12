@@ -3,14 +3,17 @@
 
 #include "Person.h"
 #include <string>
+#include <vector>
 class Student: public Person
 {
+public:
     Student();
 
     virtual void printGrades();
     ~Student();
 
-    int* grades; // map courses to grades
+private:
+    std::vector<int> grades; // map courses to grades
     
 };
 

@@ -5,9 +5,12 @@
 #include "Student.h"
 #include <string>
 #include <iostream>
+#include <vector>
 
 int teacher_id = 10000;
 int student_id = 15000;
+
+
 
 int main() {
     int login = 0, idcheck = 0;
