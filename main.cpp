@@ -15,7 +15,6 @@ int student_id = 15000;
 int main() {
     int login = 0, idcheck = 0;
     std::string newname, role; //name and role for the new user
-    Person Person1; // person type, data to be assigned to it once id is put in
 
 // user interface for logging into the timetable program
 // if the user doesnt select 1 or 2 for login or quit, make them select again
@@ -39,9 +38,10 @@ int main() {
 
         // if they are a teacher
         if (idcheck <= 15000) {
+            Teacher Teacher1;
             int teachchoice=0;
             while (teachchoice != 1 || teachchoice != 2 || teachchoice != 3) {
-                std::cout << "Welcome " << Person1.getName() << std::endl;
+                std::cout << "Welcome " << Teacher1.getName() << std::endl;
                 std::cout << "1. View Timetable" << std::endl;
                 std::cout << "2. View Grades" << std::endl;
                 std::cout << "3. Logout" << std::endl;
@@ -60,8 +60,9 @@ int main() {
         // if they are a student
         if (idcheck >= 15001) {
             int studchoice = 0;
+            Student Student1;
             while (studchoice != 1 || studchoice != 2 || studchoice != 3 || studchoice != 4 || studchoice != 5) {
-                std::cout << "Welcome " << Person1.getName() << std::endl;
+                std::cout << "Welcome " << Student1.getName() << std::endl;
                 std::cout << "1. View Timetable" << std::endl;
                 std::cout << "2. View Grade" << std::endl;
                 std::cout << "3. Enrol" << std::endl;
