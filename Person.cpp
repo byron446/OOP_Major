@@ -63,6 +63,11 @@ void Person::enrol(Course* course_name)
     return;
 }
 
+std::vector<Course*> &Person::getCourses()
+{
+    return courses;
+}
+
 // Prints a formatted list of the courses a person is enrolled in
 void Person::printCourses()
 {

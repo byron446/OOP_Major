@@ -12,5 +12,7 @@ Student::Student()
 
 void Student::printGrades()
 {
-    
+    for(int i = 0; i < getCourses().size(); i++){
+        
+    }
 }
