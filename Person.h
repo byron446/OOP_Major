@@ -25,6 +25,7 @@ public:
     // Functions to add or remove a course, and to print all courses a person 
     // is currently enrolled in
     void enrol(Course* new_course);
+    std::vector<Course*> &getCourses();
     void leaveCourse(Course* exit_course);
     void printCourses();
 
