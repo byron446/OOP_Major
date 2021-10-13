@@ -1,5 +1,6 @@
 // course class
 #include "Course.h"
+#include "Lesson.h"
 #include <string>
 #include <iostream>
 
@@ -23,6 +24,12 @@ std::string Course::getCourseId(){
 
     return course_id;
 }
+
+std::string Course::getTime(){
+
+    return lessonTime;
+}
+
 
 
 

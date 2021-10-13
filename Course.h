@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include "Lesson.h"
 
 // Defines the parent Course Class.
 
