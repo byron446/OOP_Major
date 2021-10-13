@@ -33,6 +33,7 @@ int main()
     std::cout << student->getName() << " " << student2->getName() << std::endl;
 
     student->enrolStudent(course_name1,course_id1,grade_a);
+    std::cout << student->getCourseNames().size() << " "<< student->getCourseid().size()<< std::endl;
     student->enrolStudent(course_name2,course_id2,grade_b);
     student2->enrolStudent(course_name2,course_id2,grade_c);
     student2->enrolStudent(course_name1,course_id1,grade_d);

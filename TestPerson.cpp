@@ -50,16 +50,19 @@ int TestPerson::getIdNum()
 // Adds a course  to the list of courses a person is enrolled in
 void TestPerson::enrol(std::string new_course, std::string course_id)
 {
-    // Returns if the person is already enrolled in the course
-    for(int i = 0; i < course_names.size()-1; i++) {
-        if(course_names[i] == new_course){
-            std::cout << "You are already enrolled in this course" << std::endl;
-            return;
+    //Returns if the person is already enrolled in the course
+    if(course_names.size()!=0){
+        for(int i = 0; i < course_names.size(); i++) {
+            if(course_names.at(i) == new_course){
+                std::cout << "You are already enrolled in this course" << std::endl;
+                return;
+            }
+
         }
     }
 
     course_names.push_back(new_course);
-    course_names.push_back(course_id);
+    course_ids.push_back(course_id);
     return;
 }
 
@@ -69,15 +72,17 @@ std::vector<std::string> &TestPerson::getCourseNames()
 }
 std::vector<std::string> &TestPerson::getCourseid()
 {
-    return course_id;
+    return course_ids;
 }
 
 // Prints a formatted list of the courses a person is enrolled in
 void TestPerson::printCourses()
 {
-    std::cout << "The courses you are currently enrolled in are: " << std::endl;
-    for(int i = 0; i < course_names.size(); i++) {
-        std::cout << course_id.at(i) << " " << course_names.at(i) << std::endl;
+    if(course_names.size()!=0){
+        std::cout << "The courses you are currently enrolled in are: " << std::endl;
+        for(int i = -1; i < course_names.size(); i++) {
+            std::cout << course_ids.at(i) << " " << course_names.at(i) << std::endl;
+        }
     }
   
 }
@@ -88,7 +93,7 @@ int TestPerson::leaveCourse(std::string exit_course)
     for(int i = 0; i < course_names.size(); i++) {
         if(course_names[i] == exit_course){
             course_names.erase(course_names.begin()+i);
-            course_id.erase(course_id.begin()+i);
+            course_ids.erase(course_ids.begin()+i);
             return i;
         }
     }

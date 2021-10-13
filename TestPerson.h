@@ -36,7 +36,7 @@ private:
     std::string name;
     int id_num;
     std::vector <std::string> course_names;
-    std::vector <std::string> course_id;
+    std::vector <std::string> course_ids;
 };
 
 #endif
