@@ -1,18 +1,18 @@
-#ifndef PERSON_H
-#define PERSON_H
+#ifndef TESTPERSON_H
+#define TESTPERSON_H
 
 #include <string>
 #include <vector>
-#include "Course.h"
-// Defines the person parent class
-class Person 
+
+// Defines a test version person parent class that is does not utilise the course class
+class TestPerson 
 {
 public:  
     
     // Default constructor/destructor, and a constructor that takes a name
-    Person();
-    ~Person();
-    Person(std::string pname);
+    TestPerson();
+    ~TestPerson();
+    TestPerson(std::string pname);
 
     // Access functions for the name of a person
     void setName(std::string pname);
@@ -24,9 +24,10 @@ public:
 
     // Functions to add or remove a course, and to print all courses a person 
     // is currently enrolled in
-    void enrol(Course* new_course);
-    std::vector<Course*> &getCourses();
-    void leaveCourse(Course* exit_course);
+    void enrol(std::string new_course, std::string course_id);
+    std::vector<std::string> &getCourseNames();
+    std::vector<std::string> &getCourseid();
+    int leaveCourse(std::string exit_course);
     void printCourses();
 
     // virtual function to print the grades a person has permission to see
@@ -34,7 +35,8 @@ public:
 private:
     std::string name;
     int id_num;
-    std::vector <Course*> courses;
+    std::vector <std::string> course_names;
+    std::vector <std::string> course_id;
 };
 
 #endif

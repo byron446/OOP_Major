@@ -19,9 +19,9 @@ int Lesson::setTime(){
 
 }
 
-void Lesson::setLesson(int plesson)
+void Lesson::setLesson(LessonType plesson)
 {
-    lesson = LessonType::plesson;
+    lesson = plesson;
 }
 
 

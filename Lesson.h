@@ -5,6 +5,15 @@
 #include <map>
 
 class Lesson{
+private:
+    enum class LessonType {Lecture, Tutorial, Workshop, Practical};
+   
+    std::map <LessonType, int> duration {
+        {LessonType::Lecture, 60},
+        {LessonType::Tutorial, 60},
+        {LessonType::Workshop, 120},
+        {LessonType::Practical, 180},
+    };
 
  public:   
 
@@ -17,7 +26,7 @@ class Lesson{
 
     void setDate();
 
-    void setLesson(int p_lesson);
+    void setLesson(LessonType plesson);
 
 
 private:
@@ -25,13 +34,7 @@ private:
   
     std::string lessonDate;
     
-    enum class LessonType {Lecture, Tutorial, Workshop, Practical};
-    std::map <LessonType, int> duration {
-        {LessonType::Lecture, 60},
-        {LessonType::Tutorial, 60},
-        {LessonType::Workshop, 120},
-        {LessonType::Practical, 180},
-    };
+
     LessonType lesson; 
 
 };
