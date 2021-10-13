@@ -14,7 +14,7 @@ Lesson::Lesson(){
 
 int Lesson::setTime(){
 
-    lessonTime = 
+    lessonTime = "hello"
 
 
 }
