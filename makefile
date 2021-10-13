@@ -14,7 +14,7 @@ Course.o: Course.h Course.cpp
 	g++ -c Course.cpp	
 
 StudentTest: StudentTester.cpp TestPerson.o TestStudent.o
-	g++ StudentTest.cpp Person.o Course.o Student.o -o student
+	g++ StudentTester.cpp TestPerson.o TestStudent.o -o student
 
 TestPerson.o: TestPerson.h TestPerson.cpp
 	g++ -c TestPerson.cpp
