@@ -10,8 +10,6 @@
 int teacher_id = 10000;
 int student_id = 15000;
 
-
-
 int main() {
     int login = 0, idcheck = 0;
     std::string newname, role; //name and role for the new user
@@ -76,7 +74,9 @@ int main() {
                 } else if (studchoice == 2) {
                     Student1.printGrades(); // calling function to get student's graes
                 } else if (studchoice == 3) {
-
+                    Course* Course1;
+                    int tempcourseid;
+                    Student1.enrol(Course1);
                 } else if (studchoice == 4) {
 
                 } else if (studchoice == 5) {
@@ -99,12 +99,16 @@ int main() {
             std::cout << "Please Enter your Name: ";
             std::cin >> tname;
             Teacher1.setName(tname); // storing teacher name in the teacher type
+            Teacher1.setIdNum(&teacher_id);
+            std::cout << "Your ID Number is : a" << Teacher1.getIdNum() << std::endl;
         } else if (role == "Student") {
             Student Student1;
             std::string tname;
             std::cout << "Please Enter your Name: ";
             std::cin >> tname;
             Student1.setName(tname); // storing students name in the student type
+            Student1.setIdNum(&student_id);
+            std::cout << "Your ID Number is : a" << Student1.getIdNum() << std::endl;
         }
     }
 
