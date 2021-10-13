@@ -50,7 +50,7 @@ int main() {
                 if (teachchoice == 1) {
 
                 } else if (teachchoice == 2) {
-
+                    Teacher1.getGrades();
                 } else if (teachchoice == 3) {
                     break;
                 }
@@ -73,7 +73,7 @@ int main() {
                 if (studchoice == 1) {
                     
                 } else if (studchoice == 2) {
-                    
+                    Student1.printGrades();
                 } else if (studchoice == 3) {
 
                 } else if (studchoice == 4) {
@@ -94,9 +94,13 @@ int main() {
             std::cin >> role;
         }
         if (role == "Teacher") {
-
+            Teacher Teacher1;
+            std::cout << "Please Enter your Name: ";
+            std::cin >> Teacher1.getName();
         } else if (role == "Student") {
-
+            Student Student1;
+            std::cout << "Please Enter your Name: ";
+            std::cin >> Student1.getName();
         }
     }
 
