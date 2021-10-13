@@ -95,12 +95,16 @@ int main() {
         }
         if (role == "Teacher") {
             Teacher Teacher1;
+            std::string tname;
             std::cout << "Please Enter your Name: ";
-            std::cin >> Teacher1.getName();
+            std::cin >> tname;
+            Teacher1.setName(tname);
         } else if (role == "Student") {
             Student Student1;
+            std::string tname;
             std::cout << "Please Enter your Name: ";
-            std::cin >> Student1.getName();
+            std::cin >> tname;
+            Student1.setName(tname);
         }
     }
 
