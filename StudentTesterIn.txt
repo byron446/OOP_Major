@@ -1,6 +1,6 @@
 Alan
 Tim
-Object-Oriented
+ObjectOriented
 1102
 Maths
 1000
