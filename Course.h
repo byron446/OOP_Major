@@ -3,11 +3,29 @@
 
 #include <string>
 #include <map>
-class Course
-{
+
+// Defines the parent Course Class.
+
+class Course{
+
+
 public:
+
+    // The default constructors and destructors for the course class.
+    Course();
+    ~Course();
+
+
     std::string getCourseId();
+
     std::string getName();
+
+    int getTime(); 
+
+    int getDuration();
+
+    std::string getDate();
+
 
 private:
     std::string course_id;

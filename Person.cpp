@@ -73,13 +73,13 @@ void Person::printCourses()
 {
     std::cout << "The courses you are currently enrolled in are: " << std::endl;
     for(int i = 0; i < courses.size(); i++) {
-        std::cout << courses[i]->getCourseId() << " " << courses[i]->getName() << std::endl;
+        std::cout << courses.at(i)->getCourseId() << " " << courses.at(i)->getName() << std::endl;
     }
   
 }
 
 // Removes a course from the list a person is enrolled in
-void Person::leaveCourse(Course* exit_course) 
+void Person::leaveCourse(Course* exit_course)  
 {
     for(int i = 0; i < courses.size(); i++) {
         if(courses[i] == exit_course){

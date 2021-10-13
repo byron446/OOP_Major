@@ -13,7 +13,7 @@ public:
     ~Student();
 
 private:
-    std::vector<int> grades; // map courses to grades
+    std::vector<int> grades; 
     
 };
 
