@@ -4,9 +4,11 @@
 #include <iostream>
 #include <vector>
 
-int student_num = 15000;
+
 int main()
 {
+    int student_num = 15000;
+    int* current_id = &student_num;
     std::string name1,name2, course_name1, course_name2, course_id1, course_id2;
     int grade_a, grade_b, grade_c, grade_d;
     std::cin >> name1;
@@ -22,8 +24,8 @@ int main()
 
     TestStudent *student = new(TestStudent);
     TestStudent *student2 = new(TestStudent);
-    student->setIdNum(&student_num);
-    student2->setIdNum(&student_num);
+    student->setIdNum(current_id);
+    student2->setIdNum(current_id);
     std::cout << student->getIdNum() << " " << student2->getIdNum() << std::endl;
 
     student->setName(name1);
@@ -38,6 +40,6 @@ int main()
     student2->printCourses();
     student->printGrades();
     student2->printGrades();
-    
+
     return 0;
 }
