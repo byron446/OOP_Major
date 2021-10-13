@@ -38,7 +38,7 @@ std::string TestPerson::getName() const
 void TestPerson::setIdNum(int* pid_num)
 {
     id_num = *pid_num;
-    *pid_num++;
+    (*pid_num)++;
 }
 
 // Returns a persons id number
@@ -51,7 +51,7 @@ int TestPerson::getIdNum()
 void TestPerson::enrol(std::string new_course, std::string course_id)
 {
     // Returns if the person is already enrolled in the course
-    for(int i = 0; i < course_names.size(); i++) {
+    for(int i = 0; i < course_names.size()-1; i++) {
         if(course_names[i] == new_course){
             std::cout << "You are already enrolled in this course" << std::endl;
             return;
