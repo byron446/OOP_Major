@@ -8,9 +8,7 @@
 #include <vector>
 
 int teacher_id = 10000;
-int* teach_id = &teacher_id;
 int student_id = 15000;
-int* stud_id = &student_id;
 
 int main() {
     int login = 0, idcheck = 0;
@@ -101,7 +99,7 @@ int main() {
             std::cout << "Please Enter your Name: ";
             std::cin >> tname;
             Teacher1.setName(tname); // storing teacher name in the teacher type
-            Teacher1.setIdNum(teach_id);
+            Teacher1.setIdNum(&teacher_id);
             std::cout << "Your ID Number is : a" << Teacher1.getIdNum() << std::endl;
         } else if (role == "Student") {
             Student Student1;
@@ -109,7 +107,7 @@ int main() {
             std::cout << "Please Enter your Name: ";
             std::cin >> tname;
             Student1.setName(tname); // storing students name in the student type
-            Student1.setIdNum(stud_id);
+            Student1.setIdNum(&student_id);
             std::cout << "Your ID Number is : a" << Student1.getIdNum() << std::endl;
         }
     }
