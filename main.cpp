@@ -10,8 +10,6 @@
 int teacher_id = 10000;
 int student_id = 15000;
 
-
-
 int main() {
     int login = 0, idcheck = 0;
     std::string newname, role; //name and role for the new user
