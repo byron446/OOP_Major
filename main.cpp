@@ -11,8 +11,8 @@ int teacher_id = 10000;
 int student_id = 15000;
 
 int main() {
-    int login = 0, idcheck = 0;
-    std::string newname, role; //name and role for the new user
+    int login = 0, idcheck = 0, role = 0;
+    std::string newname; //name and role for the new user
 
 // user interface for logging into the timetable program
 // if the user doesnt select 1 or 2 for login or quit, make them select again
@@ -30,14 +30,14 @@ int main() {
 // if they choose to Login
     if (login == 1) {
         std::cout << "Please enter your identification number to proceed with the login process:" << std::endl;
-        std::cout << "1. id: a";
+        std::cout << "ID: a";
         std::cin >> idcheck;
         std::cout << std::endl;
 
         // if they are a teacher
         if (idcheck <= 15000) {
             Teacher Teacher1; // defining teacher type
-            int teachchoice=0;
+            int teachchoice = 0;
             while (teachchoice != 1 || teachchoice != 2 || teachchoice != 3) {
                 std::cout << "Welcome " << Teacher1.getName() << std::endl; // giving options to the teacher
                 std::cout << "1. View Timetable" << std::endl;
@@ -57,7 +57,7 @@ int main() {
         }
 
         // if they are a student
-        if (idcheck >= 15001) {
+        if (idcheck > 15000) {
             int studchoice = 0;
             Student Student1; // defining student type
             while (studchoice != 1 || studchoice != 2 || studchoice != 3 || studchoice != 4 || studchoice != 5) {
@@ -70,15 +70,18 @@ int main() {
                 std::cin >> studchoice;
 
                 if (studchoice == 1) {
-                    
+                    Student1.getTimetable(); //calling function to get timetable
                 } else if (studchoice == 2) {
                     Student1.printGrades(); // calling function to get student's graes
                 } else if (studchoice == 3) {
-                    Course* Course1;
-                    int tempcourseid;
-                    Student1.enrol(Course1);
+                    Course Course1;
+                    std::string cname;
+                    std::cout << "Enter Course Name: ";
+                    std::cin >> cname;
+                    Student1.enrol(&Course1);
                 } else if (studchoice == 4) {
-
+                    Course Course1;
+                    Student1.leaveCourse(&Course1);
                 } else if (studchoice == 5) {
                     std::cout << "Logging out..." << std::endl; // logging out sequence
                     break;
@@ -89,11 +92,12 @@ int main() {
 
 // if they are a new user
     if (login == 2) {
-        while (role != "Teacher" || role != "Student") {
-            std::cout << "Do you want to create a Teacher account or a Student account";
+        while (role != 1 || role != 2) {
+            std::cout << "What type of account would you like to create: " << std::endl;
+            std::cout << "1. Teacher" << std::endl;
+            std::cout << "2. Student" << std::endl;
             std::cin >> role;
-        }
-        if (role == "Teacher") {
+        } if (role == 1) {
             Teacher Teacher1;
             std::string tname;
             std::cout << "Please Enter your Name: ";
@@ -101,7 +105,7 @@ int main() {
             Teacher1.setName(tname); // storing teacher name in the teacher type
             Teacher1.setIdNum(&teacher_id);
             std::cout << "Your ID Number is : a" << Teacher1.getIdNum() << std::endl;
-        } else if (role == "Student") {
+        } else if (role == 2) {
             Student Student1;
             std::string tname;
             std::cout << "Please Enter your Name: ";
