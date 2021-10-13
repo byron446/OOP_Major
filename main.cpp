@@ -52,6 +52,7 @@ int main() {
                 } else if (teachchoice == 2) {
                     Teacher1.getGrades();
                 } else if (teachchoice == 3) {
+                    std::cout << "Logging out..." << std::endl;
                     break;
                 }
             }
@@ -79,6 +80,7 @@ int main() {
                 } else if (studchoice == 4) {
 
                 } else if (studchoice == 5) {
+                    std::cout << "Logging out..." << std::endl;
                     break;
                 }
             }
