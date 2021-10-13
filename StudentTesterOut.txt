@@ -1,2 +1,14 @@
 15000 15001
 Alan Tim
+The courses you are currently enrolled in are:
+1102 Object-Oriented
+1000 Maths
+The courses you are currently enrolled in are:
+1000 Maths
+1102 Object-Oriented
+Your grades in each subject are: 
+1102 Object-Oriented: 76
+1000 Maths: 58
+Your grades in each subject are: 
+1000 Maths: 60
+1102 Object-Oriented: 90
