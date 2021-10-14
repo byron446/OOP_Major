@@ -38,10 +38,10 @@ std::string Lesson::getDate(){
 }
 void Lesson::setLesson(LessonType plesson)
 {
-     = plesson;
+    lesson = plesson;
 }
 
-std::string Lesson::getLesson(){
+LessonType Lesson::getLesson(){
 
     return cLesson;
 }

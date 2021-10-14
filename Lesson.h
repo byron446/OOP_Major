@@ -9,7 +9,7 @@ class Lesson{
 private:
     enum class LessonType {Lecture, Tutorial, Workshop, Practical};
    
-    std::map <LessonType, int> duration {
+     std::map <LessonType, int> duration {
         {LessonType::Lecture, 60},
         {LessonType::Tutorial, 60},
         {LessonType::Workshop, 120},
