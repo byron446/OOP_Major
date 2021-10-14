@@ -30,7 +30,7 @@ int Lesson::getTime(){
     return lessonTime;
 }
 
-std::string Lesson::setDate(std::string pdate){
+void Lesson::setDate(std::string pdate){
 
     lessonDate = pdate;
 
@@ -52,7 +52,7 @@ enum Lesson::LessonType Lesson::getLesson(){
 }
 
 
-int Lesson::setDuration(int pduration){
+void Lesson::setDuration(int pduration){
 
     lessonDuration = pduration;
 

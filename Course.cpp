@@ -6,40 +6,46 @@
 
 
 Course::Course(){
-
     name = "?";
     course_id = "??";
-    
-
+    lessons = new Lesson[4];
 }
 
-Course::Course(std::string pname){
+Course::Course(std::string pname)
+{
+    name = pname;
+    course_id = "??";
+    lessons = new Lesson[4];
+}
+
+Course::Course(int lesson_num)
+{
+    name = "?";
+    course_id = "??";
+    lessons = new Lesson[lesson_num];    
+}
+
+void Course::setName(std::string pname)
+{
     name = pname;
 }
 
-std::string Course::setName(std::string pname){
-
-    name = pname;
-
-}
-
-std::string Course::getName(){
-
+std::string Course::getName()
+{
     return name;
 }
 
-std::string Course::setCourseID(std::string pid){
-
+void Course::setCourseID(std::string pid)
+{
     course_id = pid;
-
 }
 
-std::string Course::getCourseId(){
-
+std::string Course::getCourseId()
+{
     return course_id;
 }
 
+Course::~Course()
+{
 
-
-
-
+}

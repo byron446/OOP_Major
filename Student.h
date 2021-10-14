@@ -10,6 +10,8 @@ public:
     Student();
 
     virtual void printGrades();
+    void enrolStudent(Course new_course, int grade);
+    void leaveCourseStudent(Course exit_course);
     ~Student();
 
 private:
