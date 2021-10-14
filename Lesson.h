@@ -40,7 +40,7 @@ private:
     int getDuration();
 
    
-    std::string lesson;
+    std::string cLesson;
 
 private:
     int lessonTime;
