@@ -34,13 +34,12 @@ private:
     int getDuration();
 
    
-
+    std::string cLesson;
 
 private:
     int lessonTime;
 
     int lessonDuration;
-
   
     std::string lessonDate;
     

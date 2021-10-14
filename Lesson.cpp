@@ -14,7 +14,6 @@ Lesson::Lesson(){
     lessonTime = 0;
     lessonDate = "?";
     lessonDuration = 0;
-    lesson;
 
 }
 
@@ -64,4 +63,6 @@ int Lesson::getDuration(){
     return lessonDuration;
 
 }
+
+
 
