@@ -22,8 +22,11 @@ TestPerson.o: TestPerson.h TestPerson.cpp
 TestStudent.o: TestPerson.h TestStudent.h TestStudent.cpp
 	g++ -c -std=c++11 TestStudent.cpp
 
-TeacherTest: TeacherTest.cpp Person.o Course.o Teacher.o
-	g++ -std=c++11 TeacherTest.cpp Person.o Course.o Teacher.o -o teacher
+TestTeacher.o: TestPerson.h TestTeacher.h TestTeacher.cpp
+	g++ -c -std=c++11 TestTeacher.cpp
+
+TeacherTest: TeacherTester.cpp TestPerson.o TestTeacher.o
+	g++ -std=c++11 TestTeacher.cpp TestPerson.o TestTeacher.o -o teacher
 
 CourseTest: CourseTest.cpp Course.o
 	g++ -std=c++11 CourseTest.cpp Course.o -o course
