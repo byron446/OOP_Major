@@ -20,7 +20,7 @@ std::string* TestTeacher::getClassList(std::string course_name, TestPerson* peop
             }
         }
     }
-    std::string* class_list = new std::string[count];
+    std::string* class_list = new std::string[count]; 
     int current = 0;
     for(int i = 0; i < getCourseNames().size();i++){
         if(getCourseNames().at(i) == course_name){
@@ -55,5 +55,10 @@ void TestTeacher::printGrades()
 
     }
     
+
+}
+
+TestTeacher::~TestTeacher()
+{
 
 }

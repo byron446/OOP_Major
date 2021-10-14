@@ -97,7 +97,7 @@ int TestPerson::leaveCourse(std::string exit_course)
             return i;
         }
     }
-  
+    return -1;
 }
 
 TestPerson::~TestPerson()
