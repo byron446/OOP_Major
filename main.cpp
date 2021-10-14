@@ -47,8 +47,10 @@ int main() {
 
                 if (teachchoice == 1) {
                     //Teacher1.getTimetable(); // calling function to get timetable
+                    break;
                 } else if (teachchoice == 2) {
                     //Teacher1.getGrades(); // calling function to get students grades
+                    break;
                 } else if (teachchoice == 3) {
                     std::cout << "Logging out..." << std::endl; // logging out sequence
                     break;
@@ -71,8 +73,10 @@ int main() {
 
                 if (studchoice == 1) {
                     //Student1.getTimetable(); //calling function to get timetable
+                    break;
                 } else if (studchoice == 2) {
                     //Student1.printGrades(); // calling function to get student's graes
+                    break;
                 } else if (studchoice == 3) {
                     int cname;
                     std::cout << "Which Course would you like to enrol: " << std::endl;
@@ -87,8 +91,10 @@ int main() {
                     std::cout << "9. Introduction to Process Engineering" << std::endl;
                     std::cout << "10. Analog Electrionics" << std::endl;
                     std::cin >> cname;
+                    break;
                 } else if (studchoice == 4) {
                     std::cout << "Which Course would you like to Remove: " << std::endl;
+                    break;
                 } else if (studchoice == 5) {
                     std::cout << "Logging out..." << std::endl; // logging out sequence
                     break;
