@@ -11,7 +11,7 @@ int teacher_id = 10000;
 int student_id = 15000;
 
 int main() {
-    int login = 0, idcheck = 0, role = 0;
+    int login = 0, idcheck = 0;
     std::string newname; //name and role for the new user
 
 // user interface for logging into the timetable program
@@ -47,8 +47,10 @@ int main() {
 
                 if (teachchoice == 1) {
                     //Teacher1.getTimetable(); // calling function to get timetable
+                    break;
                 } else if (teachchoice == 2) {
                     //Teacher1.getGrades(); // calling function to get students grades
+                    break;
                 } else if (teachchoice == 3) {
                     std::cout << "Logging out..." << std::endl; // logging out sequence
                     break;
@@ -71,8 +73,10 @@ int main() {
 
                 if (studchoice == 1) {
                     //Student1.getTimetable(); //calling function to get timetable
+                    break;
                 } else if (studchoice == 2) {
                     //Student1.printGrades(); // calling function to get student's graes
+                    break;
                 } else if (studchoice == 3) {
                     int cname;
                     std::cout << "Which Course would you like to enrol: " << std::endl;
@@ -87,8 +91,10 @@ int main() {
                     std::cout << "9. Introduction to Process Engineering" << std::endl;
                     std::cout << "10. Analog Electrionics" << std::endl;
                     std::cin >> cname;
+                    break;
                 } else if (studchoice == 4) {
                     std::cout << "Which Course would you like to Remove: " << std::endl;
+                    break;
                 } else if (studchoice == 5) {
                     std::cout << "Logging out..." << std::endl; // logging out sequence
                     break;
@@ -99,6 +105,7 @@ int main() {
 
 // if they are a new user
     if (login == 2) {
+        int role = 0;
         while (role != 1 || role != 2) {
             std::cout << "What type of account would you like to create: " << std::endl;
             std::cout << "1. Teacher" << std::endl;
@@ -112,6 +119,7 @@ int main() {
                 //Teacher1.setName(tname); // storing teacher name in the teacher type
                 //Teacher1.setIdNum(&teacher_id);
                 //std::cout << "Your ID Number is : a" << Teacher1.getIdNum() << std::endl;
+                break;
             } else if (role == 2) {
                 //Student Student1;
                 std::string tname;
@@ -120,8 +128,8 @@ int main() {
                 //Student1.setName(tname); // storing students name in the student type
                 //Student1.setIdNum(&student_id);
                 //std::cout << "Your ID Number is : a" << Student1.getIdNum() << std::endl;
+                break;
             }
-            break;
         }
     }
 
