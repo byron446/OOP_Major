@@ -11,7 +11,7 @@ int teacher_id = 10000;
 int student_id = 15000;
 
 int main() {
-    int login = 0, idcheck = 0, role = 0;
+    int login = 0, idcheck = 0;
     std::string newname; //name and role for the new user
 
 // user interface for logging into the timetable program
@@ -99,6 +99,7 @@ int main() {
 
 // if they are a new user
     if (login == 2) {
+        int role = 0;
         while (role != 1 || role != 2) {
             std::cout << "What type of account would you like to create: " << std::endl;
             std::cout << "1. Teacher" << std::endl;
@@ -112,6 +113,7 @@ int main() {
                 //Teacher1.setName(tname); // storing teacher name in the teacher type
                 //Teacher1.setIdNum(&teacher_id);
                 //std::cout << "Your ID Number is : a" << Teacher1.getIdNum() << std::endl;
+                break;
             } else if (role == 2) {
                 //Student Student1;
                 std::string tname;
@@ -120,8 +122,8 @@ int main() {
                 //Student1.setName(tname); // storing students name in the student type
                 //Student1.setIdNum(&student_id);
                 //std::cout << "Your ID Number is : a" << Student1.getIdNum() << std::endl;
+                break;
             }
-            break;
         }
     }
 
