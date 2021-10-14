@@ -1,26 +1,30 @@
-//#include "Course.h"
-//#include "Person.h"
-//#include "Teacher.h"
-//#include "Student.h"
+//functions for the main file
+#include "Course.h"
+#include "Person.h"
+#include "Teacher.h"
+#include "Student.h"
 #include <string>
 #include <iostream>
 #include <vector>
 
+int teacher_id = 10000;
+int student_id = 15000;
+
 int teachlogin() {
-    //Teacher Teacher1
+    Teacher Teacher1;
     int teachchoice = 0;
     while (teachchoice !=1 && teachchoice !=2 && teachchoice != 3) {
-        //std::cout << "Welcome " << Teacher1.getname() << std::endl;
+        std::cout << "Welcome " << Teacher1.getName() << std::endl;
         std::cout << "1. View Timetable" << std::endl;
         std::cout << "2. View Grades" << std::endl;
         std::cout << "3. Logout" << std::endl;
         std::cin >> teachchoice;
         
         if (teachchoice == 1) {
-            //Teacher1.getTimetable(); 
+            Teacher1.getTimetable(); 
             teachchoice = 0;
         } else if (teachchoice == 2) {
-            //Teacher1.getGrades();
+            Teacher1.getGrades();
             teachchoice = 0;
         } else if (teachchoice == 3) {
             std::cout << "Logging out of session..." << std::endl;
@@ -32,10 +36,10 @@ int teachlogin() {
 }
 
 int studlogin() {
-    //Student Student1;
+    Student Student1;
     int studchoice = 0;
     while (studchoice != 1 || studchoice != 2 || studchoice != 3 || studchoice != 4 || studchoice != 5) {
-        //std::cout << "Welcome " << Student1.getName() << std::endl; // giving options to the student
+        std::cout << "Welcome " << Student1.getName() << std::endl; // giving options to the student
         std::cout << "1. View Timetable" << std::endl;
         std::cout << "2. View Grade" << std::endl;
         std::cout << "3. Enrol" << std::endl;
@@ -44,10 +48,10 @@ int studlogin() {
         std::cin >> studchoice;
 
         if (studchoice == 1) {
-            //Student1.getTimetable();
+            Student1.getTimetable();
             studchoice = 0;
         } else if (studchoice == 2) {
-            //Student1.printGrades();
+            Student1.printGrades();
             studchoice = 0;
         } else if (studchoice == 3) {
             int cname;
@@ -96,21 +100,21 @@ void newuser() {
         std::cout << "2. Student" << std::endl;
         std::cin >> role;
         if (role == 1) {
-            //Teacher Teacher1;
+            Teacher Teacher1;
             std::string tname;
             std::cout << "Please Enter your Name: ";
             std::cin >> tname;
-            //Teacher1.setName(tname); // storing teacher name in the teacher type
-            //Teacher1.setIdNum(&teacher_id);
-            //std::cout << "Your ID Number is : a" << Teacher1.getIdNum() << std::endl;
+            Teacher1.setName(tname); // storing teacher name in the teacher type
+            Teacher1.setIdNum(&teacher_id);
+            std::cout << "Your ID Number is : a" << Teacher1.getIdNum() << std::endl;
         } else if (role == 2) {
-            //Student Student1;
+            Student Student1;
             std::string tname;
             std::cout << "Please Enter your Name: ";
             std::cin >> tname;
-            //Student1.setName(tname); // storing students name in the student type
-            //Student1.setIdNum(&student_id);
-            //std::cout << "Your ID Number is : a" << Student1.getIdNum() << std::endl;
+            Student1.setName(tname); // storing students name in the student type
+            Student1.setIdNum(&student_id);
+            std::cout << "Your ID Number is : a" << Student1.getIdNum() << std::endl;
         }
     }
     return;
