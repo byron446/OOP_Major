@@ -33,19 +33,21 @@ private:
 
     void setLesson(LessonType plesson);
 
-    void getLesson();
+    std::string getLesson();
  
     int setDuration(int pduration);
 
     int getDuration();
 
    
-
+    std::string lesson;
 
 private:
     int lessonTime;
 
     int lessonDuration;
+
+    
 
   
     std::string lessonDate;
