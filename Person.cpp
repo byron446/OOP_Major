@@ -48,7 +48,7 @@ int Person::getIdNum()
 }
 
 // Adds a course  to the list of courses a person is enrolled in
-void Person::enrol(Course* course_name)
+void Person::enrol(Course& course_name)
 {
     // Returns if the person is already enrolled in the course
     for(int i = 0; i < courses.size(); i++) {
@@ -63,7 +63,7 @@ void Person::enrol(Course* course_name)
     return;
 }
 
-std::vector<Course*> &Person::getCourses()
+std::vector<Course> &Person::getCourses()
 {
     return courses;
 }
@@ -79,7 +79,7 @@ void Person::printCourses()
 }
 
 // Removes a course from the list a person is enrolled in
-void Person::leaveCourse(Course* exit_course)  
+void Person::leaveCourse(Course& exit_course)  
 {
     for(int i = 0; i < courses.size(); i++) {
         if(courses[i] == exit_course){

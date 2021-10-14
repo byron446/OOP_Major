@@ -35,7 +35,7 @@ int teachlogin() {
     return teachchoice;
 }
 
-int studlogin() {
+int studlogin(Course* courseslist) {
     Student Student1;
     int studchoice = 0;
     while (studchoice != 1 || studchoice != 2 || studchoice != 3 || studchoice != 4 || studchoice != 5) {
@@ -58,30 +58,34 @@ int studlogin() {
             std::cout << "Which Course would you like to enrol: " << std::endl;
             std::cout << "1. Maths" << std::endl;
             std::cout << "2. Chemistry" << std::endl;
-            std::cout << "3. Physhics" << std::endl;
-            std::cout << "4. OOP" << std::endl;
+            std::cout << "3. Physics" << std::endl;
+            std::cout << "4. Object Oriented Programming" << std::endl;
             std::cout << "5. Introduction To Engineering" << std::endl;
             std::cout << "6. Dynamics" << std::endl;
             std::cout << "7. Digital Electronics" << std::endl;
             std::cout << "8. Matlab and C" << std::endl;
             std::cout << "9. Introduction to Process Engineering" << std::endl;
-            std::cout << "10. Analog Electrionics" << std::endl;
+            std::cout << "10. Analog Electronics" << std::endl;
             std::cin >> cname;
+            cname = cname - 1;
+            Student1.enrol(courseslist[cname]);
             studchoice = 0;
         } else if (studchoice == 4) {
             int cname;
             std::cout << "Which Course would you like to remove: " << std::endl;
             std::cout << "1. Maths" << std::endl;
             std::cout << "2. Chemistry" << std::endl;
-            std::cout << "3. Physhics" << std::endl;
-            std::cout << "4. OOP" << std::endl;
+            std::cout << "3. Physics" << std::endl;
+            std::cout << "4. Object Oriented Programming" << std::endl;
             std::cout << "5. Introduction To Engineering" << std::endl;
             std::cout << "6. Dynamics" << std::endl;
             std::cout << "7. Digital Electronics" << std::endl;
             std::cout << "8. Matlab and C" << std::endl;
             std::cout << "9. Introduction to Process Engineering" << std::endl;
-            std::cout << "10. Analog Electrionics" << std::endl;
+            std::cout << "10. Analog Electronics" << std::endl;
             std::cin >> cname;
+            cname = cname - 1;
+            Student1.leaveCourse(courseslist[cname]);
             studchoice = 0;
         } else if (studchoice == 5) {
             std::cout << "Logging out of session..." << std::endl;
@@ -121,6 +125,20 @@ void newuser() {
 }
 
 int loginfunct(int login) {
+    
+    Course* courseslist = new Course[10];
+
+    courseslist[0].setName("Maths");
+    courseslist[1].setName("Chemistry");
+    courseslist[2].setName("Physics");
+    courseslist[3].setName("Objected Oriented Programming");
+    courseslist[4].setName("Introduction To Engineering");
+    courseslist[5].setName("Dynamics");
+    courseslist[6].setName("Digital Electronics");
+    courseslist[7].setName("Matlab and C");
+    courseslist[8].setName("Introduction to Process Engineering");
+    courseslist[9].setName("Analog Electronics");    
+
     int quit=0;
     while (login != 1 || login != 2 || login !=3) {
         std::cout << "Welcome to the University of Adelaide Timetable interface." << std::endl;
@@ -148,7 +166,7 @@ int loginfunct(int login) {
                 return quit;
             }
         } else if (idcheck > 15000) {
-            check = studlogin();
+            check = studlogin(courseslist);
             if (check == 3) {
                 return quit;
             }

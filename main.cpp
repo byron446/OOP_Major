@@ -11,7 +11,7 @@ extern int loginfunct(int login);
 
 int main() {
     int login = 0, quit = 0;
-    
+
     while (quit == 0) {
         quit = loginfunct(login);
     }
