@@ -9,7 +9,7 @@ Lesson::Lesson(){
     lessonTime = 0;
     lessonDate = "?";
     lessonDuration = 0;
-    lesson;
+    lesson = "??";
 
 }
 
@@ -42,7 +42,7 @@ void Lesson::setLesson(LessonType plesson)
     lesson = plesson;
 }
 
-void Lesson::getLesson(){
+std::string Lesson::getLesson(){
 
     return lesson;
 }
