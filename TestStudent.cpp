@@ -24,8 +24,8 @@ void TestStudent::leaveCourseStudent(std::string exit_course)
 
 void TestStudent::printGrades()
 {
-    std::cout << "Your grades in each subject are: " << std::endl;
+    std::cout << "Your grades in each subject are:" << std::endl;
     for(int i = 0; i < getCourseNames().size(); i++){
-        std::cout << getCourseid().at(i) << " " << getCourseNames().at(i) << ": " << grades.at(i);
+        std::cout << getCourseid().at(i) << " " << getCourseNames().at(i) << ": " << grades.at(i) << std::endl;
     }
 }
