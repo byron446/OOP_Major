@@ -2,6 +2,7 @@
 #define LESSON_H
 
 #include <string>
+#include <vector>
 #include <map>
 
 class Lesson{
@@ -24,9 +25,21 @@ private:
 
     int setTime();
 
+    int getTime(); 
+
     void setDate();
 
+    void getDate();
+
     void setLesson(LessonType plesson);
+
+    void getLesson();
+ 
+    int setDuration();
+
+    int getDuration();
+
+   
 
 
 private:
@@ -34,7 +47,6 @@ private:
   
     std::string lessonDate;
     
-
     LessonType lesson; 
 
 };
