@@ -6,6 +6,11 @@
 
 Lesson::Lesson(){
 
+    duration[LessonType::Lecture] = 100;
+    duration[LessonType::Tutorial] = 100;
+    duration[LessonType::Workshop] = 200;
+    duration[LessonType::Practical] = 300;
+
     lessonTime = 0;
     lessonDate = "?";
     lessonDuration = 0;
@@ -42,9 +47,9 @@ void Lesson::setLesson(LessonType plesson)
     lesson = plesson;
 }
 
-void Lesson::getLesson(){
-
+enum Lesson::LessonType Lesson::getLesson(){
     return lesson;
+
 }
 
 

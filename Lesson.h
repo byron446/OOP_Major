@@ -9,13 +9,7 @@ class Lesson{
 private:
     enum class LessonType {Lecture, Tutorial, Workshop, Practical};
    
-    std::map <LessonType, int> duration {
-        {LessonType::Lecture, 60},
-        {LessonType::Tutorial, 60},
-        {LessonType::Workshop, 120},
-        {LessonType::Practical, 180},
-    };
-
+    std::map <LessonType, int> duration;
  public:   
 
     // Default constructor and destructor for the Lesson class.
@@ -33,7 +27,7 @@ private:
 
     void setLesson(LessonType plesson);
 
-    void getLesson();
+    enum LessonType getLesson();
  
     int setDuration(int pduration);
 

@@ -3,17 +3,19 @@
 
 #include "TestPerson.h"
 #include <string>
+
+extern TestPerson* people;
 class TestTeacher: public TestPerson
 {
 public:
     TestTeacher();
     ~TestTeacher();
 
-    std::string* getClassList(std::string course_name, std::string* names);
+    
     virtual void printGrades();
 
 private:
-
+    std::string* getClassList(std::string course_name, TestPerson* people);
 };
 
 #endif
