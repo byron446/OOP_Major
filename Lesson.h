@@ -46,9 +46,6 @@ private:
     int lessonTime;
 
     int lessonDuration;
-
-    
-
   
     std::string lessonDate;
     
