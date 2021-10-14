@@ -8,23 +8,55 @@ Lesson::Lesson(){
 
     lessonTime = 0;
     lessonDate = "?";
+    lessonDuration = 0;
+    lesson;
 
 }
 
 
-int Lesson::setTime(){
+int Lesson::setTime(int pltime){
 
-    lessonTime = "hello"
+    lessonTime = pltime;
 
 
 }
 
+int Lesson::getTime(){
+
+    return lessonTime;
+}
+
+std::string Lesson::setDate(std::string pdate){
+
+    lessonDate = pdate;
+
+}
+
+std::string Lesson::getDate(){
+
+    return lessonDate;
+
+}
 void Lesson::setLesson(LessonType plesson)
 {
     lesson = plesson;
 }
 
+void Lesson::getLesson(){
 
-void Lesson::setDate(){
+    return lesson;
+}
+
+
+int Lesson::setDuration(int pduration){
+
+    lessonDuration = pduration;
 
 }
+
+int Lesson::getDuration(){
+
+    return lessonDuration;
+
+}
+

@@ -23,19 +23,19 @@ private:
     Lesson();
     ~Lesson();
 
-    int setTime();
+    int setTime(int pltime);
 
     int getTime(); 
 
-    void setDate();
+    std::string setDate(std::string pdate);
 
-    void getDate();
+    std::string getDate();
 
     void setLesson(LessonType plesson);
 
     void getLesson();
  
-    int setDuration();
+    int setDuration(int pduration);
 
     int getDuration();
 
@@ -44,6 +44,9 @@ private:
 
 private:
     int lessonTime;
+
+    int lessonDuration;
+
   
     std::string lessonDate;
     
