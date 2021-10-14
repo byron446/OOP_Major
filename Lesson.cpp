@@ -9,7 +9,6 @@ Lesson::Lesson(){
     lessonTime = 0;
     lessonDate = "?";
     lessonDuration = 0;
-    cLesson = "??";
 
 }
 
@@ -39,7 +38,7 @@ std::string Lesson::getDate(){
 }
 void Lesson::setLesson(LessonType plesson)
 {
-    cLesson = plesson;
+     = plesson;
 }
 
 std::string Lesson::getLesson(){
@@ -59,4 +58,6 @@ int Lesson::getDuration(){
     return lessonDuration;
 
 }
+
+
 
