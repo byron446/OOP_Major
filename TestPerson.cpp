@@ -79,8 +79,8 @@ std::vector<std::string> &TestPerson::getCourseid()
 void TestPerson::printCourses()
 {
     if(course_names.size()!=0){
-        std::cout << "The courses you are currently enrolled in are: " << std::endl;
-        for(int i = -1; i < course_names.size(); i++) {
+        std::cout << "The courses you are currently enrolled in are:" << std::endl;
+        for(int i = 0; i < course_names.size(); i++) {
             std::cout << course_ids.at(i) << " " << course_names.at(i) << std::endl;
         }
     }
