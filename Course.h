@@ -14,31 +14,26 @@ public:
 
     // The default constructors and destructors for the course class.
     Course();
+    Course(std::string pname);
     ~Course();
 
 
     std::string getCourseId();
 
+    std::string setCourseID(std::string pid);
+
     std::string getName();
 
-    int getTime(); 
+    std::string setName(std::string pname);
 
-    int getDuration();
+    
 
-    std::string getDate();
 
 
 private:
     std::string course_id;
     std::string name;
 
-    enum class LessonType {Lecture, Tutorial, Workshop, Practical};
-    std::map <LessonType, int> duration {
-        {LessonType::Lecture, 60},
-        {LessonType::Tutorial, 60},
-        {LessonType::Workshop, 120},
-        {LessonType::Practical, 180},
-    };
 };
 
 #endif
