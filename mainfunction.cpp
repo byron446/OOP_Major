@@ -30,7 +30,7 @@ int teachlogin() {
             Teacher1.printTimetable(); // function to print the teachers timetable
             teachchoice = 0; // resetting back to the beginning of the while loop
         } else if (teachchoice == 2) {
-            Teacher1.getGrades(); // calling to getGrades function
+            Teacher1.printGrades(); // calling to printGrades function
             teachchoice = 0; // resetting back to the begging of the while loop
         } else if (teachchoice == 3) {
             std::cout << "Logging out of session..." << std::endl;
