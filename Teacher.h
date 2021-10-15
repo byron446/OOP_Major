@@ -12,23 +12,10 @@ public:
     Teacher();
     ~Teacher();
 
-    virtual void getGrades();
+    virtual void printGrades();
 
 private:
-
+    std::vector<Person*> &getClassList(std::string course_name);
 };
 
 #endif
-// extern TestPerson* people;
-// class TestTeacher: public TestPerson
-// {
-// public:
-//     TestTeacher();
-//     ~TestTeacher();
-
-    
-//     virtual void printGrades();
-
-// private:
-//     std::string* getClassList(std::string course_name, TestPerson* people);
-// };

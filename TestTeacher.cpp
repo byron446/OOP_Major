@@ -10,7 +10,7 @@ TestTeacher::TestTeacher()
     
 }
 
-std::string* TestTeacher::getClassList(std::string course_name, TestPerson* people)
+std::string* TestTeacher::getClassList(std::string course_name)
 {
     int count = 0;
     for(int i = 0; i < sizeof(people)/sizeof(people[0]); i++){
@@ -34,7 +34,7 @@ std::string* TestTeacher::getClassList(std::string course_name, TestPerson* peop
 void TestTeacher::printGrades()
 {
     if(getCourseNames().size() < 2){
-        std::string* classlist = getClassList(getCourseNames().at(0), people);    
+        std::string* classlist = getClassList(getCourseNames().at(0));    
         std::cout << "The students enrolled in this class are: "<< std::endl;
         for(int i = 0; i < sizeof(classlist)/sizeof(classlist[0]); i++){
             std::cout << classlist[i] << std::endl;
@@ -47,7 +47,7 @@ void TestTeacher::printGrades()
         int course;
         std::cin >> course;
 
-        std::string* classlist = getClassList(getCourseNames().at(course), people);    
+        std::string* classlist = getClassList(getCourseNames().at(course));    
         std::cout << "The students enrolled in this class are: "<< std::endl;
         for(int i = 0; i < sizeof(classlist)/sizeof(classlist[0]); i++){
             std::cout << classlist[i] << std::endl;
