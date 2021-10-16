@@ -83,44 +83,60 @@ int studlogin() {
             studchoice = 0;
         } else if (studchoice == 3) { // if the student wants to enrol in a course
             // listing all available courses
-            int cname;
-            std::cout << "Which Course would you like to enrol: " << std::endl;
-            std::cout << "1. Maths" << std::endl;
-            std::cout << "2. Chemistry" << std::endl;
-            std::cout << "3. Physics" << std::endl;
-            std::cout << "4. Object Oriented Programming" << std::endl;
-            std::cout << "5. Introduction To Engineering" << std::endl;
-            std::cout << "6. Dynamics" << std::endl;
-            std::cout << "7. Digital Electronics" << std::endl;
-            std::cout << "8. Matlab and C" << std::endl;
-            std::cout << "9. Introduction to Process Engineering" << std::endl;
-            std::cout << "10. Analog Electronics" << std::endl;
-            std::cin >> cname;
-            cname = cname - 1; // take away 1 to line up with the array index
-            std::cout << std::endl;
-            // function to add the course to the student's enrollment
-            //Student1.enrol(courseslist[cname]);
-            studchoice = 0;
+            std::string inputcname = "?";
+            int cname = 0;
+            while (cname != 1 && cname != 2 && cname != 3 && cname != 4 && cname != 5 && cname != 6 && cname != 7 && cname != 8 && cname != 9 && cname != 10) {
+                std::string appendcname = "0";
+                std::cout << "Which Course would you like to enrol: " << std::endl;
+                std::cout << "1. Maths" << std::endl;
+                std::cout << "2. Chemistry" << std::endl;
+                std::cout << "3. Physics" << std::endl;
+                std::cout << "4. Object Oriented Programming" << std::endl;
+                std::cout << "5. Introduction To Engineering" << std::endl;
+                std::cout << "6. Dynamics" << std::endl;
+                std::cout << "7. Digital Electronics" << std::endl;
+                std::cout << "8. Matlab and C" << std::endl;
+                std::cout << "9. Introduction to Process Engineering" << std::endl;
+                std::cout << "10. Analog Electronics" << std::endl;
+                std::cin >> inputcname;
+                if (inputcname != "1" || inputcname != "2" || inputcname != "3" || inputcname != "4" || inputcname != "5" || inputcname != "6" || inputcname != "7" || inputcname != "8" || inputcname != "9" || inputcname != "10") {
+                    appendcname.append(inputcname);
+                } else {
+                    appendcname = inputcname;
+                }
+                cname = std::stoi(appendcname);
+                // function to add the course to the student's enrollment
+                //Student1.enrol(courseslist[cname-1]);
+                studchoice = 0;
+            }
         } else if (studchoice == 4) { // if the student wants to remove a course
             // listing all available courses
-            int cname;
-            std::cout << "Which Course would you like to remove: " << std::endl;
-            std::cout << "1. Maths" << std::endl;
-            std::cout << "2. Chemistry" << std::endl;
-            std::cout << "3. Physics" << std::endl;
-            std::cout << "4. Object Oriented Programming" << std::endl;
-            std::cout << "5. Introduction To Engineering" << std::endl;
-            std::cout << "6. Dynamics" << std::endl;
-            std::cout << "7. Digital Electronics" << std::endl;
-            std::cout << "8. Matlab and C" << std::endl;
-            std::cout << "9. Introduction to Process Engineering" << std::endl;
-            std::cout << "10. Analog Electronics" << std::endl;
-            std::cin >> cname;
-            cname = cname - 1;
-            std::cout << std::endl;
-            //function to remove the course from the student's enrollment
-            //Student1.leaveCourse(courseslist[cname]);
-            studchoice = 0;
+            std::string inputcname = "?";
+            int cname = 0;
+            while (cname != 1 && cname != 2 && cname != 3 && cname != 4 && cname != 5 && cname != 6 && cname != 7 && cname != 8 && cname != 9 && cname != 10) {
+                std::string appendcname = "0";
+                std::cout << "Which Course would you like to remove: " << std::endl;
+                std::cout << "1. Maths" << std::endl;
+                std::cout << "2. Chemistry" << std::endl;
+                std::cout << "3. Physics" << std::endl;
+                std::cout << "4. Object Oriented Programming" << std::endl;
+                std::cout << "5. Introduction To Engineering" << std::endl;
+                std::cout << "6. Dynamics" << std::endl;
+                std::cout << "7. Digital Electronics" << std::endl;
+                std::cout << "8. Matlab and C" << std::endl;
+                std::cout << "9. Introduction to Process Engineering" << std::endl;
+                std::cout << "10. Analog Electronics" << std::endl;
+                std::cin >> inputcname;
+                if (inputcname != "1" || inputcname != "2" || inputcname != "3" || inputcname != "4" || inputcname != "5" || inputcname != "6" || inputcname != "7" || inputcname != "8" || inputcname != "9" || inputcname != "10") {
+                    appendcname.append(inputcname);
+                } else {
+                    appendcname = inputcname;
+                }
+                cname = std::stoi(appendcname);
+                // function to add the course to the student's enrollment
+                //Student1.enrol(courseslist[cname-1]);
+                studchoice = 0;
+            }
         } else if (studchoice == 5) {
             std::cout << "Logging out of session..." << std::endl;
             std::cout << std::endl;
