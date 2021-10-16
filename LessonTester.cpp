@@ -26,12 +26,17 @@ int main(){
     lesson1->setTime(lessonTime1);
     lesson2->setTime(lessonTime2);
 
-    
+    lesson1->setDate(lessonDate1);
+    lesson2->setDate(lessonDate2);
 
-    
+    lesson1->setLesson(lessonType1);
+    lesson2->setLesson(lessonType2);
+
+    lesson1->setDuration(lessonDuration1);
+    lesson2->setDuration(lessonDuration2);
 
 
-
+    return 0
 
 
 
