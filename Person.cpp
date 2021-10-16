@@ -38,7 +38,7 @@ std::string Person::getName() const
 void Person::setIdNum(int* pid_num)
 {
     id_num = *pid_num;
-    *pid_num++;
+    (*pid_num)++;
 }
 
 // Returns a persons id number
@@ -71,7 +71,7 @@ std::vector<Course> &Person::getCourses()
 // Prints a formatted list of the courses a person is enrolled in
 void Person::printCourses()
 {
-    std::cout << "The courses you are currently enrolled in are: " << std::endl;
+    std::cout << "The courses you are currently enrolled in are:" << std::endl;
     for(int i = 0; i < courses.size(); i++) {
         std::cout << courses.at(i).getCourseId() << " " << courses.at(i).getName() << std::endl;
     }

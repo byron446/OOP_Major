@@ -17,7 +17,7 @@ private:
     Lesson();
     ~Lesson();
 
-    int setTime(int pltime);
+    void setTime(int pltime);
 
     int getTime(); 
 

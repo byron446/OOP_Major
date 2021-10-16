@@ -18,7 +18,7 @@ Lesson::Lesson(){
 }
 
 
-int Lesson::setTime(int pltime){
+void Lesson::setTime(int pltime){
 
     lessonTime = pltime;
 
@@ -64,5 +64,9 @@ int Lesson::getDuration(){
 
 }
 
+Lesson::~Lesson()
+{
+    
+}
 
 
