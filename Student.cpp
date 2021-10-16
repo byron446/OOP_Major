@@ -24,7 +24,7 @@ void Student::leaveCourseStudent(Course exit_course)
 
 void Student::printGrades()
 {
-    std::cout << "Your grades in each subject are: " << std::endl;
+    std::cout << "Your grades in each subject are:" << std::endl;
     for(int i = 0; i < getCourses().size(); i++){
         std::cout << getCourses().at(i).getCourseId() << " " << getCourses().at(i).getName() << ": " << grades.at(i) << std::endl;
     }
