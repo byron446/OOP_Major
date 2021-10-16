@@ -64,5 +64,9 @@ int Lesson::getDuration(){
 
 }
 
+Lesson::~Lesson()
+{
+
+}
 
 

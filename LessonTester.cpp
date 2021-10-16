@@ -20,6 +20,12 @@ int main(){
     std::cin >> lessonDuration1;
     std::cin >> lessonDuration2;
 
+    Lesson *lesson1 = new Lesson(lessonTime1, lessonDate1, lessonType1, lessonDuration1);
+    Lesson *lesson2 = new Lesson(lessonTime2, lessonDate2, lessonType2, lessonDuration2);
+
+    lesson1->setTime(lessonTime1);
+    lesson2->setTime(lessonTime2);
+
     
 
     
