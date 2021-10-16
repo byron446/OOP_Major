@@ -1,5 +1,5 @@
-#include "TestPerson.h"
-#include "TestStudent.h"
+#include "Person.h"
+#include "Student.h"
 #include <string>
 #include <iostream>
 #include <vector>
@@ -22,27 +22,31 @@ int main()
     std::cin >> grade_c;
     std::cin >> grade_d;
 
-    TestStudent *student = new(TestStudent);
-    TestStudent *student2 = new(TestStudent);
-    student->setIdNum(current_id);
+    Student *student1 = new Student;
+    Student *student2 = new Student;
+
+    Course *course1 = new Course(course_name1,course_id1);
+    Course *course2 = new Course(course_name2,course_id2);
+
+    student1->setIdNum(current_id);
     student2->setIdNum(current_id);
-    std::cout << student->getIdNum() << " " << student2->getIdNum() << std::endl;
+    std::cout << student1->getIdNum() << " " << student2->getIdNum() << std::endl;
 
-    student->setName(name1);
+    student1->setName(name1);
     student2->setName(name2);
-    std::cout << student->getName() << " " << student2->getName() << std::endl;
+    std::cout << student1->getName() << " " << student2->getName() << std::endl;
 
-    student->enrolStudent(course_name1,course_id1,grade_a);
-    student->enrolStudent(course_name2,course_id2,grade_b);
-    student2->enrolStudent(course_name2,course_id2,grade_c);
-    student2->enrolStudent(course_name1,course_id1,grade_d);
-    student->printCourses();
+    student1->enrolStudent(*course1,grade_a);
+    student1->enrolStudent(*course2,grade_b);
+    student2->enrolStudent(*course2,grade_c);
+    student2->enrolStudent(*course1,grade_d);
+    student1->printCourses();
     student2->printCourses();
-    student->printGrades();
+    student1->printGrades();
     student2->printGrades();
-    student->leaveCourseStudent(course_name1);
-    student2->leaveCourseStudent(course_name1);
-    student->printGrades();
+    student1->leaveCourseStudent(*course1);
+    student2->leaveCourseStudent(*course1);
+    student1->printGrades();
     student2->printGrades();
     return 0;
 }

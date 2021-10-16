@@ -21,7 +21,7 @@ private:
 
     int getTime(); 
 
-    std::string setDate(std::string pdate);
+    void setDate(std::string pdate);
 
     std::string getDate();
 
@@ -29,7 +29,7 @@ private:
 
     enum LessonType getLesson();
  
-    int setDuration(int pduration);
+    void setDuration(int pduration);
 
     int getDuration();
 

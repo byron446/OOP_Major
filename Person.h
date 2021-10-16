@@ -26,7 +26,7 @@ public:
     // is currently enrolled in
     void enrol(Course& new_course);
     std::vector<Course> &getCourses();
-    void leaveCourse(Course& exit_course);
+    int leaveCourse(Course& exit_course);
     void printCourses();
 
     // virtual function to print the grades a person has permission to see

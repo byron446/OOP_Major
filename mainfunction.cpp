@@ -11,6 +11,7 @@
 int teacher_id = 10000;
 int student_id = 15000;
 
+Course zero_course;
 // teacher login function
 int teachlogin() {
     Teacher Teacher1; // teacher variable created
@@ -24,16 +25,19 @@ int teachlogin() {
         std::cout << "3. Logout" << std::endl;
         std::cin >> teachchoice;
         
+        std::cout << std::endl;
         if (teachchoice == 1) {
             Teacher1.printTimetable(); // function to print the teachers timetable
             teachchoice = 0; // resetting back to the beginning of the while loop
         } else if (teachchoice == 2) {
-            Teacher1.getGrades(); // calling to getGrades function
+            Teacher1.printGrades(); // calling to printGrades function
             teachchoice = 0; // resetting back to the begging of the while loop
         } else if (teachchoice == 3) {
             std::cout << "Logging out of session..." << std::endl;
+            std::cout << std::endl;
             return teachchoice; // exiting teacher function if they logout
         }
+        std::cout << std::endl;
     }
 
     return teachchoice;
@@ -53,6 +57,7 @@ int studlogin(Course* courseslist) {
         std::cout << "4. Remove" << std::endl;
         std::cout << "5. Logout" << std::endl;
         std::cin >> studchoice;
+        std::cout << std::endl;
 
         if (studchoice == 1) {
             Student1.printTimetable(); // function to print students timetable
@@ -76,6 +81,7 @@ int studlogin(Course* courseslist) {
             std::cout << "10. Analog Electronics" << std::endl;
             std::cin >> cname;
             cname = cname - 1; // take away 1 to line up with the array index
+            std::cout << std::endl;
             // function to add the course to the student's enrollment
             Student1.enrol(courseslist[cname]);
             studchoice = 0;
@@ -95,13 +101,16 @@ int studlogin(Course* courseslist) {
             std::cout << "10. Analog Electronics" << std::endl;
             std::cin >> cname;
             cname = cname - 1;
+            std::cout << std::endl;
             //function to remove the course from the student's enrollment
             Student1.leaveCourse(courseslist[cname]);
             studchoice = 0;
         } else if (studchoice == 5) {
             std::cout << "Logging out of session..." << std::endl;
+            std::cout << std::endl;
             return studchoice; // exiting student function if they log out
         }
+        std::cout << std::endl;
     }
 
     return studchoice;
@@ -118,6 +127,7 @@ void newuser() {
         std::cout << "1. Teacher" << std::endl;
         std::cout << "2. Student" << std::endl;
         std::cin >> role;
+        std::cout << std::endl;
 
         // if they are a teacher
         if (role == 1) {
@@ -129,6 +139,7 @@ void newuser() {
             Teacher1.setName(tname); // storing teacher name in the teacher type
             Teacher1.setIdNum(&teacher_id); // creating an ID for the teacher
             // telling the teacher their ID number
+            std::cout << std::endl;
             std::cout << "Your ID Number is : a" << Teacher1.getIdNum() << std::endl;
         
         // if they are a student
@@ -141,8 +152,10 @@ void newuser() {
             Student1.setName(tname); // storing students name in the student type
             Student1.setIdNum(&student_id); // creating an ID for the teacher
             // telling the student their ID number
+            std::cout << std::endl;
             std::cout << "Your ID Number is : a" << Student1.getIdNum() << std::endl;
         }
+        std::cout << std::endl;
     }
     return;
 }
@@ -212,4 +225,26 @@ int loginfunct() {
     }
 
     return login;
+}
+
+// This function takes the course list, member_var which indicates which member variable of 
+// a course to screen , a value to search for, and the number of courses, and returns the 
+// object from the course list
+Course MemtoCourse(Course* courseslist, std::string member_value, std::string member_var, int course_num)
+{
+    if(member_var == "id"){
+        for(int i = 0; i < course_num; i++){
+            if(courseslist[i].getCourseId() == member_value){
+                return courseslist[i];
+            }
+        }
+    }
+    if(member_var == "name"){
+        for(int i = 0; i < course_num; i++){
+            if(courseslist[i].getName() == member_value){
+                return courseslist[i];
+            }
+        }
+    }
+    return zero_course;
 }

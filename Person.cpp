@@ -48,17 +48,17 @@ int Person::getIdNum()
 }
 
 // Adds a course  to the list of courses a person is enrolled in
-void Person::enrol(Course& course_name)
+void Person::enrol(Course& new_course)
 {
     // Returns if the person is already enrolled in the course
     for(int i = 0; i < courses.size(); i++) {
-        if(courses[i] == course_name){
+        if(courses[i].getName() == new_course.getName()){
             std::cout << "You are already enrolled in this course" << std::endl;
             return;
         }
     }
 
-    courses.push_back(course_name);
+    courses.push_back(new_course);
 
     return;
 }
@@ -73,21 +73,21 @@ void Person::printCourses()
 {
     std::cout << "The courses you are currently enrolled in are: " << std::endl;
     for(int i = 0; i < courses.size(); i++) {
-        std::cout << courses.at(i)->getCourseId() << " " << courses.at(i)->getName() << std::endl;
+        std::cout << courses.at(i).getCourseId() << " " << courses.at(i).getName() << std::endl;
     }
   
 }
 
 // Removes a course from the list a person is enrolled in
-void Person::leaveCourse(Course& exit_course)  
+int Person::leaveCourse(Course& exit_course)  
 {
     for(int i = 0; i < courses.size(); i++) {
-        if(courses[i] == exit_course){
+        if(courses.at(i).getName() == exit_course.getName()){
             courses.erase(courses.begin()+i);
-            return;
+            return i;
         }
     }
-  
+    return -1;
 }
 
 Person::~Person()

@@ -15,7 +15,7 @@ public:
     virtual void printGrades();
 
 private:
-    std::string* getClassList(std::string course_name, TestPerson* people);
+    std::string* getClassList(std::string course_name);
 };
 
 #endif
