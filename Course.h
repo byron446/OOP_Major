@@ -14,7 +14,7 @@ public:
 
     // The default constructors and destructors for the course class.
     Course();
-    Course(std::string pname);
+    Course(std::string pname, std::string pid);
     Course(int lesson_num);
     ~Course();
 

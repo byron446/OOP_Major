@@ -43,6 +43,12 @@ void Teacher::printGrades()
         for(int i = 0; i < sizeof(class_list)/sizeof(class_list.at(0)); i++){
             std::cout << class_list.at(i)->getName() << std::endl;
         }
+    }    
+}
+
+Teacher::~Teacher()
+{
+
 }
 // void TestTeacher::printGrades()
 // {

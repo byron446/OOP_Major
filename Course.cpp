@@ -11,10 +11,10 @@ Course::Course(){
     lessons = new Lesson[4];
 }
 
-Course::Course(std::string pname)
+Course::Course(std::string pname, std::string pid)
 {
     name = pname;
-    course_id = "??";
+    course_id = pid;
     lessons = new Lesson[4];
 }
 

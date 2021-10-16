@@ -10,10 +10,10 @@ class Teacher: public Person
 {
 public:
     Teacher();
-    ~Teacher();
+    
 
     virtual void printGrades();
-
+    ~Teacher();
 private:
     std::vector<Person*> &getClassList(std::string course_name);
 };
