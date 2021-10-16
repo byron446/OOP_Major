@@ -5,7 +5,8 @@
 #include <iostream>
 
 
-Course::Course(){
+Course::Course()
+{
     name = "?";
     course_id = "??";
     lessons = new Lesson[4];

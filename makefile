@@ -10,14 +10,17 @@ Student.o: Person.h Student.h Student.cpp
 Teacher.o: Person.h Teacher.h Teacher.cpp
 	g++ -c -std=c++11 Teacher.cpp
 
-Course.o: Course.h Course.cpp
+Course.o: Course.h Lesson.h Course.cpp
 	g++ -c -std=c++11 Course.cpp	
 
 MainTest: maintester.cpp mainfunctiontester.cpp
 	g++ -std=c++11 maintester.cpp mainfunctiontester.cpp -o main
 
-StudentTest: StudentTester.cpp TestPerson.o TestStudent.o
-	g++ -std=c++11 StudentTester.cpp TestPerson.o TestStudent.o -o studentd
+Lesson.o: Lesson.h Lesson.cpp
+	g++ -c -std=c++11 Lesson.cpp
+
+StudentTest: StudentTester.cpp Person.o Student.o Course.o Lesson.o
+	g++ -std=c++11 StudentTester.cpp Person.o Student.o Course.o Lesson.o -o student
 
 TestPerson.o: TestPerson.h TestPerson.cpp
 	g++ -c -std=c++11 TestPerson.cpp

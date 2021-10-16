@@ -1,4 +1,4 @@
-// Lesson class
+// Test of the Lesson class
 
 #include "Lesson.h"
 #include <string>
@@ -18,7 +18,7 @@ Lesson::Lesson(){
 }
 
 
-void Lesson::setTime(int pltime){
+int Lesson::setTime(int pltime){
 
     lessonTime = pltime;
 
@@ -30,7 +30,7 @@ int Lesson::getTime(){
     return lessonTime;
 }
 
-void Lesson::setDate(std::string pdate){
+std::string Lesson::setDate(std::string pdate){
 
     lessonDate = pdate;
 
@@ -52,7 +52,7 @@ enum Lesson::LessonType Lesson::getLesson(){
 }
 
 
-void Lesson::setDuration(int pduration){
+int Lesson::setDuration(int pduration){
 
     lessonDuration = pduration;
 
@@ -64,9 +64,5 @@ int Lesson::getDuration(){
 
 }
 
-Lesson::~Lesson()
-{
-    
-}
 
 
