@@ -48,22 +48,23 @@ int Person::getIdNum()
 }
 
 // Adds a course  to the list of courses a person is enrolled in
-void Person::enrol(Course& new_course)
+bool Person::enrol(Course* new_course)
 {
     // Returns if the person is already enrolled in the course
     for(int i = 0; i < courses.size(); i++) {
-        if(courses[i].getName() == new_course.getName()){
+        if(courses[i]->getName() == new_course->getName()){
             std::cout << "You are already enrolled in this course" << std::endl;
-            return;
+            return false;
         }
     }
-
+    // If the person is not already enrolled, add the new course to the courses vector
     courses.push_back(new_course);
 
-    return;
+    return true;
 }
 
-std::vector<Course> &Person::getCourses()
+// Returns the courses vector by reference
+std::vector<Course*> &Person::getCourses()
 {
     return courses;
 }
@@ -73,23 +74,30 @@ void Person::printCourses()
 {
     std::cout << "The courses you are currently enrolled in are:" << std::endl;
     for(int i = 0; i < courses.size(); i++) {
-        std::cout << courses.at(i).getCourseId() << " " << courses.at(i).getName() << std::endl;
+        std::cout << courses.at(i)->getCourseId() << " " << courses.at(i)->getName() << std::endl;
     }
-  
+    return;
 }
 
-// Removes a course from the list a person is enrolled in
-int Person::leaveCourse(Course& exit_course)  
+// Removes a course from the list a person is enrolled in, and returns the 
+// index at which the course was removed. If the student was not enrolled, 
+// return -1
+int Person::leaveCourse(Course* exit_course)  
 {
+    // Checks the name of each course against the course the student is 
+    // leaving
     for(int i = 0; i < courses.size(); i++) {
-        if(courses.at(i).getName() == exit_course.getName()){
+        if(courses.at(i)->getName() == exit_course->getName()){
             courses.erase(courses.begin()+i);
             return i;
         }
     }
+
+    // Return -1 to signify that person was not enrolled in exit_course
     return -1;
 }
 
+// Default destructor
 Person::~Person()
 {
 

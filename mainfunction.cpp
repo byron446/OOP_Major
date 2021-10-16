@@ -278,7 +278,7 @@ int loginfunct() {
 // This function takes the course list, member_var which indicates which member variable of 
 // a course to screen , a value to search for, and the number of courses, and returns the 
 // object from the course list
-Course MemtoCourse(Course* courseslist, std::string member_value, std::string member_var, int course_num)
+Course memtoCourse(Course* courseslist, std::string member_value, std::string member_var, int course_num)
 {
    if(member_var == "id"){
        for(int i = 0; i < course_num; i++){

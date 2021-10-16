@@ -35,17 +35,16 @@ int main()
     student1->setName(name1);
     student2->setName(name2);
     std::cout << student1->getName() << " " << student2->getName() << std::endl;
-
-    student1->enrolStudent(*course1,grade_a);
-    student1->enrolStudent(*course2,grade_b);
-    student2->enrolStudent(*course2,grade_c);
-    student2->enrolStudent(*course1,grade_d);
+    student1->enrol(course1,grade_a);
+    student1->enrol(course2,grade_b);
+    student2->enrol(course2,grade_c);
+    student2->enrol(course1,grade_d);
     student1->printCourses();
     student2->printCourses();
     student1->printGrades();
     student2->printGrades();
-    student1->leaveCourseStudent(*course1);
-    student2->leaveCourseStudent(*course1);
+    student1->leaveCourseStudent(course1);
+    student2->leaveCourseStudent(course1);
     student1->printGrades();
     student2->printGrades();
     return 0;
