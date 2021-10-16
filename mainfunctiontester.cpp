@@ -258,7 +258,7 @@ int loginfunct() {
         // if their id is more than 15000, they are a student
         } else if (idcheck > 15000) {
             check = studlogin(); // calling to student login function bringing the course array
-            if (check == 3) { // if they chose to logout
+            if (check == 5) { // if they chose to logout
                 input = 0; // go back to the main function and restart
                 return input;
             }
