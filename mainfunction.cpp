@@ -52,7 +52,7 @@ int teachlogin() {
 }
 
 // student login function 
-int studlogin() {
+int studlogin(Course* courseslist) {
     Student Student1; // student variable created
     std::string inputstudchoice = "?";
     int studchoice = 0;
@@ -106,7 +106,7 @@ int studlogin() {
                 }
                 cname = std::stoi(appendcname);
                 // function to add the course to the student's enrollment
-                Student1.enrol(courseslist[cname-1]);
+                Student1.Person::enrol(courseslist[cname-1]);
                 studchoice = 0;
             }
         } else if (studchoice == 4) { // if the student wants to remove a course
@@ -134,7 +134,7 @@ int studlogin() {
                 }
                 cname = std::stoi(appendcname);
                 // function to add the course to the student's enrollment
-                Student1.enrol(courseslist[cname-1]);
+                Student1.Person::enrol(courseslist[cname-1]);
                 studchoice = 0;
             }
         } else if (studchoice == 5) {
@@ -257,7 +257,7 @@ int loginfunct() {
             }
         // if their id is more than 15000, they are a student
         } else if (idcheck > 15000) {
-            check = studlogin(); // calling to student login function bringing the course array
+            check = studlogin(courseslist); // calling to student login function bringing the course array
             if (check == 5) { // if they chose to logout
                 input = 0; // go back to the main function and restart
                 return input;
