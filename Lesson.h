@@ -15,6 +15,8 @@ private:
     // Default constructor and destructor for the Lesson class.
     
     Lesson();
+    Lesson(int ptime, std::string pdate, int type);
+
     ~Lesson();
 
     void setTime(int pltime);
@@ -25,7 +27,7 @@ private:
 
     std::string getDate();
 
-    void setLesson(LessonType plesson);
+    void setLesson(int plesson);
 
     enum LessonType getLesson();
  
