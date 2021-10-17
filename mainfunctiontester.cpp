@@ -5,6 +5,7 @@
 //#include "Student.h"
 #include <string>
 #include <iostream>
+#include <math.h>
 #include <vector>
 
 // starter ID's created for teacher and student
@@ -201,6 +202,56 @@ void newuser() {
     return;
 }
 
+// function to check if id is valid
+bool idvalid(std::string sidcheck) {
+    // integer for the length of the string
+    int n = sidcheck.length();
+
+    // converting string to character array
+    char cidcheck[n];
+    strcpy(cidcheck, sidcheck.c_str());
+
+    // if id doesnt start with 'a'
+    if (cidcheck[0] != 'a') {
+        std::cout << "Please Ensure you enter 'a' before your code" << std::endl;
+        return false;
+    }
+
+    // if the id isn't the correct length
+    if (n != 6) {
+        std::cout << "Please Ensure the code you enter is 5 numbers long" << std::endl;
+        return false;
+    }
+
+    // if there are other non integer values in the id not including the a at the beginning
+    for (int i=1; i<6; i++) {
+        if (cidcheck[i] != '1' && cidcheck[i] != '2' && cidcheck[i] != '3' && cidcheck[i] != '4' && cidcheck[i] != '5' && cidcheck[i] != '6' && cidcheck[i] != '7' && cidcheck[i] != '8' && cidcheck[i] != '9' && cidcheck[i] != '0') {
+            std::cout << "Pleas Ensure the code you enter only contains numbers" << std::endl;
+            return false;
+        }
+    }
+
+    return true;
+}
+
+// converting their id from string to integer
+int stringtoint (std::string sidcheck) {
+    // int to assign the id to
+    int idcheck = 0;
+
+    // converting to character array
+    int idlength = sidcheck.length();
+    char cidcheck[idlength];
+    strcpy(cidcheck, sidcheck.c_str());
+
+    // adding the values multiplied by 10 to the power of the index to create one number
+    for (int i=1; i<idlength; i++) {
+        idcheck = idcheck + (cidcheck[i]-48) * (pow(10,(idlength-(i+1)))); // take away 48 because of ascii values
+    }
+
+    return idcheck;
+}
+
 // login function
 int loginfunct() {
     // creating a course pointer array for the different courses in the university
@@ -242,11 +293,20 @@ int loginfunct() {
     // if login is selected
     if (input == 1) {
         int check = 0;
+        int validation = 0;
         int idcheck = 0;
-        std::cout << "Please enter your identification number to proceed with the login process:" << std::endl;
-        std::cout << "ID: a"; // asking user for their ID
-        std::cin >> idcheck;
-        std::cout << std::endl;
+        std::string sidcheck = "?";
+        while (validation == 0) {
+            std::cout << "Please enter your identification number to proceed with the login process (aXXXXX): " << std::endl;
+            std::cout << "ID: "; // asking user for their ID
+            std::cin >> sidcheck;
+            // calling to function checking if the id is valid
+            validation = idvalid(sidcheck);
+            std::cout << std::endl;
+        }
+
+        // calling to function to convert the string id to an integer
+        idcheck = stringtoint(sidcheck);
 
         // if their id is less than 15000, they are a teacher
         if (idcheck <= 15000) {
