@@ -4,7 +4,9 @@
 #include "Teacher.h"
 #include "Student.h"
 #include <string>
+#include <sstream>
 #include <iostream>
+#include <math.h>
 #include <vector>
 
 // starter ID's created for teacher and student
@@ -204,10 +206,10 @@ void newuser() {
 // function to check if id is valid
 bool idvalid(std::string sidcheck) {
     // integer for the length of the string
-    int n = sidcheck.length();
+    int idlength = sidcheck.length();
 
     // converting string to character array
-    char cidcheck[n];
+    char cidcheck[idlength];
     strcpy(cidcheck, sidcheck.c_str());
 
     // if id doesnt start with 'a'
@@ -217,8 +219,8 @@ bool idvalid(std::string sidcheck) {
     }
 
     // if the id isn't the correct length
-    if (n != 6) {
-        std::cout << "Please Ensure the code you enter is 5 numbers long" << std::endl;
+    if (idlength != 6) {
+        std::cout << "Please Ensure the code you enter is 'a' followed by 5 numbers" << std::endl;
         return false;
     }
 
@@ -251,6 +253,32 @@ int stringtoint (std::string sidcheck) {
     return idcheck;
 }
 
+// function that removes the space from the input
+std::string removespace(std::string stringinput) {
+
+    // converting string to character array
+    int strlength = stringinput.length();
+    char charinput[strlength];
+    strcpy(charinput, stringinput.c_str()); 
+
+    for (int i=0; i<strlength; i++) {
+        // ascii value for space is 32, so if there is a space, change it to 'z'
+        if (charinput[i] == 32) {
+            charinput[i] = 122;
+        }
+    }
+
+    // a new string to hold the input without the space
+    std::string stringout;
+
+    // convert character array to string
+    std::stringstream ss;
+    ss << charinput;
+    ss >> stringout;
+
+    return stringout;
+}
+
 // login function
 int loginfunct() {
     // creating a course pointer array for the different courses in the university
@@ -279,7 +307,8 @@ int loginfunct() {
         std::cout << "1. Login" << std::endl;
         std::cout << "2. New User" << std::endl;
         std::cout << "3. Quit" << std::endl;
-        std::cin >> login;
+        getline(std::cin, login); // so it can take a space as input
+        login = removespace(login); // function to remove space from the input
         if (login != "1" || login != "2" || login != "3") {
             clogin.append(login);
         } else {
@@ -291,10 +320,11 @@ int loginfunct() {
 
     // if login is selected
     if (input == 1) {
-        int check = 0;
-        int validation = 0;
-        int idcheck = 0;
-        std::string sidcheck = "?";
+        int logout = 0; // int to check if user logs out
+        int validation = 0; // int to check if id is a valid id
+        int idcheck = 0; // int to contain the id the user inputs
+        std::string sidcheck = "?"; // string to read the user input
+
         while (validation == 0) {
             std::cout << "Please enter your identification number to proceed with the login process (aXXXXX): " << std::endl;
             std::cout << "ID: "; // asking user for their ID
@@ -309,15 +339,15 @@ int loginfunct() {
 
         // if their id is less than 15000, they are a teacher
         if (idcheck <= 15000) {
-            check = teachlogin(); // calling to teacher login function
-            if (check == 3) { // if they chose to logout
+            logout = teachlogin(); // calling to teacher login function
+            if (logout == 3) { // if they chose to logout
                 input = 0; // go back to the main function and restart
                 return input;
             }
         // if their id is more than 15000, they are a student
         } else if (idcheck > 15000) {
-            check = studlogin(courseslist); // calling to student login function bringing the course array
-            if (check == 5) { // if they chose to logout
+            logout = studlogin(courseslist); // calling to student login function bringing the course array
+            if (logout == 5) { // if they chose to logout
                 input = 0; // go back to the main function and restart
                 return input;
             }
