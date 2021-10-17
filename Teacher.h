@@ -16,7 +16,7 @@ public:
     
     // printGrades to override pure virtual method in base class
     virtual void printGrades();
-
+    virtual void enrol(Course* new_course, int grade);
     // Default destructor
     ~Teacher();
 private:

@@ -10,7 +10,10 @@ Teacher::Teacher()
 {
     
 }
-
+void Teacher::enrol(Course* new_course, int grade)
+{
+    return;
+}
 // returns a vector of pointers to people that are enrolled in the course with 
 // name course_name
 std::vector<Person*> Teacher::getClassList(std::string course_name)
@@ -44,7 +47,7 @@ void Teacher::printGrades()
             if(class_list.at(i)->getName() == getName()){
                 std::cout << class_list.at(i)->getName() << "   (You)" << std::endl;
             }else{
-                std::cout << class_list.at(i)->getName() << std::endl;
+                std::cout << class_list.at(i)->getName() << class_list.at(i)->getGrades() << std::endl;
             }
         }
 

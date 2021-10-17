@@ -3,15 +3,16 @@
 #include <string>
 #include "Person.h"
 #include "Teacher.h"
+#include "Student.h"
 
 
 std::vector <Person*> people;
 int main()
 {
     Course* courses = new Course[4];
-    
+    people.push_back(new Teacher);
     for(int i = 0; i < 4; i++){
-        people.push_back(new Teacher); 
+        people.push_back(new Student); 
         std::string new_name;
         std::cin >> new_name;
         people.at(i)->setName(new_name);
@@ -25,9 +26,9 @@ int main()
     }
 
     people.at(0)->enrol(&courses[0]);
-    people.at(1)->enrol(&courses[0]);
-    people.at(2)->enrol(&courses[1]);
-    people.at(3)->enrol(&courses[0]);   
+    people.at(1)->enrol(&courses[0], 50);
+    people.at(2)->enrol(&courses[1], 75);
+    people.at(3)->enrol(&courses[0], 90);   
     
     people.at(0)->printGrades(); 
     return 0;

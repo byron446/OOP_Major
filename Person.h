@@ -31,6 +31,7 @@ public:
 
     // virtual function to print the grades a person has permission to see
     virtual void printGrades() = 0; 
+    virtual void enrol(Course* new_course, int grade) = 0;
 private:
     std::string name;
     int id_num;
