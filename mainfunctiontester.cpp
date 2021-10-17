@@ -27,7 +27,8 @@ int teachlogin() {
         std::cout << "1. View Timetable" << std::endl;
         std::cout << "2. View Grades" << std::endl;
         std::cout << "3. Logout" << std::endl;
-        std::cin >> inputteachchoice;
+        getline(std::cin, inputteachchoice); // so it can take a space as input
+        inputteachchoice = removespace(inputteachchoice); // function to remove space from the input
         if (inputteachchoice != "1" || inputteachchoice != "2" || inputteachchoice != "3") {
             cteachchoice.append(inputteachchoice);
         } else {
@@ -68,7 +69,8 @@ int studlogin() {
         std::cout << "3. Enrol" << std::endl;
         std::cout << "4. Remove" << std::endl;
         std::cout << "5. Logout" << std::endl;
-        std::cin >> inputstudchoice;
+        getline(std::cin, inputstudchoice);
+        inputstudchoice = removespace(inputstudchoice);
         if (inputstudchoice != "1" || inputstudchoice != "2" || inputstudchoice != "3" || inputstudchoice != "4" || inputstudchoice != "5") {
             cstudchoice.append(inputstudchoice);
         } else {
@@ -100,7 +102,8 @@ int studlogin() {
                 std::cout << "8. Matlab and C" << std::endl;
                 std::cout << "9. Introduction to Process Engineering" << std::endl;
                 std::cout << "10. Analog Electronics" << std::endl;
-                std::cin >> inputcname;
+                getline(std::cin, inputcname);
+                inputcname = removespace(inputcname);
                 if (inputcname != "1" || inputcname != "2" || inputcname != "3" || inputcname != "4" || inputcname != "5" || inputcname != "6" || inputcname != "7" || inputcname != "8" || inputcname != "9" || inputcname != "10") {
                     appendcname.append(inputcname);
                 } else {
@@ -128,7 +131,8 @@ int studlogin() {
                 std::cout << "8. Matlab and C" << std::endl;
                 std::cout << "9. Introduction to Process Engineering" << std::endl;
                 std::cout << "10. Analog Electronics" << std::endl;
-                std::cin >> inputcname;
+                getline(std::cin, inputcname);
+                inputcname = removespace(inputcname);
                 if (inputcname != "1" || inputcname != "2" || inputcname != "3" || inputcname != "4" || inputcname != "5" || inputcname != "6" || inputcname != "7" || inputcname != "8" || inputcname != "9" || inputcname != "10") {
                     appendcname.append(inputcname);
                 } else {
@@ -163,7 +167,8 @@ void newuser() {
         std::cout << "What type of account would you like to create: " << std::endl;
         std::cout << "1. Teacher" << std::endl;
         std::cout << "2. Student" << std::endl;
-        std::cin >> inputrole;
+        getline(std::cin, inputrole);
+        inputrole = removespace(inputrole);
         if (inputrole != "1" || inputrole != "2") {
             crole.append(inputrole);
         } else {
@@ -307,8 +312,8 @@ int loginfunct() {
         std::cout << "1. Login" << std::endl;
         std::cout << "2. New User" << std::endl;
         std::cout << "3. Quit" << std::endl;
-        getline(std::cin, login); // so it can take a space as input
-        login = removespace(login); // function to remove space from the input
+        getline(std::cin, login);
+        login = removespace(login);
         if (login != "1" || login != "2" || login != "3") {
             clogin.append(login);
         } else {
@@ -328,7 +333,8 @@ int loginfunct() {
         while (validation == 0) {
             std::cout << "Please enter your identification number to proceed with the login process (aXXXXX): " << std::endl;
             std::cout << "ID: "; // asking user for their ID
-            std::cin >> sidcheck;
+            getline(std::cin, sidcheck);
+            sidcheck = removespace(sidcheck);
             // calling to function checking if the id is valid
             validation = idvalid(sidcheck);
             std::cout << std::endl;
