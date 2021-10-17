@@ -23,15 +23,23 @@ void Student::enrol(Course* new_course, int grade)
     }
 }
 
+// removes a student froma course by taking a pointer to the exit course, 
+// and its corresponding grade.
 void Student::leaveCourseStudent(Course* exit_course)
 {
     int i = leaveCourse(exit_course);
-    grades.erase(grades.begin()+i);
+
+    if(i >= 0){
+        grades.erase(grades.begin()+i);
+    }
 }
 
+// function to print a formatted list of the courses a student is enrolled in, 
+// along with their current grades.
 void Student::printGrades()
 {
     std::cout << "Your grades in each subject are:" << std::endl;
+
     for(int i = 0; i < getCourses().size(); i++){
         std::cout << getCourses().at(i)->getCourseId() << " " << getCourses().at(i)->getName() << ": " << grades.at(i) << std::endl;
     }

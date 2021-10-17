@@ -12,7 +12,7 @@ public:
     // Default constructor
     Student();
 
-    // printGrades to match pure virtual method in base class
+    // printGrades to override pure virtual method in base class
     virtual void printGrades();
 
     //enrol function and leave course methods that also handle adding/removing grades
