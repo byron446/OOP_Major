@@ -9,21 +9,18 @@ Course::Course()
 {
     name = "?";
     course_id = "??";
-    lessons = new Lesson[4];
 }
 
 Course::Course(std::string pname, std::string pid)
 {
     name = pname;
     course_id = pid;
-    lessons = new Lesson[4];
 }
 
 Course::Course(int lesson_num)
 {
     name = "?";
     course_id = "??";
-    lessons = new Lesson[lesson_num];    
 }
 
 void Course::setName(std::string pname)
@@ -44,6 +41,11 @@ void Course::setCourseID(std::string pid)
 std::string Course::getCourseId()
 {
     return course_id;
+}
+
+std::vector<Lesson*> &Course::getLessons()
+{
+    return lessons;
 }
 
 Course::~Course()

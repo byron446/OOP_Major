@@ -30,6 +30,9 @@ public:
     virtual bool leaveCourse(Course* exit_course);
     void printCourses();
 
+
+    void printTimetable();
+
     // virtual function to print the grades a person has permission to see
     virtual void printGrades() = 0; 
     virtual void enrol(Course* new_course, int grade) = 0;
