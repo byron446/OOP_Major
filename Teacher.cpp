@@ -10,17 +10,21 @@ Teacher::Teacher()
 {
     
 }
-
+void Teacher::enrol(Course* new_course, int grade)
+{
+    return;
+}
 // returns a vector of pointers to people that are enrolled in the course with 
 // name course_name
-std::vector<Person*> &Teacher::getClassList(std::string course_name)
+std::vector<Person*> Teacher::getClassList(std::string course_name)
 {
     std::vector<Person*> class_list;
 
-    for (int i = 0; i < sizeof(people)/sizeof(people[0]); i++){
-        for(int j = 0; j < people[i].getCourses().size();i++){
-            if(people[i].getCourses().at(j)->getName() == course_name){
-                class_list.push_back(&people[i]);
+    for (int i = 0; i < people.size(); i++){
+
+        for(int j = 0; j < people.at(i)->getCourses().size();j++){
+            if(people.at(i)->getCourses().at(j)->getName() == course_name){
+                class_list.push_back(people.at(i));
             }
         }
     }
@@ -39,8 +43,12 @@ void Teacher::printGrades()
 
         std::cout << "The students enrolled in this class are: "<< std::endl;
 
-        for(int i = 0; i < sizeof(class_list)/sizeof(class_list.at(0)); i++){
-            std::cout << class_list.at(i)->getName() << std::endl;
+        for(int i = 0; i < class_list.size(); i++){
+            if(class_list.at(i)->getName() == getName()){
+                std::cout << class_list.at(i)->getName() << "   (You)" << std::endl;
+            }else{
+                std::cout << class_list.at(i)->getName() << class_list.at(i)->getGrades() << std::endl;
+            }
         }
 
     } else{
@@ -57,7 +65,7 @@ void Teacher::printGrades()
 
         std::cout << "The students enrolled in this class are: "<< std::endl;
 
-        for(int i = 0; i < sizeof(class_list)/sizeof(class_list.at(0)); i++){
+        for(int i = 0; i < class_list.size(); i++){
             std::cout << class_list.at(i)->getName() << std::endl;
         }
     }    
