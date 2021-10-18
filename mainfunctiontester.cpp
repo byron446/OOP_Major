@@ -3,6 +3,7 @@
 //#include "Person.h"
 //#include "Teacher.h"
 //#include "Student.h"
+//#include "Lesson.h"
 #include <string>
 #include <sstream>
 #include <iostream>
@@ -28,7 +29,6 @@ int teachlogin() {
         std::cout << "2. View Grades" << std::endl;
         std::cout << "3. Logout" << std::endl;
         getline(std::cin, inputteachchoice); // so it can take a space as input
-        inputteachchoice = removespace(inputteachchoice); // function to remove space from the input
         if (inputteachchoice != "1" || inputteachchoice != "2" || inputteachchoice != "3") {
             cteachchoice.append(inputteachchoice);
         } else {
@@ -70,7 +70,6 @@ int studlogin() {
         std::cout << "4. Remove" << std::endl;
         std::cout << "5. Logout" << std::endl;
         getline(std::cin, inputstudchoice);
-        inputstudchoice = removespace(inputstudchoice);
         if (inputstudchoice != "1" || inputstudchoice != "2" || inputstudchoice != "3" || inputstudchoice != "4" || inputstudchoice != "5") {
             cstudchoice.append(inputstudchoice);
         } else {
@@ -103,7 +102,6 @@ int studlogin() {
                 std::cout << "9. Introduction to Process Engineering" << std::endl;
                 std::cout << "10. Analog Electronics" << std::endl;
                 getline(std::cin, inputcname);
-                inputcname = removespace(inputcname);
                 if (inputcname != "1" || inputcname != "2" || inputcname != "3" || inputcname != "4" || inputcname != "5" || inputcname != "6" || inputcname != "7" || inputcname != "8" || inputcname != "9" || inputcname != "10") {
                     appendcname.append(inputcname);
                 } else {
@@ -132,7 +130,6 @@ int studlogin() {
                 std::cout << "9. Introduction to Process Engineering" << std::endl;
                 std::cout << "10. Analog Electronics" << std::endl;
                 getline(std::cin, inputcname);
-                inputcname = removespace(inputcname);
                 if (inputcname != "1" || inputcname != "2" || inputcname != "3" || inputcname != "4" || inputcname != "5" || inputcname != "6" || inputcname != "7" || inputcname != "8" || inputcname != "9" || inputcname != "10") {
                     appendcname.append(inputcname);
                 } else {
@@ -168,7 +165,6 @@ void newuser() {
         std::cout << "1. Teacher" << std::endl;
         std::cout << "2. Student" << std::endl;
         getline(std::cin, inputrole);
-        inputrole = removespace(inputrole);
         if (inputrole != "1" || inputrole != "2") {
             crole.append(inputrole);
         } else {
@@ -183,7 +179,7 @@ void newuser() {
             std::string tname;
             // ask for their name
             std::cout << "Please Enter your Name: ";
-            std::cin >> tname;
+            getline(std::cin, tname);
             //Teacher1.setName(tname); // storing teacher name in the teacher type
             //Teacher1.setIdNum(&teacher_id); // creating an ID for the teacher
             // telling the teacher their ID number
@@ -196,7 +192,7 @@ void newuser() {
             std::string tname;
             // ask for their name
             std::cout << "Please Enter your Name: ";
-            std::cin >> tname;
+            getline(std::cin, tname);
             //Student1.setName(tname); // storing students name in the student type
             //Student1.setIdNum(&student_id); // creating an ID for the teacher
             // telling the student their ID number
@@ -231,7 +227,7 @@ bool idvalid(std::string sidcheck) {
 
     // if there are other non integer values in the id not including the a at the beginning
     for (int i=1; i<6; i++) {
-        if (cidcheck[i] != '1' && cidcheck[i] != '2' && cidcheck[i] != '3' && cidcheck[i] != '4' && cidcheck[i] != '5' && cidcheck[i] != '6' && cidcheck[i] != '7' && cidcheck[i] != '8' && cidcheck[i] != '9' && cidcheck[i] != '0') {
+        if (cidcheck[i]<48 || cidcheck[i]>57) { //48 is ascii for 0, 57 is ascii for 9
             std::cout << "Pleas Ensure the code you enter only contains numbers" << std::endl;
             return false;
         }
@@ -258,34 +254,8 @@ int stringtoint (std::string sidcheck) {
     return idcheck;
 }
 
-// function that removes the space from the input
-std::string removespace(std::string stringinput) {
-
-    // converting string to character array
-    int strlength = stringinput.length();
-    char charinput[strlength];
-    strcpy(charinput, stringinput.c_str()); 
-
-    for (int i=0; i<strlength; i++) {
-        // ascii value for space is 32, so if there is a space, change it to 'z'
-        if (charinput[i] == 32) {
-            charinput[i] = 122;
-        }
-    }
-
-    // a new string to hold the input without the space
-    std::string stringout;
-
-    // convert character array to string
-    std::stringstream ss;
-    ss << charinput;
-    ss >> stringout;
-
-    return stringout;
-}
-
 // login function
-int loginfunct() {
+bool loginfunct() {
     // creating a course pointer array for the different courses in the university
     //Course* courseslist = new Course[10];
     std::string login = "?";
@@ -313,7 +283,6 @@ int loginfunct() {
         std::cout << "2. New User" << std::endl;
         std::cout << "3. Quit" << std::endl;
         getline(std::cin, login);
-        login = removespace(login);
         if (login != "1" || login != "2" || login != "3") {
             clogin.append(login);
         } else {
@@ -334,7 +303,6 @@ int loginfunct() {
             std::cout << "Please enter your identification number to proceed with the login process (aXXXXX): " << std::endl;
             std::cout << "ID: "; // asking user for their ID
             getline(std::cin, sidcheck);
-            sidcheck = removespace(sidcheck);
             // calling to function checking if the id is valid
             validation = idvalid(sidcheck);
             std::cout << std::endl;
@@ -347,27 +315,26 @@ int loginfunct() {
         if (idcheck <= 15000) {
             logout = teachlogin(); // calling to teacher login function
             if (logout == 3) { // if they chose to logout
-                input = 0; // go back to the main function and restart
-                return input;
+                return false; // go back to the main function and restart
             }
         // if their id is more than 15000, they are a student
         } else if (idcheck > 15000) {
             logout = studlogin(); // calling to student login function bringing the course array
             if (logout == 5) { // if they chose to logout
-                input = 0; // go back to the main function and restart
-                return input;
+                return false; // go back to the main function and restart
             }
         }
     // if new user is selected
     } else if (input == 2) {
         newuser(); // calling to new user function
-        input = 0; // reseting login variable so that original login page is brought back up
+        return false;
     // if quit is selected
     } else if (input == 3) {
         std::cout << "Shutting down session..." << std::endl; // shutting down visual
+        return true;
     }
 
-    return input;
+    return false;
 }
 
 // This function takes the course list, member_var which indicates which member variable of 

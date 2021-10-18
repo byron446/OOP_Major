@@ -3,12 +3,13 @@
 #include "Person.h"
 #include "Teacher.h"
 #include "Student.h"
+#include "Lesson.h"
 #include <string>
 #include <iostream>
 #include <vector>
 
 // login function
-extern int loginfunct();
+extern bool loginfunct();
 
 // main function
 int main() {
