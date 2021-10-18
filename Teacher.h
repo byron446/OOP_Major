@@ -2,11 +2,12 @@
 #define TEACHER_H
 
 #include "Person.h"
+#include "Student.h"
 #include <string>
 
 // Includes external global variable people, which contains all students and 
 // teachers
-extern std::vector <Person*> people;
+extern std::vector <Student*> students;
 
 class Teacher: public Person
 {
@@ -22,7 +23,7 @@ public:
 private:
     // method only called by printGrades to generate list of people enrolled 
     // in a course
-    std::vector<Person*> getClassList(std::string course_name);
+    std::vector<Student*> getClassList(std::string course_name);
 };
 
 #endif

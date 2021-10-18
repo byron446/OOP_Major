@@ -17,6 +17,8 @@ public:
 
     //enrol function and leave course methods that also handle adding/removing grades
     virtual void enrol(Course* new_course, int grade);
+    void setGrade(int grade, Course* pcourse);
+    int getGrade(Course* pcourse);
     void leaveCourseStudent(Course* exit_course);
     ~Student();
 

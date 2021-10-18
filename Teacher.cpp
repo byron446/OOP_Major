@@ -1,6 +1,7 @@
 // teacher class
 #include "Teacher.h"
 #include "Person.h"
+#include "Student.h"
 #include <string>
 #include <iostream>
 
@@ -16,15 +17,15 @@ void Teacher::enrol(Course* new_course, int grade)
 }
 // returns a vector of pointers to people that are enrolled in the course with 
 // name course_name
-std::vector<Person*> Teacher::getClassList(std::string course_name)
+std::vector<Student*> Teacher::getClassList(std::string course_name)
 {
-    std::vector<Person*> class_list;
+    std::vector<Student*> class_list;
 
-    for (int i = 0; i < people.size(); i++){
+    for (int i = 0; i < students.size(); i++){
 
-        for(int j = 0; j < people.at(i)->getCourses().size();j++){
-            if(people.at(i)->getCourses().at(j)->getName() == course_name){
-                class_list.push_back(people.at(i));
+        for(int j = 0; j < students.at(i)->getCourses().size();j++){
+            if(students.at(i)->getCourses().at(j)->getName() == course_name){
+                class_list.push_back(students.at(i));
             }
         }
     }
@@ -39,15 +40,14 @@ void Teacher::printGrades()
     // course, otherwise it takes an input to determine which courses grades 
     // are printed
     if(getCourses().size() < 2){
-        std::vector<Person*> class_list = getClassList(getCourses().at(0)->getName()); 
-
+        std::vector<Student*> class_list = getClassList(getCourses().at(0)->getName()); 
         std::cout << "The students enrolled in this class are: "<< std::endl;
 
         for(int i = 0; i < class_list.size(); i++){
             if(class_list.at(i)->getName() == getName()){
                 std::cout << class_list.at(i)->getName() << "   (You)" << std::endl;
             }else{
-                std::cout << class_list.at(i)->getName() << class_list.at(i)->getGrades() << std::endl;
+                std::cout << class_list.at(i)->getName() << class_list.at(i)->getGrade(getCourses().at(0)) << std::endl;
             }
         }
 
@@ -61,12 +61,12 @@ void Teacher::printGrades()
         int course;
         std::cin >> course;
 
-        std::vector<Person*> class_list = getClassList(getCourses().at(course)->getName()); 
+        std::vector<Student*> class_list = getClassList(getCourses().at(course)->getName()); 
 
         std::cout << "The students enrolled in this class are: "<< std::endl;
 
         for(int i = 0; i < class_list.size(); i++){
-            std::cout << class_list.at(i)->getName() << std::endl;
+            std::cout << class_list.at(i)->getName() << class_list.at(i)->getGrade(getCourses().at(course)) << std::endl;
         }
     }    
 }

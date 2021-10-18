@@ -23,13 +23,25 @@ void Student::enrol(Course* new_course, int grade)
     }
 }
 
+void Student::setGrade(int grade, Course* pcourse)
+{
+    int i = getCourseIndex(pcourse);
+    grades.at(i) = grade;
+}
+
+int Student::getGrade(Course* pcourse)
+{
+    int i = getCourseIndex(pcourse);
+    return grades.at(i);
+}
+
 // removes a student froma course by taking a pointer to the exit course, 
 // and its corresponding grade.
 void Student::leaveCourseStudent(Course* exit_course)
 {
-    int i = leaveCourse(exit_course);
-
-    if(i >= 0){
+    bool left = leaveCourse(exit_course);
+    int i  = getCourseIndex(exit_course);
+    if(i >= 0 && left == true){
         grades.erase(grades.begin()+i);
     }
 }

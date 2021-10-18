@@ -69,6 +69,16 @@ std::vector<Course*> &Person::getCourses()
     return courses;
 }
 
+int Person::getCourseIndex(Course* pcourse)
+{
+    for(int i = 0; i < courses.size(); i++){
+        if (courses.at(i)->getName() == pcourse->getName()){
+            return i;
+        }
+    }
+    return -1;
+}
+
 // Prints a formatted list of the courses a person is enrolled in
 void Person::printCourses()
 {
@@ -82,19 +92,19 @@ void Person::printCourses()
 // Removes a course from the list a person is enrolled in, and returns the 
 // index at which the course was removed. If the student was not enrolled, 
 // return -1
-int Person::leaveCourse(Course* exit_course)  
+bool Person::leaveCourse(Course* exit_course)  
 {
     // Checks the name of each course against the course the student is 
     // leaving
     for(int i = 0; i < courses.size(); i++) {
         if(courses.at(i)->getName() == exit_course->getName()){
             courses.erase(courses.begin()+i);
-            return i;
+            return true;
         }
     }
 
     // Return -1 to signify that person was not enrolled in exit_course
-    return -1;
+    return false;
 }
 
 // Default destructor
