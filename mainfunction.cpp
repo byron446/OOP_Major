@@ -96,15 +96,11 @@ int studlogin(Course* courseslist) {
                 std::cout << "9. Introduction to Process Engineering" << std::endl;
                 std::cout << "10. Analog Electronics" << std::endl;
                 getline(std::cin, inputcname);
-                if (inputcname != "1" || inputcname != "2" || inputcname != "3" || inputcname != "4" || inputcname != "5" || inputcname != "6" || inputcname != "7" || inputcname != "8" || inputcname != "9" || inputcname != "10") {
-                    appendcname.append(inputcname);
-                } else {
-                    appendcname = inputcname;
-                }
+                appendcname.append(inputcname);
                 cname = std::stoi(appendcname);
-                // function to add the course to the student's enrollment
-                Student1.enrol(&courseslist[cname-1], 100);
             }
+            // function to add the course to the student's enrollment
+            Student1.enrol(&courseslist[cname-1], 100);
         } else if (studchoice == 4) { // if the student wants to remove a course
             // listing all available courses
             std::string inputcname = "?";
@@ -123,15 +119,11 @@ int studlogin(Course* courseslist) {
                 std::cout << "9. Introduction to Process Engineering" << std::endl;
                 std::cout << "10. Analog Electronics" << std::endl;
                 getline(std::cin, inputcname);
-                if (inputcname != "1" || inputcname != "2" || inputcname != "3" || inputcname != "4" || inputcname != "5" || inputcname != "6" || inputcname != "7" || inputcname != "8" || inputcname != "9" || inputcname != "10") {
-                    appendcname.append(inputcname);
-                } else {
-                    appendcname = inputcname;
-                }
+                appendcname.append(inputcname);
                 cname = std::stoi(appendcname);
-                // function to add the course to the student's enrollment
-                Student1.leaveCourse(&courseslist[cname-1]);
             }
+            // function to add the course to the student's enrollment
+            Student1.leaveCourse(&courseslist[cname-1]);
         } else if (studchoice == 5) {
             std::cout << "Logging out of session..." << std::endl;
         }
@@ -193,10 +185,10 @@ void newuser() {
 // function to check if id is valid
 bool idvalid(std::string sidcheck) {
     // integer for the length of the string
-    int n = sidcheck.length();
+    int idlength = sidcheck.length();
 
     // converting string to character array
-    char cidcheck[n];
+    char cidcheck[idlength];
     strcpy(cidcheck, sidcheck.c_str());
 
     // if id doesnt start with 'a'
@@ -206,7 +198,7 @@ bool idvalid(std::string sidcheck) {
     }
 
     // if the id isn't the correct length
-    if (n != 6) {
+    if (idlength != 6) {
         std::cout << "Please Ensure the code you enter is 5 numbers long" << std::endl;
         return false;
     }
@@ -263,17 +255,12 @@ bool loginfunct() {
     while (input != 1 && input != 2 && input != 3 ) {
         std::string clogin = "0";
         std::cout << "Welcome to the University of Adelaide Timetable interface." << std::endl;
-        std::cout << "Please select from one of the following options:" << std::endl;
-        std::cout << std::endl;
+        std::cout << "Please select from one of the following options:" << std::endl << std::endl;
         std::cout << "1. Login" << std::endl;
         std::cout << "2. New User" << std::endl;
         std::cout << "3. Quit" << std::endl;
         getline(std::cin, login);
-        if (login != "1" || login != "2" || login != "3") {
-            clogin.append(login);
-        } else {
-            clogin = login;
-        }
+        clogin.append(login);
         input = std::stoi(clogin);
         std::cout << std::endl;
     }
