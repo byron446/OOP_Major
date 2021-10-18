@@ -6,16 +6,16 @@
 #include "Student.h"
 
 
-std::vector <Person*> people;
+std::vector <Student*> students;
 int main()
 {
     Course* courses = new Course[4];
-    people.push_back(new Teacher);
+    Teacher* teach = new Teacher;
     for(int i = 0; i < 4; i++){
-        people.push_back(new Student); 
+        students.push_back(new Student); 
         std::string new_name;
         std::cin >> new_name;
-        people.at(i)->setName(new_name);
+        students.at(i)->setName(new_name);
         std::string course_name;
         std::cin >> course_name;
         courses[i].setName(course_name);
@@ -25,12 +25,12 @@ int main()
         courses[i].setCourseID(course_id);
     }
 
-    people.at(0)->enrol(&courses[0]);
-    people.at(1)->enrol(&courses[0], 50);
-    people.at(2)->enrol(&courses[1], 75);
-    people.at(3)->enrol(&courses[0], 90);   
+    teach->Person::enrol(&courses[0]);
+    students.at(1)->enrol(&courses[0], 50);
+    students.at(2)->enrol(&courses[1], 75);
+    students.at(3)->enrol(&courses[0], 90);   
     
-    people.at(0)->printGrades(); 
+    teach->printGrades(); 
     return 0;
 
 }

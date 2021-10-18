@@ -7,7 +7,7 @@ Person.o: Person.h Course.h Person.cpp
 Student.o: Person.h Student.h Student.cpp
 	g++ -c -std=c++11 Student.cpp
 
-Teacher.o: Person.h Teacher.h Teacher.cpp
+Teacher.o: Person.h Student.h Teacher.h Teacher.cpp
 	g++ -c -std=c++11 Teacher.cpp
 
 Course.o: Course.h Lesson.h Course.cpp
@@ -28,8 +28,8 @@ TestPerson.o: TestPerson.h TestPerson.cpp
 TestStudent.o: TestPerson.h TestStudent.h TestStudent.cpp
 	g++ -c -std=c++11 TestStudent.cpp
 
-TeacherTest: TeacherTester.cpp Person.o Teacher.o Course.o Lesson.o
-	g++ -std=c++11 TeacherTester.cpp Person.o Teacher.o Course.o Lesson.o -o teacher
+TeacherTest: TeacherTester.cpp Person.o Teacher.o Student.o Course.o Lesson.o
+	g++ -std=c++11 TeacherTester.cpp Person.o Teacher.o Student.o Course.o Lesson.o -o teacher
 
 CourseTest: CourseTest.cpp Course.o
 	g++ -std=c++11 CourseTest.cpp Course.o -o course

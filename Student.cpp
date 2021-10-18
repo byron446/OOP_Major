@@ -23,6 +23,7 @@ void Student::enrol(Course* new_course, int grade)
     }
 }
 
+// Sets the grade for a specific course
 void Student::setGrade(int grade, Course* pcourse)
 {
     int i = getCourseIndex(pcourse);
