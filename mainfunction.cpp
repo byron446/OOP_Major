@@ -22,31 +22,28 @@ int teachlogin() {
     int teachchoice = 0;
     
     // while loop preventing unavailbe options from being selected
-    while (teachchoice !=1 && teachchoice !=2 && teachchoice != 3) {
+    while (teachchoice != 3) {
         std::string cteachchoice = "0";
         std::cout << "Welcome " << Teacher1.getName() << std::endl; // giving options to teacher
         std::cout << "1. View Timetable" << std::endl;
         std::cout << "2. View Grades" << std::endl;
         std::cout << "3. Logout" << std::endl;
         getline(std::cin, inputteachchoice); // so it can take a space as input
-        if (inputteachchoice != "1" || inputteachchoice != "2" || inputteachchoice != "3") {
-            cteachchoice.append(inputteachchoice);
-        } else {
-            cteachchoice = inputteachchoice;
-        }
+        cteachchoice.append(inputteachchoice);
         teachchoice = std::stoi(cteachchoice);
         
-        std::cout << std::endl;
+        if (teachchoice == 1 || teachchoice == 2 || teachchoice == 3) {
+            std::cout << std::endl;
+        }
+
         if (teachchoice == 1) {
+            std::cout << "Printing Timetable..." << std::endl;
             Teacher1.printTimetable(); // function to print the teachers timetable
-            teachchoice = 0; // resetting back to the beginning of the while loop
         } else if (teachchoice == 2) {
+            std::cout << "Printing Grades..." << std::endl;
             Teacher1.printGrades(); // calling to printGrades function
-            teachchoice = 0; // resetting back to the begging of the while loop
         } else if (teachchoice == 3) {
             std::cout << "Logging out of session..." << std::endl;
-            std::cout << std::endl;
-            return teachchoice; // exiting teacher function if they logout
         }
         std::cout << std::endl;
     }
@@ -61,7 +58,7 @@ int studlogin(Course* courseslist) {
     int studchoice = 0;
 
     // while loop to prevent unavailble choice from being selected
-    while (studchoice != 1 || studchoice != 2 || studchoice != 3 || studchoice != 4 || studchoice != 5) {
+    while (studchoice != 5) {
         std::string cstudchoice = "0";
         std::cout << "Welcome " << Student1.getName() << std::endl; // giving options to the student
         std::cout << "1. View Timetable" << std::endl;
@@ -70,20 +67,17 @@ int studlogin(Course* courseslist) {
         std::cout << "4. Remove" << std::endl;
         std::cout << "5. Logout" << std::endl;
         getline(std::cin, inputstudchoice);
-        if (inputstudchoice != "1" || inputstudchoice != "2" || inputstudchoice != "3" || inputstudchoice != "4" || inputstudchoice != "5") {
-            cstudchoice.append(inputstudchoice);
-        } else {
-            cstudchoice = inputstudchoice;
-        }
+        cstudchoice.append(inputstudchoice);
         studchoice = std::stoi(cstudchoice);
-        std::cout << std::endl;
+
+        if (studchoice == 1 || studchoice == 2 || studchoice == 3 || studchoice == 4 || studchoice == 5) {
+            std::cout << std::endl;
+        }
 
         if (studchoice == 1) {
             Student1.printTimetable(); // function to print students timetable
-            studchoice = 0;
         } else if (studchoice == 2) {
             Student1.printGrades(); // calling to function to show the student their grades
-            studchoice = 0;
         } else if (studchoice == 3) { // if the student wants to enrol in a course
             // listing all available courses
             std::string inputcname = "?";
@@ -110,7 +104,6 @@ int studlogin(Course* courseslist) {
                 cname = std::stoi(appendcname);
                 // function to add the course to the student's enrollment
                 Student1.enrol(&courseslist[cname-1], 100);
-                studchoice = 0;
             }
         } else if (studchoice == 4) { // if the student wants to remove a course
             // listing all available courses
@@ -138,12 +131,9 @@ int studlogin(Course* courseslist) {
                 cname = std::stoi(appendcname);
                 // function to add the course to the student's enrollment
                 Student1.leaveCourse(&courseslist[cname-1]);
-                studchoice = 0;
             }
         } else if (studchoice == 5) {
             std::cout << "Logging out of session..." << std::endl;
-            std::cout << std::endl;
-            return studchoice; // exiting student function if they log out
         }
         std::cout << std::endl;
     }
@@ -165,11 +155,7 @@ void newuser() {
         std::cout << "1. Teacher" << std::endl;
         std::cout << "2. Student" << std::endl;
         getline(std::cin, inputrole);
-        if (inputrole != "1" || inputrole != "2") {
-            crole.append(inputrole);
-        } else {
-            crole = inputrole;
-        }
+        crole.append(inputrole);
         role = std::stoi(crole);
         std::cout << std::endl;
 
