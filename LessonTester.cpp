@@ -9,7 +9,7 @@ int main(){
 
     int lessonTime1, lessonTime2, lessonDuration1, lessonDuration2;
 
-    std::string lessonDate1, lessonDate2;
+    int lessonDate1, lessonDate2;
     int lessonType1, lessonType2;
 
     std::cin >> lessonTime1;

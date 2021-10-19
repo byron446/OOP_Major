@@ -112,15 +112,28 @@ void Person::printTimetable()
 {
     std::cout << "Time      Monday      Tuesday     Wednesday       Thursday        Friday" << std::endl;
     // loops for each hour slot
-    for(int time = 9; time < 18; time++){
-        std::cout << 100*time << "      ";
+    for(int time = 900; time < 1800; time+=100){
+        std::cout << time << "      ";
         // loops for each day
         for(int day = 0; day < 5; day++){
             // loops through each course
             for(int i = 0; i < getCourses().size(); i++){
                 // loops through each lesson
                 for(int j = 0; j< getCourses().at(i)->getLessons().size(); j++){
-                    if(getCourses().at(i)->getLessons().at(j).get)
+
+                    if(getCourses().at(i)->getLessons().at(j)->getDate() == day){
+
+                        int lesson_start = getCourses().at(i)->getLessons().at(j)->getTime();
+                        int lesson_end = lesson_start + getCourses().at(i)->getLessons().at(j)->getDuration();
+
+                        if(lesson_start <= time && lesson_end >= time){
+                            std::cout << getCourses().at(i)->getName() << std::endl;
+                            std::cout << getCourses().at(i)->getLessons().at(j)->getLesson();
+                        }
+                    }else{
+                        std::cout << std::endl;
+                    }
+                    std::cout << std::endl;
                 }
             }
         }

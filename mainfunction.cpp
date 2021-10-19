@@ -86,6 +86,7 @@ int studlogin(Course* courseslist) {
                 std::string appendcname = "0";
                 std::cout << "Which Course would you like to enrol: " << std::endl;
                 std::cout << "1. Maths" << std::endl;
+                //std::cout << i. << courseslist[1].getName();
                 std::cout << "2. Chemistry" << std::endl;
                 std::cout << "3. Physics" << std::endl;
                 std::cout << "4. Object Oriented Programming" << std::endl;
