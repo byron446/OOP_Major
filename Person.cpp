@@ -107,9 +107,10 @@ bool Person::leaveCourse(Course* exit_course)
     return false;
 }
 
-// prints a timetable of the 
+// prints a timetable of all lessons for each course a student is enrolled in
 void Person::printTimetable()
 {
+    std::string lessons[4] = {"Lecture", "Tutorial", "Workshop", "Practical"};
     std::cout << "Time      Monday      Tuesday     Wednesday       Thursday        Friday" << std::endl;
     // loops for each hour slot
     for(int time = 900; time < 1800; time+=100){
@@ -120,15 +121,18 @@ void Person::printTimetable()
             for(int i = 0; i < getCourses().size(); i++){
                 // loops through each lesson
                 for(int j = 0; j< getCourses().at(i)->getLessons().size(); j++){
-
+                    // checks if the specified lesson occurs on that day
                     if(getCourses().at(i)->getLessons().at(j)->getDate() == day){
 
+                        // stores the lesson start and end time
                         int lesson_start = getCourses().at(i)->getLessons().at(j)->getTime();
                         int lesson_end = lesson_start + getCourses().at(i)->getLessons().at(j)->getDuration();
 
+                        // if the time is between the lesson start and end print the course name and lesson type
                         if(lesson_start <= time && lesson_end >= time){
                             std::cout << getCourses().at(i)->getName() << std::endl;
-                            std::cout << getCourses().at(i)->getLessons().at(j)->getLesson();
+                            std::string current_lesson = lessons[(int)getCourses().at(i)->getLessons().at(j)->getLesson()];
+                            std::cout << current_lesson;
                         }
                     }else{
                         std::cout << std::endl;
