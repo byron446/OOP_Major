@@ -85,17 +85,9 @@ int studlogin(Course* courseslist) {
             while (cname != 1 && cname != 2 && cname != 3 && cname != 4 && cname != 5 && cname != 6 && cname != 7 && cname != 8 && cname != 9 && cname != 10) {
                 std::string appendcname = "0";
                 std::cout << "Which Course would you like to enrol: " << std::endl;
-                std::cout << "1. Maths" << std::endl;
-                //std::cout << i. << courseslist[1].getName();
-                std::cout << "2. Chemistry" << std::endl;
-                std::cout << "3. Physics" << std::endl;
-                std::cout << "4. Object Oriented Programming" << std::endl;
-                std::cout << "5. Introduction To Engineering" << std::endl;
-                std::cout << "6. Dynamics" << std::endl;
-                std::cout << "7. Digital Electronics" << std::endl;
-                std::cout << "8. Matlab and C" << std::endl;
-                std::cout << "9. Introduction to Process Engineering" << std::endl;
-                std::cout << "10. Analog Electronics" << std::endl;
+                for (int i=0; i<10; i++) {
+                    std::cout << i+1 << ". " << courseslist[i].getName() << std::endl;;
+                }
                 getline(std::cin, inputcname);
                 appendcname.append(inputcname);
                 cname = std::stoi(appendcname);
@@ -109,16 +101,9 @@ int studlogin(Course* courseslist) {
             while (cname != 1 && cname != 2 && cname != 3 && cname != 4 && cname != 5 && cname != 6 && cname != 7 && cname != 8 && cname != 9 && cname != 10) {
                 std::string appendcname = "0";
                 std::cout << "Which Course would you like to remove: " << std::endl;
-                std::cout << "1. Maths" << std::endl;
-                std::cout << "2. Chemistry" << std::endl;
-                std::cout << "3. Physics" << std::endl;
-                std::cout << "4. Object Oriented Programming" << std::endl;
-                std::cout << "5. Introduction To Engineering" << std::endl;
-                std::cout << "6. Dynamics" << std::endl;
-                std::cout << "7. Digital Electronics" << std::endl;
-                std::cout << "8. Matlab and C" << std::endl;
-                std::cout << "9. Introduction to Process Engineering" << std::endl;
-                std::cout << "10. Analog Electronics" << std::endl;
+                for (int i=0; i<10; i++) {
+                    std::cout << i+1 << ". " << courseslist[i].getName() << std::endl;;
+                }
                 getline(std::cin, inputcname);
                 appendcname.append(inputcname);
                 cname = std::stoi(appendcname);
