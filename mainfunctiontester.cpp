@@ -52,7 +52,7 @@ int teachlogin() {
 }
 
 // student login function 
-int studlogin() {
+int studlogin(std::string* courseslist) {
     //Student Student1; // student variable created
     std::string inputstudchoice = "?";
     int studchoice = 0;
@@ -85,16 +85,9 @@ int studlogin() {
             while (cname != 1 && cname != 2 && cname != 3 && cname != 4 && cname != 5 && cname != 6 && cname != 7 && cname != 8 && cname != 9 && cname != 10) {
                 std::string appendcname = "0";
                 std::cout << "Which Course would you like to enrol: " << std::endl;
-                std::cout << "1. Maths" << std::endl;
-                std::cout << "2. Chemistry" << std::endl;
-                std::cout << "3. Physics" << std::endl;
-                std::cout << "4. Object Oriented Programming" << std::endl;
-                std::cout << "5. Introduction To Engineering" << std::endl;
-                std::cout << "6. Dynamics" << std::endl;
-                std::cout << "7. Digital Electronics" << std::endl;
-                std::cout << "8. Matlab and C" << std::endl;
-                std::cout << "9. Introduction to Process Engineering" << std::endl;
-                std::cout << "10. Analog Electronics" << std::endl;
+                for (int i=0; i<10; i++) {
+                    std::cout << i+1 << ". " << courseslist[i] << std::endl;
+                }
                 getline(std::cin, inputcname);
                 if (inputcname != "1" || inputcname != "2" || inputcname != "3" || inputcname != "4" || inputcname != "5" || inputcname != "6" || inputcname != "7" || inputcname != "8" || inputcname != "9" || inputcname != "10") {
                     appendcname.append(inputcname);
@@ -112,16 +105,9 @@ int studlogin() {
             while (cname != 1 && cname != 2 && cname != 3 && cname != 4 && cname != 5 && cname != 6 && cname != 7 && cname != 8 && cname != 9 && cname != 10) {
                 std::string appendcname = "0";
                 std::cout << "Which Course would you like to remove: " << std::endl;
-                std::cout << "1. Maths" << std::endl;
-                std::cout << "2. Chemistry" << std::endl;
-                std::cout << "3. Physics" << std::endl;
-                std::cout << "4. Object Oriented Programming" << std::endl;
-                std::cout << "5. Introduction To Engineering" << std::endl;
-                std::cout << "6. Dynamics" << std::endl;
-                std::cout << "7. Digital Electronics" << std::endl;
-                std::cout << "8. Matlab and C" << std::endl;
-                std::cout << "9. Introduction to Process Engineering" << std::endl;
-                std::cout << "10. Analog Electronics" << std::endl;
+                for (int i=0; i<10; i++) {
+                    std::cout << i+1 << ". " << courseslist[i] << std::endl;
+                }
                 getline(std::cin, inputcname);
                 if (inputcname != "1" || inputcname != "2" || inputcname != "3" || inputcname != "4" || inputcname != "5" || inputcname != "6" || inputcname != "7" || inputcname != "8" || inputcname != "9" || inputcname != "10") {
                     appendcname.append(inputcname);
@@ -243,21 +229,21 @@ int stringtoint (std::string sidcheck) {
 // login function
 bool loginfunct() {
     // creating a course pointer array for the different courses in the university
-    //Course* courseslist = new Course[10];
+    std::string* courseslist = new std::string[10];
     std::string login = "?";
     int input = 0;
 
     // setting the course names using setName function
-    //courseslist[0].setName("Maths");
-    //courseslist[1].setName("Chemistry");
-    //courseslist[2].setName("Physics");
-    //courseslist[3].setName("Objected Oriented Programming");
-    //courseslist[4].setName("Introduction To Engineering");
-    //courseslist[5].setName("Dynamics");
-    //courseslist[6].setName("Digital Electronics");
-    //courseslist[7].setName("Matlab and C");
-    //courseslist[8].setName("Introduction to Process Engineering");
-    //courseslist[9].setName("Analog Electronics");    
+    courseslist[0] = "Maths";
+    courseslist[1] = "Chemistry";
+    courseslist[2] = "Physics";
+    courseslist[3] = "Objected Oriented Programming";
+    courseslist[4] = "Introduction To Engineering";
+    courseslist[5] = "Dynamics";
+    courseslist[6] = "Digital Electronics";
+    courseslist[7] = "Matlab and C";
+    courseslist[8] = "Introduction to Process Engineering";
+    courseslist[9] = "Analog Electronics";    
 
     // while loop to prevent unavailable options from being selected
     while (input != 1 && input != 2 && input != 3 ) {
@@ -305,7 +291,7 @@ bool loginfunct() {
             }
         // if their id is more than 15000, they are a student
         } else if (idcheck > 15000) {
-            logout = studlogin(); // calling to student login function bringing the course array
+            logout = studlogin(courseslist); // calling to student login function bringing the course array
             if (logout == 5) { // if they chose to logout
                 return false; // go back to the main function and restart
             }
