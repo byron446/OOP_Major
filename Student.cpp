@@ -58,11 +58,18 @@ void Student::printGrades()
         std::cout << getCourses().at(i)->getCourseId() << " " << getCourses().at(i)->getName() << ": " << grades.at(i) << std::endl;
     }
 
-    std::ofstream gradesfile;
-    gradesfile.open ("Grades.csv");
+    
+
+
+}
+
+void Student::exportGrades(){
+
+    std::ofstream gradesfile("Grades1.csv");
+    // gradesfile.open ("Grades.csv");
     gradesfile << "Your grades are. \n";
 
-    for(int i =0; i < getCourses().size(); i++){
+    for(int i = 0; i < getCourses().size(); i++){
         gradesfile <<  getCourses().at(i)->getCourseId();
         gradesfile << ",";
         gradesfile << getCourses().at(i)->getName();

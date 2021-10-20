@@ -15,6 +15,10 @@ public:
     // printGrades to override pure virtual method in base class
     virtual void printGrades();
 
+    // exportGrade to export the grades of a student to a csv file for better data viewing and manipulation
+
+    void exportGrades();
+
     //enrol function and leave course methods that also handle adding/removing grades
     virtual void enrol(Course* new_course, int grade);
     void setGrade(int grade, Course* pcourse);
