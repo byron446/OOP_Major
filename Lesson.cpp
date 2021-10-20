@@ -17,6 +17,15 @@ Lesson::Lesson(){
 
 }
 
+Lesson::Lesson(int pltime, int pduration, int plesson, std::string pdate){
+
+    lessonTime  = pltime;
+    lessonDate = pdate;
+    lessonDuration = pduration;
+    lesson = (LessonType)plesson;
+
+}
+
 
 void Lesson::setTime(int pltime){
 
@@ -41,9 +50,9 @@ std::string Lesson::getDate(){
     return lessonDate;
 
 }
-void Lesson::setLesson(LessonType plesson)
+void Lesson::setLesson(int plesson)
 {
-    lesson = plesson;
+    lesson = (LessonType)plesson;
 }
 
 enum Lesson::LessonType Lesson::getLesson(){

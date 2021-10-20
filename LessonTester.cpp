@@ -5,11 +5,13 @@
 #include <iostream>
 #include <vector>
 
+
 int main(){
 
     int lessonTime1, lessonTime2, lessonDuration1, lessonDuration2;
 
-    std::string lessonDate1, lessonDate2, lessonType1, lessonType2;
+    int lessonType1, lessonType2;
+    std::string lessonDate1, lessonDate2;
 
     std::cin >> lessonTime1;
     std::cin >> lessonTime2;
@@ -20,8 +22,8 @@ int main(){
     std::cin >> lessonDuration1;
     std::cin >> lessonDuration2;
 
-    Lesson *lesson1 = new Lesson(lessonTime1, lessonDate1, lessonType1, lessonDuration1);
-    Lesson *lesson2 = new Lesson(lessonTime2, lessonDate2, lessonType2, lessonDuration2);
+    Lesson *lesson1 = new Lesson(lessonTime1, lessonType1, lessonDuration1, lessonDate1);
+    Lesson *lesson2 = new Lesson(lessonTime2, lessonType2, lessonDuration2, lessonDate2);
 
     lesson1->setTime(lessonTime1);
     lesson2->setTime(lessonTime2);
@@ -36,7 +38,7 @@ int main(){
     lesson2->setDuration(lessonDuration2);
 
 
-    return 0
+    return 0;
 
 
 
