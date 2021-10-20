@@ -1,5 +1,5 @@
-school: main.cpp Person.o Course.o Teacher.o Student.o
-	g++ -std=c++11 main.cpp Person.o Course.o Teacher.o Student.o -o school
+school: main.cpp Person.o Course.o Teacher.o Student.o Lesson.o
+	g++ -std=c++11 main.cpp Person.o Course.o Teacher.o Student.o Lesson.o -o school
 
 Person.o: Person.h Course.h Person.cpp
 	g++ -c -std=c++11 Person.cpp

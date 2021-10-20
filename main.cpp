@@ -13,7 +13,7 @@
 // starter ID's created for teacher and student
 int teacher_id = 10000;
 int student_id = 15000;
-
+std::vector <Student*> students;
 Course zero_course;
 
 // This function takes the course list, member_var which indicates which member variable of 
@@ -340,13 +340,13 @@ bool loginfunct() {
         idcheck = stringtoint(sidcheck);
 
         // if their id is less than 15000, they are a teacher
-        if (idcheck <= 15000) {
+        if (idcheck < 15000) {
             logout = teachlogin(); // calling to teacher login function
             if (logout == 3) { // if they chose to logout
                 return false; // go back to the main function and restart
             }
         // if their id is more than 15000, they are a student
-        } else if (idcheck > 15000) {
+        } else if (idcheck >= 15000) {
             logout = studlogin(courseslist); // calling to student login function bringing the course array
             if (logout == 5) { // if they chose to logout
                 return false; // go back to the main function and restart
