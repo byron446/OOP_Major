@@ -68,15 +68,21 @@ int main(int argc, char* argv[]){
 
     std::ofstream myfile;
     myfile.open ("example.csv");
-    myfile << "The first course name is";
+    myfile << "The first course name is. \n";
     myfile << courseName1;
-    myfile << "The first course id is";
+    myfile << "\n";
+    myfile << "The first course id is \n";
     myfile << courseId1;
-    myfile << "The second course name is";
+    myfile << "\n";
+    myfile << "The second course name is \n";
     myfile << courseName2;
-    myfile << "The second course id is";
+    myfile << "\n";
+    myfile << "The second course id is \n";
     myfile << courseId2;
+    myfile << "\n";
     myfile.close();
+
+    // comma moves cell
 
 
 
