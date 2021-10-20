@@ -15,6 +15,12 @@ int teacher_id = 10000;
 int student_id = 15000;
 std::vector <Student*> students;
 Course zero_course;
+Teacher Teacher1[3];
+Student Student1[10];
+int tindex = 0;
+int maxtindex = 0;
+int sindex = 0;
+int maxsindex = 0;
 
 // This function takes the course list, member_var which indicates which member variable of 
 // a course to screen , a value to search for, and the number of courses, and returns the 
@@ -39,15 +45,14 @@ Course MemtoCourse(Course* courseslist, std::string member_value, std::string me
 }
 
 // teacher login function
-int teachlogin() {
-    Teacher Teacher1; // teacher variable created
+int teachlogin(int tindex) {
     std::string inputteachchoice = "?";
     int teachchoice = 0;
     
     // while loop preventing unavailbe options from being selected
     while (teachchoice != 3) {
         std::string cteachchoice = "0";
-        std::cout << "Welcome " << Teacher1.getName() << std::endl; // giving options to teacher
+        std::cout << "Welcome " << Teacher1[tindex].getName() << std::endl; // giving options to teacher
         std::cout << "1. View Timetable" << std::endl;
         std::cout << "2. View Grades" << std::endl;
         std::cout << "3. Logout" << std::endl;
@@ -61,10 +66,10 @@ int teachlogin() {
 
         if (teachchoice == 1) {
             std::cout << "Printing Timetable..." << std::endl;
-            Teacher1.printTimetable(); // function to print the teachers timetable
+            Teacher1[tindex].printTimetable(); // function to print the teachers timetable
         } else if (teachchoice == 2) {
             std::cout << "Printing Grades..." << std::endl;
-            Teacher1.printGrades(); // calling to printGrades function
+            Teacher1[tindex].printGrades(); // calling to printGrades function
         } else if (teachchoice == 3) {
             std::cout << "Logging out of session..." << std::endl;
         }
@@ -75,15 +80,14 @@ int teachlogin() {
 }
 
 // student login function 
-int studlogin(Course* courseslist) {
-    Student Student1; // student variable created
+int studlogin(Course* courseslist, int sindex) {
     std::string inputstudchoice = "?";
     int studchoice = 0;
 
     // while loop to prevent unavailble choice from being selected
     while (studchoice != 5) {
         std::string cstudchoice = "0";
-        std::cout << "Welcome " << Student1.getName() << std::endl; // giving options to the student
+        std::cout << "Welcome " << Student1[sindex].getName() << std::endl; // giving options to the student
         std::cout << "1. View Timetable" << std::endl;
         std::cout << "2. View Grade" << std::endl;
         std::cout << "3. Enrol" << std::endl;
@@ -99,10 +103,10 @@ int studlogin(Course* courseslist) {
 
         if (studchoice == 1) {
             std::cout << "Printing Timetable..." << std::endl;
-            Student1.printTimetable(); // function to print students timetable
+            Student1[sindex].printTimetable(); // function to print students timetable
         } else if (studchoice == 2) {
             std::cout << "Printing Grades..." << std::endl;
-            Student1.printGrades(); // calling to function to show the student their grades
+            Student1[sindex].printGrades(); // calling to function to show the student their grades
         } else if (studchoice == 3) { // if the student wants to enrol in a course
             // listing all available courses
             std::string inputcname = "?";
@@ -140,7 +144,7 @@ int studlogin(Course* courseslist) {
                 }
             }
             // function to add the course to the student's enrollment
-            Student1.enrol(&courseslist[cname-1], 100);
+            Student1[sindex].enrol(&courseslist[cname-1], 100);
         } else if (studchoice == 4) { // if the student wants to remove a course
             // listing all available courses
             std::string inputcname = "?";
@@ -178,7 +182,7 @@ int studlogin(Course* courseslist) {
                 }
             }
             // function to add the course to the student's enrollment
-            Student1.leaveCourse(&courseslist[cname-1]);
+            Student1[sindex].leaveCourse(&courseslist[cname-1]);
         } else if (studchoice == 5) {
             std::cout << "Logging out of session..." << std::endl;
         }
@@ -213,21 +217,20 @@ void newuser() {
 
         // if they are a teacher
         if (role == 1) {
-            Teacher Teacher1; // create a teacher variable 
-            Teacher1.setName(tname); // storing teacher name in the teacher type
-            Teacher1.setIdNum(&teacher_id); // creating an ID for the teacher
+            Teacher1[maxtindex].setName(tname); // storing teacher name in the teacher type
+            Teacher1[maxtindex].setIdNum(&teacher_id); // creating an ID for the teacher
             // telling the teacher their ID number
             std::cout << std::endl;
-            std::cout << "Your ID Number is : a" << Teacher1.getIdNum() << std::endl;
-        
+            std::cout << "Your ID Number is : a" << Teacher1[maxtindex].getIdNum() << std::endl;
+            maxtindex++;
         // if they are a student
         } else if (role == 2) {
-            Student Student1; // create a student variable
-            Student1.setName(tname); // storing students name in the student type
-            Student1.setIdNum(&student_id); // creating an ID for the teacher
+            Student1[maxsindex].setName(tname); // storing students name in the student type
+            Student1[maxsindex].setIdNum(&student_id); // creating an ID for the teacher
             // telling the student their ID number
             std::cout << std::endl;
-            std::cout << "Your ID Number is : a" << Student1.getIdNum() << std::endl;
+            std::cout << "Your ID Number is : a" << Student1[maxsindex].getIdNum() << std::endl;
+            maxsindex++;
         }
         std::cout << std::endl;
     }
@@ -329,7 +332,7 @@ bool loginfunct() {
             validation = idvalid(sidcheck);
             // calling to function to convert the string id to an integer
             idcheck = stringtoint(sidcheck);
-            if ((idcheck > teacher_id && idcheck < 15000) || (idcheck > student_id) || validation == 0) {
+            if ((idcheck > teacher_id-1 && idcheck < 15000) || (idcheck > student_id-1) || validation == 0) {
                 std::cout << "You have entered an invalid id, please ensure the id you have entered is correct" << std::endl;
                 validation = 0;
             }
@@ -338,13 +341,15 @@ bool loginfunct() {
 
         // if their id is less than 15000, they are a teacher
         if (idcheck <= teacher_id && idcheck >= 10000) {
-            logout = teachlogin(); // calling to teacher login function
+            tindex = idcheck-10000;
+            logout = teachlogin(tindex); // calling to teacher login function
             if (logout == 3) { // if they chose to logout
                 return false; // go back to the main function and restart
             }
         // if their id is more than 15000, they are a student
         } else if (idcheck <= student_id && idcheck >= 15000) {
-            logout = studlogin(courseslist); // calling to student login function bringing the course array
+            sindex = idcheck-15000;
+            logout = studlogin(courseslist, sindex); // calling to student login function bringing the course array
             if (logout == 5) { // if they chose to logout
                 return false; // go back to the main function and restart
             }
