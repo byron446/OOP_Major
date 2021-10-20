@@ -34,8 +34,8 @@ TeacherTest: TeacherTester.cpp Person.o Teacher.o Student.o Course.o Lesson.o
 CourseTest: CourseTest.cpp Course.o
 	g++ -std=c++11 CourseTest.cpp Course.o -o course
 
-LessonTest: Course.h Lesson.h LessonTester.o
-	g++ -c -std=c++11 LessonTester.cpp	
+LessonTest: Course.h Lesson.h LessonTester.cpp Lesson.o
+	g++ -c -std=c++11 LessonTester.cpp -o Lesson	
 
 
 clean:
