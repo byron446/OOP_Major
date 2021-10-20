@@ -13,6 +13,6 @@ Your grades in each subject are:
 1000 Maths: 60
 1102 ObjectOriented: 90
 Your grades in each subject are:
-1000 Maths: 58
+1000 Maths: 76
 Your grades in each subject are:
 1000 Maths: 60
