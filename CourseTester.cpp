@@ -23,6 +23,11 @@ int main(){
     course2->setName(courseName2);
     course2->setCourseID(courseId2);
 
+    // course1->getName(courseName1);
+    // course1->getCourseId(courseId1);
+    // course2->getName(courseName2);
+    // course2->getCourseId(courseId2);
+
     return 0;
     
 }
