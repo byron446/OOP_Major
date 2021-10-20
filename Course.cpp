@@ -43,6 +43,10 @@ std::string Course::getCourseId()
     return course_id;
 }
 
+void Course::addLesson(Lesson* new_lesson)
+{
+    lessons.push_back(new_lesson);
+}
 std::vector<Lesson*> &Course::getLessons()
 {
     return lessons;

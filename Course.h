@@ -29,7 +29,7 @@ public:
 
     std::vector<Lesson*> &getLessons();
 
-
+    void addLesson(Lesson* new_lesson);
 
 private:
     std::string course_id;
