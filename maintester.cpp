@@ -206,13 +206,14 @@ void newuser() {
         role = std::stoi(crole);
         std::cout << std::endl;
 
+        std::string tname;
+        // ask for their name
+        std::cout << "Please Enter your Name: ";
+        getline(std::cin, tname);
+
         // if they are a teacher
         if (role == 1) {
             //Teacher Teacher1; // create a teacher variable 
-            std::string tname;
-            // ask for their name
-            std::cout << "Please Enter your Name: ";
-            getline(std::cin, tname);
             //Teacher1.setName(tname); // storing teacher name in the teacher type
             //Teacher1.setIdNum(&teacher_id); // creating an ID for the teacher
             // telling the teacher their ID number
@@ -222,10 +223,6 @@ void newuser() {
         // if they are a student
         } else if (role == 2) {
             //Student Student1; // create a student variable
-            std::string tname;
-            // ask for their name
-            std::cout << "Please Enter your Name: ";
-            getline(std::cin, tname);
             //Student1.setName(tname); // storing students name in the student type
             //Student1.setIdNum(&student_id); // creating an ID for the teacher
             // telling the student their ID number
@@ -243,11 +240,11 @@ bool idvalid(std::string sidcheck) {
     int idlength = sidcheck.length();
 
     // converting string to character array
-    char cidcheck[idlength];
-    strcpy(cidcheck, sidcheck.c_str());
+    // char cidcheck[idlength];
+    // strcpy(cidcheck, sidcheck.c_str());
 
     // if id doesnt start with 'a'
-    if (cidcheck[0] != 'a') {
+    if (sidcheck[0] != 'a') {
         return false;
     }
 
@@ -258,7 +255,7 @@ bool idvalid(std::string sidcheck) {
 
     // if there are other non integer values in the id not including the a at the beginning
     for (int i=1; i<6; i++) {
-        if (cidcheck[i]<48 || cidcheck[i]>57) { //48 is ascii for 0, 57 is ascii for 9
+        if (sidcheck[i]<48 || sidcheck[i]>57) { //48 is ascii for 0, 57 is ascii for 9
             return false;
         }
     }
@@ -270,15 +267,15 @@ bool idvalid(std::string sidcheck) {
 int stringtoint (std::string sidcheck) {
     // int to assign the id to
     int idcheck = 0;
+    int idlength = sidcheck.length();
 
     // converting to character array
-    int idlength = sidcheck.length();
-    char cidcheck[idlength];
-    strcpy(cidcheck, sidcheck.c_str());
+    // char cidcheck[idlength];
+    // strcpy(cidcheck, sidcheck.c_str());
 
     // adding the values multiplied by 10 to the power of the index to create one number
     for (int i=1; i<idlength; i++) {
-        idcheck = idcheck + (cidcheck[i]-48) * (pow(10,(idlength-(i+1)))); // take away 48 because of ascii values
+        idcheck = idcheck + (sidcheck[i]-48) * (pow(10,(idlength-(i+1)))); // take away 48 because of ascii values
     }
 
     return idcheck;
