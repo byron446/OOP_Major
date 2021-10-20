@@ -206,13 +206,14 @@ void newuser() {
         role = std::stoi(crole);
         std::cout << std::endl;
 
+        std::string tname;
+        // ask for their name
+        std::cout << "Please Enter your Name: ";
+        getline(std::cin, tname);
+
         // if they are a teacher
         if (role == 1) {
             Teacher Teacher1; // create a teacher variable 
-            std::string tname;
-            // ask for their name
-            std::cout << "Please Enter your Name: ";
-            getline(std::cin, tname);
             Teacher1.setName(tname); // storing teacher name in the teacher type
             Teacher1.setIdNum(&teacher_id); // creating an ID for the teacher
             // telling the teacher their ID number
@@ -222,10 +223,6 @@ void newuser() {
         // if they are a student
         } else if (role == 2) {
             Student Student1; // create a student variable
-            std::string tname;
-            // ask for their name
-            std::cout << "Please Enter your Name: ";
-            getline(std::cin, tname);
             Student1.setName(tname); // storing students name in the student type
             Student1.setIdNum(&student_id); // creating an ID for the teacher
             // telling the student their ID number
@@ -332,7 +329,7 @@ bool loginfunct() {
             validation = idvalid(sidcheck);
             // calling to function to convert the string id to an integer
             idcheck = stringtoint(sidcheck);
-            if ((idcheck >teacher_id && idcheck < 15000) || (idcheck >student_id) || validation == 0) {
+            if ((idcheck > teacher_id && idcheck < 15000) || (idcheck > student_id) || validation == 0) {
                 std::cout << "You have entered an invalid id, please ensure the id you have entered is correct" << std::endl;
                 validation = 0;
             }
