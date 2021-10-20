@@ -13,7 +13,7 @@
 // starter ID's created for teacher and student
 int teacher_id = 10000;
 int student_id = 15000;
-
+std::vector <Student*> students;
 Course zero_course;
 
 // This function takes the course list, member_var which indicates which member variable of 
