@@ -27,14 +27,14 @@ public:
 
     void setName(std::string pname);
 
-    
+    std::vector<Lesson*> &getLessons();
 
 
 
 private:
     std::string course_id;
     std::string name;
-    Lesson* lessons;
+    std::vector <Lesson*> lessons;
 
 };
 

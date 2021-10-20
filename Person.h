@@ -24,17 +24,22 @@ public:
 
     // Functions to add or remove a course, and to print all courses a person 
     // is currently enrolled in
-    void enrol(Course& new_course);
-    std::vector<Course> &getCourses();
-    int leaveCourse(Course& exit_course);
+    virtual bool enrol(Course* new_course);
+    std::vector<Course*> &getCourses();
+    int getCourseIndex(Course* pcourse);
+    virtual bool leaveCourse(Course* exit_course);
     void printCourses();
+
+
+    void printTimetable();
 
     // virtual function to print the grades a person has permission to see
     virtual void printGrades() = 0; 
+    virtual void enrol(Course* new_course, int grade) = 0;
 private:
     std::string name;
     int id_num;
-    std::vector <Course> courses;
+    std::vector <Course*> courses;
 };
 
 #endif

@@ -3,29 +3,63 @@
 #include "Person.h"
 #include <string>
 #include <iostream>
-#include <map>
 
+// Default constructor
 Student::Student()
 {
 
 }
 
-void Student::enrolStudent(Course new_course, int grade)
+// enrols a student in a new course, by taking a pointer to the new course, 
+// and a current grade.
+void Student::enrol(Course* new_course, int grade)
 {
-    enrol(new_course);
-    grades.push_back(grade);
+    // call enrol method to add new_course to vector of courses
+    bool course_add = Person::enrol(new_course);
+
+    // if the student was not already enrolled, add a 
+    if (course_add == true){
+        grades.push_back(grade);
+    }
 }
 
-void Student::leaveCourseStudent(Course exit_course)
+// Sets the grade for a specific course
+void Student::setGrade(int grade, Course* pcourse)
 {
-    int i = leaveCourse(exit_course);
-    grades.erase(grades.begin()+i);
+    int i = getCourseIndex(pcourse);
+    grades.at(i) = grade;
 }
 
+int Student::getGrade(Course* pcourse)
+{
+    int i = getCourseIndex(pcourse);
+    return grades.at(i);
+}
+
+// removes a student froma course by taking a pointer to the exit course, 
+// and its corresponding grade.
+void Student::leaveCourseStudent(Course* exit_course)
+{
+    bool left = leaveCourse(exit_course);
+    int i  = getCourseIndex(exit_course);
+    if(i >= 0 && left == true){
+        grades.erase(grades.begin()+i);
+    }
+}
+
+// function to print a formatted list of the courses a student is enrolled in, 
+// along with their current grades.
 void Student::printGrades()
 {
     std::cout << "Your grades in each subject are:" << std::endl;
+
     for(int i = 0; i < getCourses().size(); i++){
-        std::cout << getCourses().at(i).getCourseId() << " " << getCourses().at(i).getName() << ": " << grades.at(i) << std::endl;
+        std::cout << getCourses().at(i)->getCourseId() << " " << getCourses().at(i)->getName() << ": " << grades.at(i) << std::endl;
     }
+}
+
+// Default destructor
+Student::~Student()
+{
+
 }
