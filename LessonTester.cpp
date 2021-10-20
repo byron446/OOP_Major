@@ -32,7 +32,7 @@ int main(){
 
     lesson1->setTime(lessonTime1);
     lesson2->setTime(lessonTime2);
-
+    // will it recognise changes?
     lesson1->setDate(lessonDate1);
     lesson2->setDate(lessonDate2);
 
