@@ -130,17 +130,14 @@ void Person::printTimetable()
 
                         // if the time is between the lesson start and end print the course name and lesson type
                         if(lesson_start <= time && lesson_end >= time){
-                            std::cout << getCourses().at(i)->getName() << std::endl;
-                            std::string current_lesson = lessons[(int)getCourses().at(i)->getLessons().at(j)->getLesson()];
-                            std::cout << current_lesson;
+                            std::string current_lesson = lessons[(int)getCourses().at(i)->getLessons().at(j)->getLesson()];       
+                            std::cout << getCourses().at(i)->getName() << "  " << current_lesson;
                         }
-                    }else{
-                        std::cout << std::endl;
                     }
-                    std::cout << std::endl;
                 }
             }
         }
+        std::cout << std::endl << std::endl;
     }
 }
 

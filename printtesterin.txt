@@ -2,10 +2,10 @@
 1300
 0
 1
-Lecture
-Tutorial
+0
+2
 100
-100
+200
 Maths
 Physics
 1

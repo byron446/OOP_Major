@@ -41,17 +41,16 @@ int main(){
 
     lesson1->setDuration(lessonDuration1);
     lesson2->setDuration(lessonDuration2);
-
+    //std::cout << "1" << std::endl;
     std::string courseName1, courseName2, courseId1, courseId2;
 
     std::cin >> courseName1;
     std::cin >> courseName2;
     std::cin >> courseId1;
     std::cin >> courseId2;
-
+    // std::cout << "2" << std::endl;
     Course *course1 = new Course(courseName1,courseId1);
     Course *course2 = new Course(courseName2,courseId2);
-
 
     course1->setName(courseName1);
     course1->setCourseID(courseId1);
@@ -60,7 +59,6 @@ int main(){
     course1->addLesson(lesson1);
     course2->addLesson(lesson2);
 
-    return 0;
     Student student1;
     student1.enrol(course1,0);
     student1.enrol(course2,0);
