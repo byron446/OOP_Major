@@ -66,7 +66,7 @@ void Student::printGrades()
     gradesfile.open (filename);
     gradesfile << "Your grades are. \n";
 
-    for(int i =0; i < getCourses().size(); i++){
+    for(int i = 0; i < getCourses().size(); i++){
         gradesfile <<  getCourses().at(i)->getCourseId();
         gradesfile << ",";
         gradesfile << getCourses().at(i)->getName();
