@@ -75,8 +75,10 @@ int studlogin(Course* courseslist) {
         }
 
         if (studchoice == 1) {
+            std::cout << "Printing Timetable..." << std::endl;
             Student1.printTimetable(); // function to print students timetable
         } else if (studchoice == 2) {
+            std::cout << "Printing Grades..." << std::endl;
             Student1.printGrades(); // calling to function to show the student their grades
         } else if (studchoice == 3) { // if the student wants to enrol in a course
             // listing all available courses

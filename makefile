@@ -13,8 +13,8 @@ Teacher.o: Person.h Student.h Teacher.h Teacher.cpp
 Course.o: Course.h Lesson.h Course.cpp
 	g++ -c -std=c++11 Course.cpp	
 
-MainTest: maintester.cpp mainfunctiontester.cpp
-	g++ -std=c++11 maintester.cpp mainfunctiontester.cpp -o main
+MainTest: maintester.cpp
+	g++ -std=c++11 maintester.cpp -o main
 
 Lesson.o: Lesson.h Lesson.cpp
 	g++ -c -std=c++11 Lesson.cpp
