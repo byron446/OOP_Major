@@ -5,8 +5,9 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <fstream>
 
-int main(){
+int main(int argc, char* argv[]){
 
     int lessonTime1, lessonTime2, lessonDuration1, lessonDuration2;
 
@@ -64,9 +65,22 @@ int main(){
     student1.enrol(course2,0);
 
     student1.printTimetable();
+
+    std::ofstream myfile;
+    myfile.open ("example.csv");
+    myfile << "This is the first cell in the first column.\n";
+    myfile << "a,b,c,\n";
+    myfile << "c,s,v,\n";
+    myfile << "1,2,3.456\n";
+    myfile << "semi;colon";
+    myfile.close();
+
+
+
     return 0;
     
 
 
 
 }
+
