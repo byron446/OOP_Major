@@ -82,6 +82,8 @@ int main(int argc, char* argv[]){
     myfile << "\n";
     myfile.close();
 
+    // comma moves cell
+
 
 
     return 0;
