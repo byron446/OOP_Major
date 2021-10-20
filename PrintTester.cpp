@@ -9,7 +9,7 @@
 
 int main(int argc, char* argv[]){
 
-    int lessonTime1, lessonTime2, lessonDuration1, lessonDuration2;
+    int lessonTime1, lessonTime2;
 
     int lessonType1, lessonType2;
     // std::string lessonDate1, lessonDate2;
@@ -23,11 +23,9 @@ int main(int argc, char* argv[]){
     std::cin >> lessonDate2;
     std::cin >> lessonType1;
     std::cin >> lessonType2;
-    std::cin >> lessonDuration1;
-    std::cin >> lessonDuration2;
 
-    Lesson *lesson1 = new Lesson(lessonTime1, lessonType1, lessonDuration1, lessonDate1);
-    Lesson *lesson2 = new Lesson(lessonTime2, lessonType2, lessonDuration2, lessonDate2);
+    Lesson *lesson1 = new Lesson(lessonTime1, lessonType1, lessonDate1);
+    Lesson *lesson2 = new Lesson(lessonTime2, lessonType2, lessonDate2);
     // Lesson *lesson1 = new Lesson(lessonTime1, lessonDate1, lessonType1);
     // Lesson *lesson2 = new Lesson(lessonTime2, lessonDate2, lessonType2);
 
@@ -39,9 +37,6 @@ int main(int argc, char* argv[]){
 
     lesson1->setLesson(lessonType1);
     lesson2->setLesson(lessonType2);
-
-    lesson1->setDuration(lessonDuration1);
-    lesson2->setDuration(lessonDuration2);
     //std::cout << "1" << std::endl;
     std::string courseName1, courseName2, courseId1, courseId2;
 

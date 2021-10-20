@@ -15,7 +15,7 @@ private:
     // Default constructor and destructor for the Lesson class.
     
     Lesson();
-    Lesson(int pltime, int pduration, int plesson, int pdate);
+    Lesson(int pltime, int plesson, int pdate);
     // Lesson(int ptime, int pdate, int type);
 
     ~Lesson();
@@ -32,7 +32,7 @@ private:
 
     enum LessonType getLesson();
  
-    void setDuration(int pduration);
+//    void setDuration(int pduration);
 
     int getDuration();
 
