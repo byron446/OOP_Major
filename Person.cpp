@@ -111,7 +111,7 @@ bool Person::leaveCourse(Course* exit_course)
 void Person::printTimetable()
 {
     std::string lessons[4] = {"Lecture", "Tutorial", "Workshop", "Practical"};
-    std::cout << "Time      Monday      Tuesday     Wednesday       Thursday        Friday" << std::endl;
+    std::cout << "Time              Monday              Tuesday             Wednesday               Thursday                Friday" << std::endl;
     // loops for each hour slot
     for(int time = 900; time < 1800; time+=100){
         std::cout << time << "      ";
@@ -129,13 +129,14 @@ void Person::printTimetable()
                         int lesson_end = lesson_start + getCourses().at(i)->getLessons().at(j)->getDuration();
 
                         // if the time is between the lesson start and end print the course name and lesson type
-                        if(lesson_start <= time && lesson_end >= time){
+                        if(lesson_start <= time && lesson_end > time){
                             std::string current_lesson = lessons[(int)getCourses().at(i)->getLessons().at(j)->getLesson()];       
                             std::cout << getCourses().at(i)->getName() << "  " << current_lesson;
                         }
                     }
                 }
             }
+            std::cout << "      ";
         }
         std::cout << std::endl << std::endl;
     }
