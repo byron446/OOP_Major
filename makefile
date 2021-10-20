@@ -22,6 +22,9 @@ Lesson.o: Lesson.h Lesson.cpp
 StudentTest: StudentTester.cpp Person.o Student.o Course.o Lesson.o
 	g++ -std=c++11 StudentTester.cpp Person.o Student.o Course.o Lesson.o -o student
 
+PrintTest: PrintTester.cpp Lesson.o Course.o Person.o Student.o
+	g++ -std=c++11 PrintTester.cpp Person.o Student.o Course.o Lesson.o -o timetable
+
 TestPerson.o: TestPerson.h TestPerson.cpp
 	g++ -c -std=c++11 TestPerson.cpp
 
