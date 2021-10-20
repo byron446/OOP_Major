@@ -4,8 +4,6 @@
 1
 0
 2
-100
-200
 Maths
 Physics
 1

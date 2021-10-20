@@ -114,7 +114,7 @@ void Person::printTimetable()
     std::cout << "Time              Monday              Tuesday             Wednesday               Thursday                Friday" << std::endl;
     // loops for each hour slot
     for(int time = 900; time < 1800; time+=100){
-        std::cout << time << "      ";
+        std::cout << time << "          ";
         // loops for each day
         for(int day = 0; day < 5; day++){
             // loops through each course
@@ -138,9 +138,9 @@ void Person::printTimetable()
                     }
                 }
             }
-            // Outputs extra format spacing if there was not a lesson at a given day and time
-            if(!lesson_at_time){
-               std::cout << "           "; 
+            //Outputs extra format spacing if there was not a lesson at a given day and time
+            if(lesson_at_time == false){
+               std::cout << "               "; 
             }
             std::cout << "      ";
         }
