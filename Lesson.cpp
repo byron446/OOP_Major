@@ -17,11 +17,10 @@ Lesson::Lesson(){
 
 }
 
-Lesson::Lesson(int pltime, int pduration, int plesson, int pdate){
+Lesson::Lesson(int pltime, int plesson, int pdate){
 
     lessonTime  = pltime;
     lessonDate = pdate;
-    lessonDuration = pduration;
     lesson = (LessonType)plesson;
 
 }
@@ -64,6 +63,7 @@ int Lesson::getDate(){
 void Lesson::setLesson(int plesson)
 {
     lesson = (LessonType)plesson;
+    lessonDuration = duration[lesson];
 }
 
 enum Lesson::LessonType Lesson::getLesson(){
@@ -71,11 +71,11 @@ enum Lesson::LessonType Lesson::getLesson(){
 }
 
 
-void Lesson::setDuration(int pduration){
+// void Lesson::setDuration(int pduration){
 
-    lessonDuration = pduration;
+//     lessonDuration = pduration;
 
-}
+// }
 
 int Lesson::getDuration(){
 

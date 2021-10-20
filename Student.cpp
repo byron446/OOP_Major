@@ -41,8 +41,8 @@ int Student::getGrade(Course* pcourse)
 // and its corresponding grade.
 void Student::leaveCourseStudent(Course* exit_course)
 {
-    bool left = leaveCourse(exit_course);
     int i  = getCourseIndex(exit_course);
+    bool left = leaveCourse(exit_course);
     if(i >= 0 && left == true){
         grades.erase(grades.begin()+i);
     }
