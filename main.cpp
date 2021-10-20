@@ -107,15 +107,37 @@ int studlogin(Course* courseslist) {
             // listing all available courses
             std::string inputcname = "?";
             int cname = 0;
-            while (cname != 1 && cname != 2 && cname != 3 && cname != 4 && cname != 5 && cname != 6 && cname != 7 && cname != 8 && cname != 9 && cname != 10) {
+            while (cname < 1 || cname > 11) {
                 std::string appendcname = "0";
-                std::cout << "Which Course would you like to enrol: " << std::endl;
+                std::cout << "Which Course would you like to enrol in: " << std::endl;
                 for (int i=0; i<10; i++) {
-                    std::cout << i+1 << ". " << courseslist[i].getName() << std::endl;;
+                    std::cout << i+1 << ". " << courseslist[i] << std::endl;
                 }
+                std::cout << "11. Exit" << std::endl;
                 getline(std::cin, inputcname);
                 appendcname.append(inputcname);
                 cname = std::stoi(appendcname);
+
+                //asking if the course they selected was correct
+                if (cname >=1 && cname <=10) {
+                    std::string inputconfirm = "?";
+                    int confirm = 0;
+                    while (confirm != 1 && confirm != 2) {
+                        std::string appendconfirm = "0";
+                        std::cout << std::endl << "You have chosen to enrol in: " << courseslist[cname-1] << std::endl;
+                        std::cout << "Is this Correct?" << std::endl;
+                        std::cout << "1. Yes" << std::endl << "2. No" << std::endl;
+                        getline(std::cin, inputconfirm);
+                        appendconfirm.append(inputconfirm);
+                        confirm = std::stoi(appendconfirm);
+                    }
+                    if (confirm == 2) { // if not, return to beginning of while loop
+                        cname = 0;
+                        std::cout << std::endl;
+                    }
+                } else if (cname != 11) {
+                    std::cout << std::endl;
+                }
             }
             // function to add the course to the student's enrollment
             Student1.enrol(&courseslist[cname-1], 100);
@@ -123,15 +145,37 @@ int studlogin(Course* courseslist) {
             // listing all available courses
             std::string inputcname = "?";
             int cname = 0;
-            while (cname != 1 && cname != 2 && cname != 3 && cname != 4 && cname != 5 && cname != 6 && cname != 7 && cname != 8 && cname != 9 && cname != 10) {
+            while (cname < 1 || cname > 11) {
                 std::string appendcname = "0";
                 std::cout << "Which Course would you like to remove: " << std::endl;
                 for (int i=0; i<10; i++) {
-                    std::cout << i+1 << ". " << courseslist[i].getName() << std::endl;;
+                    std::cout << i+1 << ". " << courseslist[i] << std::endl;
                 }
+                std::cout << "11. Exit" << std::endl;
                 getline(std::cin, inputcname);
                 appendcname.append(inputcname);
                 cname = std::stoi(appendcname);
+
+                // asking if the course they selected was correct
+                if (cname >=1 && cname <=10) {
+                    std::string inputconfirm = "?";
+                    int confirm = 0;
+                    while (confirm != 1 && confirm != 2) {
+                        std::string appendconfirm = "0";
+                        std::cout << std::endl << "You have chosen to remove: " << courseslist[cname-1] << std::endl;
+                        std::cout << "Is this Correct?" << std::endl;
+                        std::cout << "1. Yes" << std::endl << "2. No" << std::endl;
+                        getline(std::cin, inputconfirm);
+                        appendconfirm.append(inputconfirm);
+                        confirm = std::stoi(appendconfirm);
+                    }
+                    if (confirm == 2) { // if not, return to beginning of while loop
+                        cname = 0;
+                        std::cout << std::endl;
+                    }
+                } else if (cname != 11) {
+                    std::cout << std::endl;
+                }
             }
             // function to add the course to the student's enrollment
             Student1.leaveCourse(&courseslist[cname-1]);
