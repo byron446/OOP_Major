@@ -248,20 +248,17 @@ bool idvalid(std::string sidcheck) {
 
     // if id doesnt start with 'a'
     if (cidcheck[0] != 'a') {
-        std::cout << "Please Ensure you enter 'a' before your code" << std::endl;
         return false;
     }
 
     // if the id isn't the correct length
     if (idlength != 6) {
-        std::cout << "Please Ensure the code you enter is 5 numbers long" << std::endl;
         return false;
     }
 
     // if there are other non integer values in the id not including the a at the beginning
     for (int i=1; i<6; i++) {
         if (cidcheck[i]<48 || cidcheck[i]>57) { //48 is ascii for 0, 57 is ascii for 9
-            std::cout << "Pleas Ensure the code you enter only contains numbers" << std::endl;
             return false;
         }
     }
@@ -333,20 +330,23 @@ bool loginfunct() {
             getline(std::cin, sidcheck);
             // calling to function checking if the id is valid
             validation = idvalid(sidcheck);
+            // calling to function to convert the string id to an integer
+            idcheck = stringtoint(sidcheck);
+            if ((idcheck > teacher_id && idcheck < 15000) || (idcheck > student_id) || validation == 0) {
+                std::cout << "You have entered an invalid id, please ensure the id you have entered is correct" << std::endl;
+                validation = 0;
+            }
             std::cout << std::endl;
         }
 
-        // calling to function to convert the string id to an integer
-        idcheck = stringtoint(sidcheck);
-
         // if their id is less than 15000, they are a teacher
-        if (idcheck <= 15000) {
+        if (idcheck <= teacher_id && idcheck >= 10000) {
             logout = teachlogin(); // calling to teacher login function
             if (logout == 3) { // if they chose to logout
                 return false; // go back to the main function and restart
             }
         // if their id is more than 15000, they are a student
-        } else if (idcheck > 15000) {
+        } else if (idcheck <= student_id && idcheck >= 15000) {
             logout = studlogin(courseslist); // calling to student login function bringing the course array
             if (logout == 5) { // if they chose to logout
                 return false; // go back to the main function and restart
