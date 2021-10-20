@@ -118,6 +118,7 @@ void Person::printTimetable()
         // loops for each day
         for(int day = 0; day < 5; day++){
             // loops through each course
+            bool lesson_at_time = false;
             for(int i = 0; i < getCourses().size(); i++){
                 // loops through each lesson
                 for(int j = 0; j< getCourses().at(i)->getLessons().size(); j++){
@@ -132,9 +133,14 @@ void Person::printTimetable()
                         if(lesson_start <= time && lesson_end > time){
                             std::string current_lesson = lessons[(int)getCourses().at(i)->getLessons().at(j)->getLesson()];       
                             std::cout << getCourses().at(i)->getName() << "  " << current_lesson;
+                            lesson_at_time = true;
                         }
                     }
                 }
+            }
+            // Outputs extra format spacing if there was not a lesson at a given day and time
+            if(!lesson_at_time){
+               std::cout << "           "; 
             }
             std::cout << "      ";
         }
