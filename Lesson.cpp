@@ -19,9 +19,14 @@ Lesson::Lesson(){
 
 Lesson::Lesson(int pltime, int plesson, int pdate){
 
+    duration[LessonType::Lecture] = 100;
+    duration[LessonType::Tutorial] = 100;
+    duration[LessonType::Workshop] = 200;
+    duration[LessonType::Practical] = 300;
     lessonTime  = pltime;
     lessonDate = pdate;
     lesson = (LessonType)plesson;
+    lessonDuration = duration[lesson];
 
 }
 
