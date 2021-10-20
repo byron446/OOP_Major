@@ -3,6 +3,7 @@
 #include "Person.h"
 #include <string>
 #include <iostream>
+#include <fstream>
 
 // Default constructor
 Student::Student()
@@ -56,6 +57,24 @@ void Student::printGrades()
     for(int i = 0; i < getCourses().size(); i++){
         std::cout << getCourses().at(i)->getCourseId() << " " << getCourses().at(i)->getName() << ": " << grades.at(i) << std::endl;
     }
+
+    std::ofstream coursefile;
+    coursefile.open ("Timetable1.csv");
+    coursefile << "The first course name is. \n";
+    // myfile << courseName1;
+    // myfile << "\n";
+    // myfile << "The first course id is \n";
+    // myfile << courseId1;
+    // myfile << "\n";
+    // myfile << "The second course name is \n";
+    // myfile << courseName2;
+    // myfile << "\n";
+    // myfile << "The second course id is \n";
+    // myfile << courseId2;
+    // myfile << "\n";
+    coursefile.close();
+
+
 }
 
 // Default destructor
