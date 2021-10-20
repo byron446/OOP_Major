@@ -107,15 +107,37 @@ int studlogin(Course* courseslist) {
             // listing all available courses
             std::string inputcname = "?";
             int cname = 0;
-            while (cname != 1 && cname != 2 && cname != 3 && cname != 4 && cname != 5 && cname != 6 && cname != 7 && cname != 8 && cname != 9 && cname != 10) {
+            while (cname < 1 || cname > 11) {
                 std::string appendcname = "0";
-                std::cout << "Which Course would you like to enrol: " << std::endl;
+                std::cout << "Which Course would you like to enrol in: " << std::endl;
                 for (int i=0; i<10; i++) {
-                    std::cout << i+1 << ". " << courseslist[i].getName() << std::endl;;
+                    std::cout << i+1 << ". " << courseslist[i].getName() << std::endl;
                 }
+                std::cout << "11. Exit" << std::endl;
                 getline(std::cin, inputcname);
                 appendcname.append(inputcname);
                 cname = std::stoi(appendcname);
+
+                //asking if the course they selected was correct
+                if (cname >=1 && cname <=10) {
+                    std::string inputconfirm = "?";
+                    int confirm = 0;
+                    while (confirm != 1 && confirm != 2) {
+                        std::string appendconfirm = "0";
+                        std::cout << std::endl << "You have chosen to enrol in: " << courseslist[cname-1].getName() << std::endl;
+                        std::cout << "Is this Correct?" << std::endl;
+                        std::cout << "1. Yes" << std::endl << "2. No" << std::endl;
+                        getline(std::cin, inputconfirm);
+                        appendconfirm.append(inputconfirm);
+                        confirm = std::stoi(appendconfirm);
+                    }
+                    if (confirm == 2) { // if not, return to beginning of while loop
+                        cname = 0;
+                        std::cout << std::endl;
+                    }
+                } else if (cname != 11) {
+                    std::cout << std::endl;
+                }
             }
             // function to add the course to the student's enrollment
             Student1.enrol(&courseslist[cname-1], 100);
@@ -123,15 +145,37 @@ int studlogin(Course* courseslist) {
             // listing all available courses
             std::string inputcname = "?";
             int cname = 0;
-            while (cname != 1 && cname != 2 && cname != 3 && cname != 4 && cname != 5 && cname != 6 && cname != 7 && cname != 8 && cname != 9 && cname != 10) {
+            while (cname < 1 || cname > 11) {
                 std::string appendcname = "0";
                 std::cout << "Which Course would you like to remove: " << std::endl;
                 for (int i=0; i<10; i++) {
-                    std::cout << i+1 << ". " << courseslist[i].getName() << std::endl;;
+                    std::cout << i+1 << ". " << courseslist[i].getName() << std::endl;
                 }
+                std::cout << "11. Exit" << std::endl;
                 getline(std::cin, inputcname);
                 appendcname.append(inputcname);
                 cname = std::stoi(appendcname);
+
+                // asking if the course they selected was correct
+                if (cname >=1 && cname <=10) {
+                    std::string inputconfirm = "?";
+                    int confirm = 0;
+                    while (confirm != 1 && confirm != 2) {
+                        std::string appendconfirm = "0";
+                        std::cout << std::endl << "You have chosen to remove: " << courseslist[cname-1].getName() << std::endl;
+                        std::cout << "Is this Correct?" << std::endl;
+                        std::cout << "1. Yes" << std::endl << "2. No" << std::endl;
+                        getline(std::cin, inputconfirm);
+                        appendconfirm.append(inputconfirm);
+                        confirm = std::stoi(appendconfirm);
+                    }
+                    if (confirm == 2) { // if not, return to beginning of while loop
+                        cname = 0;
+                        std::cout << std::endl;
+                    }
+                } else if (cname != 11) {
+                    std::cout << std::endl;
+                }
             }
             // function to add the course to the student's enrollment
             Student1.leaveCourse(&courseslist[cname-1]);
@@ -199,25 +243,22 @@ bool idvalid(std::string sidcheck) {
     int idlength = sidcheck.length();
 
     // converting string to character array
-    char cidcheck[idlength];
-    strcpy(cidcheck, sidcheck.c_str());
+    // char cidcheck[idlength];
+    // strcpy(cidcheck, sidcheck.c_str());
 
     // if id doesnt start with 'a'
-    if (cidcheck[0] != 'a') {
-        std::cout << "Please Ensure you enter 'a' before your code" << std::endl;
+    if (sidcheck[0] != 'a') {
         return false;
     }
 
     // if the id isn't the correct length
     if (idlength != 6) {
-        std::cout << "Please Ensure the code you enter is 5 numbers long" << std::endl;
         return false;
     }
 
     // if there are other non integer values in the id not including the a at the beginning
     for (int i=1; i<6; i++) {
-        if (cidcheck[i]<48 || cidcheck[i]>57) { //48 is ascii for 0, 57 is ascii for 9
-            std::cout << "Pleas Ensure the code you enter only contains numbers" << std::endl;
+        if (sidcheck[i]<48 || sidcheck[i]>57) { //48 is ascii for 0, 57 is ascii for 9
             return false;
         }
     }
@@ -229,15 +270,15 @@ bool idvalid(std::string sidcheck) {
 int stringtoint (std::string sidcheck) {
     // int to assign the id to
     int idcheck = 0;
+    int idlength = sidcheck.length();
 
     // converting to character array
-    int idlength = sidcheck.length();
-    char cidcheck[idlength];
-    strcpy(cidcheck, sidcheck.c_str());
+    // char cidcheck[idlength];
+    // strcpy(cidcheck, sidcheck.c_str());
 
     // adding the values multiplied by 10 to the power of the index to create one number
     for (int i=1; i<idlength; i++) {
-        idcheck = idcheck + (cidcheck[i]-48) * (pow(10,(idlength-(i+1)))); // take away 48 because of ascii values
+        idcheck = idcheck + (sidcheck[i]-48) * (pow(10,(idlength-(i+1)))); // take away 48 because of ascii values
     }
 
     return idcheck;
@@ -289,20 +330,23 @@ bool loginfunct() {
             getline(std::cin, sidcheck);
             // calling to function checking if the id is valid
             validation = idvalid(sidcheck);
+            // calling to function to convert the string id to an integer
+            idcheck = stringtoint(sidcheck);
+            if ((idcheck >teacher_id && idcheck < 15000) || (idcheck >student_id) || validation == 0) {
+                std::cout << "You have entered an invalid id, please ensure the id you have entered is correct" << std::endl;
+                validation = 0;
+            }
             std::cout << std::endl;
         }
 
-        // calling to function to convert the string id to an integer
-        idcheck = stringtoint(sidcheck);
-
         // if their id is less than 15000, they are a teacher
-        if (idcheck <= 15000) {
+        if (idcheck <= teacher_id && idcheck >= 10000) {
             logout = teachlogin(); // calling to teacher login function
             if (logout == 3) { // if they chose to logout
                 return false; // go back to the main function and restart
             }
         // if their id is more than 15000, they are a student
-        } else if (idcheck > 15000) {
+        } else if (idcheck <= student_id && idcheck >= 15000) {
             logout = studlogin(courseslist); // calling to student login function bringing the course array
             if (logout == 5) { // if they chose to logout
                 return false; // go back to the main function and restart
