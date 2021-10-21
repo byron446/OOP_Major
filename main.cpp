@@ -67,6 +67,7 @@ int teachlogin(int tindex) {
         if (teachchoice == 1) {
             std::cout << "Printing Timetable..." << std::endl;
             Teachers[tindex]->printTimetable(); // function to print the teachers timetable
+            Teachers[tindex]->exportTimetable();
         } else if (teachchoice == 2) {
             std::cout << "Printing Grades..." << std::endl;
             Teachers[tindex]->printGrades(); // calling to printGrades function
@@ -104,9 +105,11 @@ int studlogin(Course* courseslist, int sindex) {
         if (studchoice == 1) {
             std::cout << "Printing Timetable..." << std::endl;
             Students[sindex]->printTimetable(); // function to print students timetable
+            Students[sindex]->exportTimetable();
         } else if (studchoice == 2) {
             std::cout << "Printing Grades..." << std::endl;
             Students[sindex]->printGrades(); // calling to function to show the student their grades
+            Students[sindex]->exportGrades();
         } else if (studchoice == 3) { // if the student wants to enrol in a course
             // listing all available courses
             std::string inputcname = "?";
@@ -217,19 +220,23 @@ void newuser() {
 
         // if they are a teacher
         if (role == 1) {
-            Teachers[maxtindex]->setName(tname); // storing teacher name in the teacher type
-            Teachers[maxtindex]->setIdNum(&teacher_id); // creating an ID for the teacher
+            Teacher tteacher;
+            tteacher.setName(tname); // storing teacher name in the teacher type
+            tteacher.setIdNum(&teacher_id); // creating an ID for the teacher
             // telling the teacher their ID number
             std::cout << std::endl;
-            std::cout << "Your ID Number is : a" << Teachers[maxtindex]->getIdNum() << std::endl;
+            std::cout << "Your ID Number is : a" << tteacher.getIdNum() << std::endl;
+            Teachers.push_back(tteacher);
             maxtindex++;
         // if they are a student
         } else if (role == 2) {
-            Students[maxsindex]->setName(tname); // storing students name in the student type
-            Students[maxsindex]->setIdNum(&student_id); // creating an ID for the teacher
+            Student tstudent;
+            tstudent.setName(tname); // storing students name in the student type
+            tstudent.setIdNum(&student_id); // creating an ID for the teacher
             // telling the student their ID number
             std::cout << std::endl;
-            std::cout << "Your ID Number is : a" << Students[maxsindex]->getIdNum() << std::endl;
+            std::cout << "Your ID Number is : a" << tstudent.getIdNum() << std::endl;
+            Students.push_back(tstudent);
             maxsindex++;
         }
         std::cout << std::endl;
