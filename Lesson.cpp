@@ -70,6 +70,8 @@ int Lesson::getDate(){
     return lessonDate;
 
 }
+
+// Casts an integer lesson type to the enum to allow a set list of lessons.
 void Lesson::setLesson(int plesson)
 {
     lesson = (LessonType)plesson;
