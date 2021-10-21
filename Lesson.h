@@ -35,8 +35,6 @@ private:
     void setLesson(int plesson);
 
     enum LessonType getLesson();
- 
-//    void setDuration(int pduration);
 
     int getDuration();
 
