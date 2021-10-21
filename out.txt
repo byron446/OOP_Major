@@ -1,18 +1,19 @@
-15000 15001
-Alan Tim
-The courses you are currently enrolled in are:
-1102 ObjectOriented
-1000 Maths
-The courses you are currently enrolled in are:
-1000 Maths
-1102 ObjectOriented
-Your grades in each subject are:
-1102 ObjectOriented: 76
-1000 Maths: 58
-Your grades in each subject are:
-1000 Maths: 60
-1102 ObjectOriented: 90
-Your grades in each subject are:
-1000 Maths: 58
-Your grades in each subject are:
-1000 Maths: 60
+Time              Monday              Tuesday             Wednesday               Thursday                Friday
+900                                                                                                                   
+
+1000                                                                                                                   
+
+1100                                                                                                                   
+
+1200          Maths  Lecture                                                                                          
+
+1300                               Physics  Workshop                                                                     
+
+1400                               Physics  Workshop                                                                     
+
+1500                                                                                                                   
+
+1600                                                                                                                   
+
+1700                                                                                                                   
+
