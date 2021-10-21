@@ -80,7 +80,7 @@ int teachlogin(int tindex) {
 }
 
 // student login function 
-int studlogin(Course* courseslist, int sindex) {
+int studlogin(Course** courseslist, int sindex) {
     std::string inputstudchoice = "?";
     int studchoice = 0;
 
@@ -115,7 +115,7 @@ int studlogin(Course* courseslist, int sindex) {
                 std::string appendcname = "0";
                 std::cout << "Which Course would you like to enrol in: " << std::endl;
                 for (int i=0; i<10; i++) {
-                    std::cout << i+1 << ". " << courseslist[i].getName() << std::endl;
+                    std::cout << i+1 << ". " << courseslist[i]->getCourseId() << " " << courseslist[i]->getName() << std::endl;
                 }
                 std::cout << "11. Exit" << std::endl;
                 getline(std::cin, inputcname);
@@ -128,7 +128,7 @@ int studlogin(Course* courseslist, int sindex) {
                     int confirm = 0;
                     while (confirm != 1 && confirm != 2) {
                         std::string appendconfirm = "0";
-                        std::cout << std::endl << "You have chosen to enrol in: " << courseslist[cname-1].getName() << std::endl;
+                        std::cout << std::endl << "You have chosen to enrol in: " << courseslist[cname-1]->getCourseId() << " " << courseslist[cname-1]->getName() << std::endl;
                         std::cout << "Is this Correct?" << std::endl;
                         std::cout << "1. Yes" << std::endl << "2. No" << std::endl;
                         getline(std::cin, inputconfirm);
@@ -144,7 +144,7 @@ int studlogin(Course* courseslist, int sindex) {
                 }
             }
             // function to add the course to the student's enrollment
-            Students[sindex]->enrol(&courseslist[cname-1], 100);
+            Students[sindex]->enrol(courseslist[cname-1], 100);
         } else if (studchoice == 4) { // if the student wants to remove a course
             // listing all available courses
             std::string inputcname = "?";
@@ -153,7 +153,7 @@ int studlogin(Course* courseslist, int sindex) {
                 std::string appendcname = "0";
                 std::cout << "Which Course would you like to remove: " << std::endl;
                 for (int i=0; i<10; i++) {
-                    std::cout << i+1 << ". " << courseslist[i].getName() << std::endl;
+                    std::cout << i+1 << ". " << courseslist[i]->getCourseId() << " " << courseslist[i]->getName() << std::endl;
                 }
                 std::cout << "11. Exit" << std::endl;
                 getline(std::cin, inputcname);
@@ -166,7 +166,7 @@ int studlogin(Course* courseslist, int sindex) {
                     int confirm = 0;
                     while (confirm != 1 && confirm != 2) {
                         std::string appendconfirm = "0";
-                        std::cout << std::endl << "You have chosen to remove: " << courseslist[cname-1].getName() << std::endl;
+                        std::cout << std::endl << "You have chosen to remove: " << courseslist[cname-1]->getCourseId() << " " << courseslist[cname-1]->getName() << std::endl;
                         std::cout << "Is this Correct?" << std::endl;
                         std::cout << "1. Yes" << std::endl << "2. No" << std::endl;
                         getline(std::cin, inputconfirm);
@@ -182,7 +182,7 @@ int studlogin(Course* courseslist, int sindex) {
                 }
             }
             // function to add the course to the student's enrollment
-            Students[sindex]->leaveCourse(&courseslist[cname-1]);
+            Students[sindex]->leaveCourse(courseslist[cname-1]);
         } else if (studchoice == 5) {
             std::cout << "Logging out of session..." << std::endl;
         }
@@ -242,10 +242,6 @@ bool idvalid(std::string sidcheck) {
     // integer for the length of the string
     int idlength = sidcheck.length();
 
-    // converting string to character array
-    // char cidcheck[idlength];
-    // strcpy(cidcheck, sidcheck.c_str());
-
     // if id doesnt start with 'a'
     if (sidcheck[0] != 'a') {
         return false;
@@ -272,10 +268,6 @@ int stringtoint (std::string sidcheck) {
     int idcheck = 0;
     int idlength = sidcheck.length();
 
-    // converting to character array
-    // char cidcheck[idlength];
-    // strcpy(cidcheck, sidcheck.c_str());
-
     // adding the values multiplied by 10 to the power of the index to create one number
     for (int i=1; i<idlength; i++) {
         idcheck = idcheck + (sidcheck[i]-48) * (pow(10,(idlength-(i+1)))); // take away 48 because of ascii values
@@ -288,18 +280,6 @@ int stringtoint (std::string sidcheck) {
 bool loginfunct() {
     std::string login = "?";
     int input = 0;
-
-    // // setting the course names using setName function
-    // courseslist[0].setName("Maths");
-    // courseslist[1].setName("Chemistry");
-    // courseslist[2].setName("Physics");
-    // courseslist[3].setName("Objected Oriented Programming");
-    // courseslist[4].setName("Introduction To Engineering");
-    // courseslist[5].setName("Dynamics");
-    // courseslist[6].setName("Digital Electronics");
-    // courseslist[7].setName("Matlab and C");
-    // courseslist[8].setName("Introduction to Process Engineering");
-    // courseslist[9].setName("Analog Electronics");    
 
     // while loop to prevent unavailable options from being selected
     while (input != 1 && input != 2 && input != 3 ) {

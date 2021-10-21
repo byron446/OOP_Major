@@ -1,0 +1,81 @@
+5
+Maths
+MATHS 1012
+1000
+0
+0
+1400
+4
+1
+Physics
+PHYSICS 1510
+1400
+0
+3
+1100
+4
+1
+Chemisty
+CHEMISTRY 1200
+1300
+1
+2
+1200
+2
+3
+Object Oriented Programming
+OOP 1001
+1030
+4
+0
+1500
+4
+3
+Introduction to Enginering
+ENG 1001
+1200
+4
+0
+1200
+0
+1
+Byron
+0
+98
+1
+86
+3
+92
+Max
+1
+95
+3
+87
+4
+98
+Dev
+2
+90
+1
+99
+4
+100
+Nathaniel
+3
+93
+2
+89
+0
+90
+Austen
+4
+97
+0
+98
+1
+97
+Nick
+Rita
+Braden
+Akram
+Dave
