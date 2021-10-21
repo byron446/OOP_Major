@@ -368,40 +368,76 @@ int main() {
         courseslist[1].setCourseID("PHYSICS 1510");
 
         Lesson * lesson3 = new Lesson(1400,0,3);
-        courseslist[0].addLesson(lesson3);
+        courseslist[1].addLesson(lesson3);
 
         Lesson * lesson4 = new Lesson(1400,4,1);
-        courseslist[0].addLesson(lesson4); 
+        courseslist[1].addLesson(lesson4); 
 
         courseslist[2].setName("Chemistry");
         courseslist[2].setCourseID("CHEM 1200");
             
         Lesson * lesson5 = new Lesson(1300,1,2);
-        courseslist[0].addLesson(lesson5);
+        courseslist[2].addLesson(lesson5);
             
         Lesson * lesson6 = new Lesson(1200,2,3);
-        courseslist[0].addLesson(lesson6); 
+        courseslist[2].addLesson(lesson6); 
 
         courseslist[3].setName("Object Oriented Programming");
         courseslist[3].setCourseID("COMP SCI 1102");
 
         Lesson * lesson7 = new Lesson(1300,1,2);
-        courseslist[0].addLesson(lesson7);
+        courseslist[3].addLesson(lesson7);
             
         Lesson * lesson8 = new Lesson(1200,2,3);
-        courseslist[0].addLesson(lesson8); 
+        courseslist[3].addLesson(lesson8); 
 
         courseslist[4].setName("Introduction to Enginering");
         courseslist[4].setCourseID("ENG 1000");
 
         Lesson * lesson9 = new Lesson(1200,4,0);
-        courseslist[0].addLesson(lesson9);
+        courseslist[4].addLesson(lesson9);
             
         Lesson * lesson10 = new Lesson(1200,0,1);
-        courseslist[0].addLesson(lesson10); 
+        courseslist[4].addLesson(lesson10); 
 
+        Student student1;
+        student1.setName("Byron");
+        student1.setIdNum(&student_id);
+        student1.enrol(&courseslist[0],98);
+        student1.enrol(&courseslist[1],86);
+        Students.push_back(&student1);
 
+        Student student2;
+        student2.setName("Dev");
+        student2.setIdNum(&student_id);
+        student2.enrol(&courseslist[2],95);
+        student2.enrol(&courseslist[3],80);
+        Students.push_back(&student2);
 
+        Student student3;
+        student3.setName("Max");
+        student3.setIdNum(&student_id);
+        student3.enrol(&courseslist[4],78);
+        student3.enrol(&courseslist[1],83);
+        Students.push_back(&student3);
+
+        Teacher teacher1;
+        teacher1.setName("Nate");
+        teacher1.setIdNum(&teacher_id);
+        teacher1.Person::enrol(&courseslist[1]);
+        Teachers.push_back(&teacher1);
+
+        Teacher teacher2;
+        teacher2.setName("Sophia");
+        teacher2.setIdNum(&teacher_id);
+        teacher2.Person::enrol(&courseslist[0]);
+        Teachers.push_back(&teacher2);
+
+        Teacher teacher3;
+        teacher2.setName("Austin");
+        teacher2.setIdNum(&teacher_id);
+        teacher2.Person::enrol(&courseslist[2]);
+        Teachers.push_back(&teacher2);
 
 
     // }
