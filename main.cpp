@@ -399,7 +399,7 @@ int main() {
         courseslist[4].setName("Introduction to Enginering");
         courseslist[4].setCourseID("ENG 1000");
 
-        Lesson * lesson9 = new Lesson(1200,0,4);
+        Lesson * lesson9 = new Lesson(1200,2,4);
         courseslist[4].addLesson(lesson9);
             
         Lesson * lesson10 = new Lesson(1200,0,1);
