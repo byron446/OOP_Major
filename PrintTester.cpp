@@ -77,6 +77,8 @@ int main(int argc, char* argv[]){
     myfile << "\n";
     myfile.close();
 
+    student1.exportTimetable();
+
     // comma moves cell
 
 
