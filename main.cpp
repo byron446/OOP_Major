@@ -115,7 +115,7 @@ int studlogin(Course* courseslist, int sindex) {
                 std::string appendcname = "0";
                 std::cout << "Which Course would you like to enrol in: " << std::endl;
                 for (int i=0; i<10; i++) {
-                    std::cout << i+1 << ". " << courseslist[i].getName() << std::endl;
+                    std::cout << i+1 << ". " << courseslist[i].getCourseId() << " " << courseslist[i].getName() << std::endl;
                 }
                 std::cout << "11. Exit" << std::endl;
                 getline(std::cin, inputcname);
@@ -153,7 +153,7 @@ int studlogin(Course* courseslist, int sindex) {
                 std::string appendcname = "0";
                 std::cout << "Which Course would you like to remove: " << std::endl;
                 for (int i=0; i<10; i++) {
-                    std::cout << i+1 << ". " << courseslist[i].getName() << std::endl;
+                    std::cout << i+1 << ". " << courseslist[i].getCourseId() << " " << courseslist[i].getName() << std::endl;
                 }
                 std::cout << "11. Exit" << std::endl;
                 getline(std::cin, inputcname);
@@ -289,18 +289,6 @@ bool loginfunct() {
     std::string login = "?";
     int input = 0;
 
-    // // setting the course names using setName function
-    // courseslist[0].setName("Maths");
-    // courseslist[1].setName("Chemistry");
-    // courseslist[2].setName("Physics");
-    // courseslist[3].setName("Objected Oriented Programming");
-    // courseslist[4].setName("Introduction To Engineering");
-    // courseslist[5].setName("Dynamics");
-    // courseslist[6].setName("Digital Electronics");
-    // courseslist[7].setName("Matlab and C");
-    // courseslist[8].setName("Introduction to Process Engineering");
-    // courseslist[9].setName("Analog Electronics");    
-
     // while loop to prevent unavailable options from being selected
     while (input != 1 && input != 2 && input != 3 ) {
         std::string clogin = "0";
@@ -376,7 +364,6 @@ int main() {
         std::string course_id;
         std::cin >> course_name;
         std::cin >> course_id;
-
     }
 
 
