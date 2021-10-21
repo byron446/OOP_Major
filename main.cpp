@@ -479,7 +479,6 @@ int main() {
 
     while (quit == 0) { // while loop to take user back to login page once finished
         quit = loginfunct(); // calling to login function
-        return 0;
     }
 
     return 0;
