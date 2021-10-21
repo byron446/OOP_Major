@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <fstream>
 #include "Course.h"
 // Defines the person parent class
 class Person 
@@ -32,6 +33,8 @@ public:
 
 
     void printTimetable();
+
+    void exportTimetable();
 
     // virtual function to print the grades a person has permission to see
     virtual void printGrades() = 0; 

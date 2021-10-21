@@ -57,6 +57,13 @@ void Student::printGrades()
     for(int i = 0; i < getCourses().size(); i++){
         std::cout << getCourses().at(i)->getCourseId() << " " << getCourses().at(i)->getName() << ": " << grades.at(i) << std::endl;
     }
+  
+
+
+}
+
+void Student::exportGrades(){
+
     //creates a string for the filename of format aXXXXXGrades.csv
     std::string filename = "a";
     filename = filename.append(std::to_string(getIdNum()));
@@ -75,7 +82,7 @@ void Student::printGrades()
         gradesfile << "\n";  
     }
    
-    gradesfile.close();
+    gradesfile.close();    
 
 
 }

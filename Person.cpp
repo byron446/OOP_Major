@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 
 // Default constructor for a person, sets name and id number to known defaults
@@ -147,6 +148,68 @@ void Person::printTimetable()
         std::cout << std::endl << std::endl;
     }
 }
+
+
+void Person::exportTimetable(){
+
+    //creates a string for the filename of format aXXXXXTimetable.csv
+    std::string filename = "a";
+    filename = filename.append(std::to_string(getIdNum()));
+    filename = filename.append("Timetable.csv");
+    
+    std::ofstream timetablefile;
+    timetablefile.open (filename);
+    timetablefile << "Time ,";
+    timetablefile << "Monday ,";
+    timetablefile << "Tuesday ,";
+    timetablefile << "Wednesday ,";
+    timetablefile << "Thursday ,";
+    timetablefile << "Friday ,";
+    timetablefile << "\n";
+   
+    
+
+    for(int time = 900; time < 1800; time+=100){
+        timetablefile << time << "          ";
+        // loops for each day
+        for(int day = 0; day < 5; day++){
+            // loops through each course
+            bool lesson_at_time = false;
+            for(int i = 0; i < getCourses().size(); i++){
+                // loops through each lesson
+                for(int j = 0; j< getCourses().at(i)->getLessons().size(); j++){
+                    // checks if the specified lesson occurs on that day
+                    if(getCourses().at(i)->getLessons().at(j)->getDate() == day){
+
+                        // stores the lesson start and end time
+                        int lesson_start = getCourses().at(i)->getLessons().at(j)->getTime();
+                        int lesson_end = lesson_start + getCourses().at(i)->getLessons().at(j)->getDuration();
+
+                        // if the time is between the lesson start and end print the course name and lesson type
+                        if(lesson_start <= time && lesson_end > time){
+                            std::string current_lesson = lessons[(int)getCourses().at(i)->getLessons().at(j)->getLesson()];       
+                            timetablefile << getCourses().at(i)->getName(); 
+                            timetablefile << "," ;
+                            timetablefile << current_lesson;
+                            lesson_at_time = true;
+                        }
+                    }
+                }
+            }
+            //Outputs extra format spacing if there was not a lesson at a given day and time
+            // if(lesson_at_time == false){
+            //    std::cout << "               "; 
+            // }
+            // std::cout << "      ";
+        }
+        std::cout << std::endl << std::endl;
+    }
+
+    timetablefile.close();
+}
+
+
+
 
 // Default destructor
 Person::~Person()
