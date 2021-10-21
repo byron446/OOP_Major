@@ -363,7 +363,7 @@ int main() {
         Lesson * lesson1 = new Lesson(1000, 0,0);
         courseslist[0].addLesson(lesson1);
             
-        Lesson * lesson2 = new Lesson(1400,4,1);
+        Lesson * lesson2 = new Lesson(1400,1,4);
         courseslist[0].addLesson(lesson2);        
 
         std::string course_name2 = "Physics";
@@ -372,16 +372,16 @@ int main() {
         courseslist[1].setName("Physics");
         courseslist[1].setCourseID("PHYSICS 1510");
 
-        Lesson * lesson3 = new Lesson(1400,0,3);
+        Lesson * lesson3 = new Lesson(1400,3,0);
         courseslist[1].addLesson(lesson3);
 
-        Lesson * lesson4 = new Lesson(1400,4,1);
+        Lesson * lesson4 = new Lesson(1400,1,4);
         courseslist[1].addLesson(lesson4); 
 
         courseslist[2].setName("Chemistry");
         courseslist[2].setCourseID("CHEM 1200");
             
-        Lesson * lesson5 = new Lesson(1300,1,2);
+        Lesson * lesson5 = new Lesson(1300,2,1);
         courseslist[2].addLesson(lesson5);
             
         Lesson * lesson6 = new Lesson(1200,2,3);
@@ -390,16 +390,16 @@ int main() {
         courseslist[3].setName("Object Oriented Programming");
         courseslist[3].setCourseID("COMP SCI 1102");
 
-        Lesson * lesson7 = new Lesson(1000,4,2);
+        Lesson * lesson7 = new Lesson(1000,2,4);
         courseslist[3].addLesson(lesson7);
             
-        Lesson * lesson8 = new Lesson(1500,4,3);
+        Lesson * lesson8 = new Lesson(1500,3,4);
         courseslist[3].addLesson(lesson8); 
 
         courseslist[4].setName("Introduction to Enginering");
         courseslist[4].setCourseID("ENG 1000");
 
-        Lesson * lesson9 = new Lesson(1200,4,0);
+        Lesson * lesson9 = new Lesson(1200,0,4);
         courseslist[4].addLesson(lesson9);
             
         Lesson * lesson10 = new Lesson(1200,0,1);
