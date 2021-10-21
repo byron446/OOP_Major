@@ -42,13 +42,13 @@ void Teacher::printGrades()
     // are printed
     if(getCourses().size() < 2){
         std::vector<Student*> class_list = getClassList(getCourses().at(0)->getName()); 
-        std::cout << "The peopl enrolled in "<<  getCourses().at(0)->getName()  << " are: "<< std::endl;
+        std::cout << "The people enrolled in "<<  getCourses().at(0)->getName()  << " are: "<< std::endl;
 
         for(int i = 0; i < class_list.size(); i++){
             if(class_list.at(i)->getName() == getName()){
                 std::cout << class_list.at(i)->getName() << "   (You)" << std::endl;
             }else{
-                std::cout << class_list.at(i)->getName() << class_list.at(i)->getGrade(getCourses().at(0)) << std::endl;
+                std::cout << class_list.at(i)->getName() << ": " << class_list.at(i)->getGrade(getCourses().at(0)) << std::endl;
             }
         }
 
@@ -64,10 +64,10 @@ void Teacher::printGrades()
 
         std::vector<Student*> class_list = getClassList(getCourses().at(course)->getName()); 
 
-        std::cout << "The peopl enrolled in "<<  getCourses().at(0)->getName()  << "are: "<< std::endl;
+        std::cout << "The people enrolled in "<<  getCourses().at(0)->getName()  << " are: "<< std::endl;
 
         for(int i = 0; i < class_list.size(); i++){
-            std::cout << class_list.at(i)->getName() << class_list.at(i)->getGrade(getCourses().at(course)) << std::endl;
+            std::cout << class_list.at(i)->getName() << ": " << class_list.at(i)->getGrade(getCourses().at(course)) << std::endl;
         }
     }    
 }
