@@ -188,7 +188,8 @@ void Person::exportTimetable(){
                         // if the time is between the lesson start and end print the course name and lesson type
                         if(lesson_start <= time && lesson_end > time){
                             std::string current_lesson = lessons[(int)getCourses().at(i)->getLessons().at(j)->getLesson()];       
-                            timetablefile << getCourses().at(i)->getName() << " "; 
+                            timetablefile << getCourses().at(i)->getName(); 
+                            timetablefile << " "; 
                             timetablefile << current_lesson;
                             lesson_at_time = true;
                         }

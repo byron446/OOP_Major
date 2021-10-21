@@ -22,11 +22,11 @@ std::vector<Student*> Teacher::getClassList(std::string course_name)
 {
     std::vector<Student*> class_list;
 
-    for (int i = 0; i < students.size(); i++){
+    for (int i = 0; i < Students.size(); i++){
 
-        for(int j = 0; j < students.at(i)->getCourses().size();j++){
-            if(students.at(i)->getCourses().at(j)->getName() == course_name){
-                class_list.push_back(students.at(i));
+        for(int j = 0; j < Students.at(i)->getCourses().size();j++){
+            if(Students.at(i)->getCourses().at(j)->getName() == course_name){
+                class_list.push_back(Students.at(i));
             }
         }
     }

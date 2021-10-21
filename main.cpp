@@ -352,21 +352,28 @@ int main() {
     std::cin >> course_total;
     courseslist = new Course*[course_total];
     for(int i = 0; i < course_total; i++){
+        
         std::string course_name;
         std::string course_id;
         getline(std::cin, course_name);
         getline(std::cin,course_id);
-
+        
+        Course t_course = Course(course_id, course_name);
+        
+        courseslist[i] = &t_course;
+        
         for(int i = 0; i < 2; i++){
             int lesson_time;
             int lesson_date;
             int lesson_type;
-
+            
             std::cin >> lesson_time;
             std::cin >> lesson_date;
             std::cin >> lesson_type;
-            Lesson * lesson1 = new Lesson;
+            Lesson * lesson1 = new Lesson(lesson_time,lesson_type, lesson_date);
             courseslist[i]->addLesson(lesson1);
+            
+            
         }
 
     }
@@ -384,7 +391,7 @@ int main() {
             std::cin >> grade;
             t_student->enrol(courseslist[course],grade);
         }
-        students.push_back(t_student);    
+        Students.push_back(t_student);    
     }
     for(int i = 0; i < 5; i++){
         std::string name;
