@@ -68,6 +68,7 @@ int teachlogin(int tindex) {
             std::cout << "Printing Timetable..." << std::endl;
             Teachers[tindex]->printTimetable(); // function to print the teachers timetable
             Teachers[tindex]->exportTimetable();
+            std::cout << "Your Timetable has been exported to a CSV file..." << std::endl;
         } else if (teachchoice == 2) {
             std::cout << "Printing Grades..." << std::endl;
             Teachers[tindex]->printGrades(); // calling to printGrades function
@@ -106,10 +107,12 @@ int studlogin(Course* courseslist, int sindex) {
             std::cout << "Printing Timetable..." << std::endl;
             Students[sindex]->printTimetable(); // function to print students timetable
             Students[sindex]->exportTimetable();
+            std::cout << "Your Timetable has been exported to a CSV file..." << std::endl;
         } else if (studchoice == 2) {
             std::cout << "Printing Grades..." << std::endl;
             Students[sindex]->printGrades(); // calling to function to show the student their grades
             Students[sindex]->exportGrades();
+            std::cout << "Your Grades have been exported to a CSV file..." << std::endl;
         } else if (studchoice == 3) { // if the student wants to enrol in a course
             // listing all available courses
             std::string inputcname = "?";
