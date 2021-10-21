@@ -229,7 +229,7 @@ void newuser() {
             // telling the teacher their ID number
             std::cout << std::endl;
             std::cout << "Your ID Number is : a" << tteacher.getIdNum() << std::endl;
-            Teachers[maxtindex].push_back(tteacher);
+            Teachers.push_back(&tteacher);
             maxtindex++;
         // if they are a student
         } else if (role == 2) {
@@ -239,7 +239,7 @@ void newuser() {
             // telling the student their ID number
             std::cout << std::endl;
             std::cout << "Your ID Number is : a" << tstudent.getIdNum() << std::endl;
-            Students[maxsindex].push_back(tstudent);
+            Students.push_back(&tstudent);
             maxsindex++;
         }
         std::cout << std::endl;
