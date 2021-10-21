@@ -15,7 +15,7 @@ int teacher_id = 10000;
 int student_id = 15000;
 std::vector <Student*> Students;
 std::vector <Teacher*> Teachers;
-Course** courses;
+Course** courseslist;
 Course zero_course;
 int tindex = 0;
 int maxtindex = 0;
@@ -372,8 +372,14 @@ int main() {
     int quit = 0; // variable to loop code unless programme is quit
     int course_total;
     std::cin >> course_total;
-    courses = new Course*[course_total];
+    courseslist = new Course*[course_total];
+    for(int i = 0; i < course_total; i++){
+        std::string course_name;
+        std::string course_id;
+        std::cin >> course_name;
+        std::cin >> course_id;
 
+    }
 
     while (quit == 0) { // while loop to take user back to login page once finished
         quit = loginfunct(); // calling to login function
