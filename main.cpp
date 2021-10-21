@@ -117,10 +117,10 @@ int studlogin(Course* courseslist, int sindex) {
             // listing all available courses
             std::string inputcname = "?";
             int cname = 0;
-            while (cname < 1 || cname > 11) {
+            while (cname < 1 || cname > 5) {
                 std::string appendcname = "0";
                 std::cout << "Which Course would you like to enrol in: " << std::endl;
-                for (int i=0; i<10; i++) {
+                for (int i=0; i<5; i++) {
                     std::cout << i+1 << ". " << courseslist[i].getCourseId() << " " << courseslist[i].getName() << std::endl;
                 }
                 std::cout << "11. Exit" << std::endl;
@@ -158,7 +158,7 @@ int studlogin(Course* courseslist, int sindex) {
             while (cname < 1 || cname > 11) {
                 std::string appendcname = "0";
                 std::cout << "Which Course would you like to remove: " << std::endl;
-                for (int i=0; i<10; i++) {
+                for (int i=0; i<5; i++) {
                     std::cout << i+1 << ". " << courseslist[i].getCourseId() << " " << courseslist[i].getName() << std::endl;
                 }
                 std::cout << "11. Exit" << std::endl;
@@ -394,10 +394,10 @@ int main() {
         courseslist[3].setName("Object Oriented Programming");
         courseslist[3].setCourseID("COMP SCI 1102");
 
-        Lesson * lesson7 = new Lesson(1300,1,2);
+        Lesson * lesson7 = new Lesson(1000,4,2);
         courseslist[3].addLesson(lesson7);
             
-        Lesson * lesson8 = new Lesson(1200,2,3);
+        Lesson * lesson8 = new Lesson(1500,4,3);
         courseslist[3].addLesson(lesson8); 
 
         courseslist[4].setName("Introduction to Enginering");

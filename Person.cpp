@@ -173,8 +173,7 @@ void Person::exportTimetable(){
         timetablefile << time << ",";
         // loops for each day
         for(int day = 0; day < 5; day++){
-            // loops through each course
-            bool lesson_at_time = false;
+            // loops through each course2
             for(int i = 0; i < getCourses().size(); i++){
                 // loops through each lesson
                 for(int j = 0; j< getCourses().at(i)->getLessons().size(); j++){
@@ -187,21 +186,17 @@ void Person::exportTimetable(){
 
                         // if the time is between the lesson start and end print the course name and lesson type
                         if(lesson_start <= time && lesson_end > time){
+                            //stores type of current lesson as string
                             std::string current_lesson = lessons[(int)getCourses().at(i)->getLessons().at(j)->getLesson()];       
+                            //outputs subject and lesson e.g. Maths Lecture
                             timetablefile << getCourses().at(i)->getName(); 
                             timetablefile << " "; 
                             timetablefile << current_lesson;
-                            lesson_at_time = true;
                         }
                     }
                 }
             }
             timetablefile << "," ;
-            //Outputs extra format spacing if there was not a lesson at a given day and time
-            // if(lesson_at_time == false){
-            //    std::cout << "               "; 
-            // }
-            // std::cout << "      ";
         }
         timetablefile << "\n";
     }
