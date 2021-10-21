@@ -18,9 +18,7 @@ std::vector <Teacher*> Teachers;
 Course* courseslist;
 Course zero_course;
 int tindex = 0;
-int maxtindex = 3;
 int sindex = 0;
-int maxsindex = 3;
 
 // This function takes the course list, member_var which indicates which member variable of 
 // a course to screen , a value to search for, and the number of courses, and returns the 
@@ -230,7 +228,6 @@ void newuser() {
             std::cout << std::endl;
             std::cout << "Your ID Number is : a" << tteacher.getIdNum() << std::endl;
             Teachers.push_back(&tteacher);
-            maxtindex++;
         // if they are a student
         } else if (role == 2) {
             Student tstudent;
@@ -240,7 +237,6 @@ void newuser() {
             std::cout << std::endl;
             std::cout << "Your ID Number is : a" << tstudent.getIdNum() << std::endl;
             Students.push_back(&tstudent);
-            maxsindex++;
         }
         std::cout << std::endl;
     }
