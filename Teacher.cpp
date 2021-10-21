@@ -41,7 +41,7 @@ void Teacher::printGrades()
     // are printed
     if(getCourses().size() < 2){
         std::vector<Student*> class_list = getClassList(getCourses().at(0)->getName()); 
-        std::cout << "The students enrolled in this class are: "<< std::endl;
+        std::cout << "The peopl enrolled in this class are: "<< std::endl;
 
         for(int i = 0; i < class_list.size(); i++){
             if(class_list.at(i)->getName() == getName()){
@@ -63,7 +63,7 @@ void Teacher::printGrades()
 
         std::vector<Student*> class_list = getClassList(getCourses().at(course)->getName()); 
 
-        std::cout << "The students enrolled in this class are: "<< std::endl;
+        std::cout << "The people enrolled in this class are: "<< std::endl;
 
         for(int i = 0; i < class_list.size(); i++){
             std::cout << class_list.at(i)->getName() << class_list.at(i)->getGrade(getCourses().at(course)) << std::endl;
