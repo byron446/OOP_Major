@@ -128,7 +128,7 @@ int studlogin(Course** courseslist, int sindex) {
                     int confirm = 0;
                     while (confirm != 1 && confirm != 2) {
                         std::string appendconfirm = "0";
-                        std::cout << std::endl << "You have chosen to enrol in: " << courseslist[cname-1].getName() << std::endl;
+                        std::cout << std::endl << "You have chosen to enrol in: " << courseslist[cname-1].getCourseId() << " " << courseslist[cname-1].getName() << std::endl;
                         std::cout << "Is this Correct?" << std::endl;
                         std::cout << "1. Yes" << std::endl << "2. No" << std::endl;
                         getline(std::cin, inputconfirm);
@@ -166,7 +166,7 @@ int studlogin(Course** courseslist, int sindex) {
                     int confirm = 0;
                     while (confirm != 1 && confirm != 2) {
                         std::string appendconfirm = "0";
-                        std::cout << std::endl << "You have chosen to remove: " << courseslist[cname-1].getName() << std::endl;
+                        std::cout << std::endl << "You have chosen to remove: " << courseslist[cname-1].getCourseId() << " " << courseslist[cname-1].getName() << std::endl;
                         std::cout << "Is this Correct?" << std::endl;
                         std::cout << "1. Yes" << std::endl << "2. No" << std::endl;
                         getline(std::cin, inputconfirm);
@@ -242,10 +242,6 @@ bool idvalid(std::string sidcheck) {
     // integer for the length of the string
     int idlength = sidcheck.length();
 
-    // converting string to character array
-    // char cidcheck[idlength];
-    // strcpy(cidcheck, sidcheck.c_str());
-
     // if id doesnt start with 'a'
     if (sidcheck[0] != 'a') {
         return false;
@@ -271,10 +267,6 @@ int stringtoint (std::string sidcheck) {
     // int to assign the id to
     int idcheck = 0;
     int idlength = sidcheck.length();
-
-    // converting to character array
-    // char cidcheck[idlength];
-    // strcpy(cidcheck, sidcheck.c_str());
 
     // adding the values multiplied by 10 to the power of the index to create one number
     for (int i=1; i<idlength; i++) {
