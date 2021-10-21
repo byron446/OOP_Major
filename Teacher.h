@@ -7,7 +7,7 @@
 
 // Includes external global variable people, which contains all students and 
 // teachers
-extern std::vector <Student*> students;
+extern std::vector <Student*> Students;
 
 class Teacher: public Person
 {

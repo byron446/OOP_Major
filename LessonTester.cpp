@@ -25,8 +25,8 @@ int main(){
     std::cin >> lessonDuration1;
     std::cin >> lessonDuration2;
 
-    Lesson *lesson1 = new Lesson(lessonTime1, lessonType1, lessonDuration1, lessonDate1);
-    Lesson *lesson2 = new Lesson(lessonTime2, lessonType2, lessonDuration2, lessonDate2);
+    Lesson *lesson1 = new Lesson(lessonTime1, lessonType1, lessonDate1);
+    Lesson *lesson2 = new Lesson(lessonTime2, lessonType2, lessonDate2);
     // Lesson *lesson1 = new Lesson(lessonTime1, lessonDate1, lessonType1);
     // Lesson *lesson2 = new Lesson(lessonTime2, lessonDate2, lessonType2);
 
