@@ -50,7 +50,7 @@ int teachlogin(int tindex) {
     // while loop preventing unavailbe options from being selected
     while (teachchoice != 3) {
         std::string cteachchoice = "0";
-        std::cout << "Welcome " << Teachers[tindex]->getName() << std::endl; // giving options to teacher
+        std::cout << "Welcome a" << tindex+10000 << std::endl; // giving options to teacher
         std::cout << "1. View Timetable" << std::endl;
         std::cout << "2. View Grades" << std::endl;
         std::cout << "3. Logout" << std::endl;
@@ -87,7 +87,7 @@ int studlogin(Course* courseslist, int sindex) {
     // while loop to prevent unavailble choice from being selected
     while (studchoice != 5) {
         std::string cstudchoice = "0";
-        std::cout << "Welcome " << Students[sindex]->getName() << std::endl; // giving options to the student
+        std::cout << "Welcome a" << sindex+15000 << std::endl; // giving options to the student
         std::cout << "1. View Timetable" << std::endl;
         std::cout << "2. View Grade" << std::endl;
         std::cout << "3. Enrol" << std::endl;
@@ -399,7 +399,7 @@ int main() {
         courseslist[4].setName("Introduction to Enginering");
         courseslist[4].setCourseID("ENG 1000");
 
-        Lesson * lesson9 = new Lesson(1200,0,4);
+        Lesson * lesson9 = new Lesson(1200,2,4);
         courseslist[4].addLesson(lesson9);
             
         Lesson * lesson10 = new Lesson(1200,0,1);
