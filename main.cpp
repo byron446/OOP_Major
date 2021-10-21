@@ -13,9 +13,18 @@
 // starter ID's created for teacher and student
 int teacher_id = 10000;
 int student_id = 15000;
+<<<<<<< HEAD
 std::vector <Student*> Students;
 Course zero_course;
 Teacher Teacher1[3];
+=======
+std::vector <Student*> students;
+std::vector <Teacher*> teachers;
+Course** courses;
+Course zero_course;
+Teacher Teacher1;
+Student Student1;
+>>>>>>> 266fea19a5c2c3bcf7d0111b4201e92e9b951619
 int tindex = 0;
 int maxtindex = 0;
 int sindex = 0;
@@ -369,6 +378,9 @@ bool loginfunct() {
 // main function
 int main() {
     int quit = 0; // variable to loop code unless programme is quit
+    int course_total;
+    std::cin >> course_total;
+    courses = new Course*[course_total];
 
     while (quit == 0) { // while loop to take user back to login page once finished
         quit = loginfunct(); // calling to login function
