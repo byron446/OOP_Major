@@ -358,8 +358,7 @@ bool loginfunct() {
 // main function
 int main() {
     int quit = 0; // variable to loop code unless programme is quit
-    int course_total;
-    std::cin >> course_total;
+    int course_total=5;
     courseslist = new Course[course_total];
 
         courseslist[0].setName("Maths");
