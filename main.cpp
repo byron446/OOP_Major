@@ -18,9 +18,9 @@ std::vector <Teacher*> Teachers;
 Course* courseslist;
 Course zero_course;
 int tindex = 0;
-int maxtindex = 0;
+int maxtindex = 3;
 int sindex = 0;
-int maxsindex = 0;
+int maxsindex = 3;
 
 // This function takes the course list, member_var which indicates which member variable of 
 // a course to screen , a value to search for, and the number of courses, and returns the 
