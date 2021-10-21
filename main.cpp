@@ -361,63 +361,126 @@ int main() {
     int course_total;
     std::cin >> course_total;
     courseslist = new Course[course_total];
-    for(int i = 0; i < course_total; i++){
 
-        std::string course_name;
-        std::string course_id;
-        getline(std::cin, course_name);
-        getline(std::cin,course_id);
-        
-        Course t_course = Course(course_id, course_name);
-        
-        courseslist[i] = t_course;
-        
-        for(int i = 0; i < 2; i++){
-            int lesson_time;
-            int lesson_date;
-            int lesson_type;
-            
-            std::cin >> lesson_time;
-            std::cin >> lesson_date;
-            std::cin >> lesson_type;
-            Lesson * lesson1 = new Lesson(lesson_time,lesson_type, lesson_date);
-            courseslist[i].addLesson(lesson1);
-            
-            
-        }
+        courseslist[0].setName("Maths");
+        courseslist[0].setCourseID("MATHS 1012");
 
-    }
-    for(int i = 0; i < 5; i++){
-        std::string name;
-        Student t_student;
-        getline(std::cin, name);
-        t_student.setName(name);
-        t_student.setIdNum(&student_id);
-        
-        for (int i = 0; i < 4; i++){
-            int course;
-            int grade;
-            std::cin >> course;
-            std::cin >> grade;
-            std::cout << "here" << std::endl;
-            t_student.enrol(&courseslist[course], grade);
-        }
-        Students.push_back(&t_student);    
-    }
-    for(int i = 0; i < 5; i++){
-        std::string name;
-        Teacher * t_teacher = new Teacher;
-        getline(std::cin, name);
-        t_teacher->setName(name);
-        t_teacher->setIdNum(&teacher_id);
-        t_teacher->Person::enrol(&courseslist[i]);
-    }
+        Lesson * lesson1 = new Lesson(1000, 0,0);
+        courseslist[0].addLesson(lesson1);
+            
+        Lesson * lesson2 = new Lesson(1400,4,1);
+        courseslist[0].addLesson(lesson2);        
 
-    std::string test;
-    getline(std::cin, test);
-    std::cout << test << std::endl;
+        std::string course_name2 = "Physics";
+        std::string course_id2 = "PHYSICS 1510";
+
+        courseslist[1].setName("Physics");
+        courseslist[1].setCourseID("PHYSICS 1510");
+
+        Lesson * lesson3 = new Lesson(1400,0,3);
+        courseslist[1].addLesson(lesson3);
+
+        Lesson * lesson4 = new Lesson(1400,4,1);
+        courseslist[1].addLesson(lesson4); 
+
+        courseslist[2].setName("Chemistry");
+        courseslist[2].setCourseID("CHEM 1200");
+            
+        Lesson * lesson5 = new Lesson(1300,1,2);
+        courseslist[2].addLesson(lesson5);
+            
+        Lesson * lesson6 = new Lesson(1200,2,3);
+        courseslist[2].addLesson(lesson6); 
+
+        courseslist[3].setName("Object Oriented Programming");
+        courseslist[3].setCourseID("COMP SCI 1102");
+
+        Lesson * lesson7 = new Lesson(1300,1,2);
+        courseslist[3].addLesson(lesson7);
+            
+        Lesson * lesson8 = new Lesson(1200,2,3);
+        courseslist[3].addLesson(lesson8); 
+
+        courseslist[4].setName("Introduction to Enginering");
+        courseslist[4].setCourseID("ENG 1000");
+
+        Lesson * lesson9 = new Lesson(1200,4,0);
+        courseslist[4].addLesson(lesson9);
+            
+        Lesson * lesson10 = new Lesson(1200,0,1);
+        courseslist[4].addLesson(lesson10); 
+
+        Student student1;
+        student1.setName("Byron");
+        student1.setIdNum(&student_id);
+        student1.enrol(&courseslist[0],98);
+        student1.enrol(&courseslist[1],86);
+        Students.push_back(&student1);
+
+        Student student2;
+        student2.setName("Dev");
+        student2.setIdNum(&student_id);
+        student2.enrol(&courseslist[2],95);
+        student2.enrol(&courseslist[3],80);
+        Students.push_back(&student2);
+
+        Student student3;
+        student3.setName("Max");
+        student3.setIdNum(&student_id);
+        student3.enrol(&courseslist[4],78);
+        student3.enrol(&courseslist[1],83);
+        Students.push_back(&student3);
+
+        Teacher teacher1;
+        teacher1.setName("Nate");
+        teacher1.setIdNum(&teacher_id);
+        teacher1.Person::enrol(&courseslist[1]);
+        Teachers.push_back(&teacher1);
+
+        Teacher teacher2;
+        teacher2.setName("Sophia");
+        teacher2.setIdNum(&teacher_id);
+        teacher2.Person::enrol(&courseslist[0]);
+        Teachers.push_back(&teacher2);
+
+        Teacher teacher3;
+        teacher2.setName("Austin");
+        teacher2.setIdNum(&teacher_id);
+        teacher2.Person::enrol(&courseslist[2]);
+        Teachers.push_back(&teacher2);
+
+
+    // }
+    // for(int i = 0; i < 5; i++){
+    //     std::string name;
+    //     Student t_student;
+    //     getline(std::cin, name);
+    //     t_student.setName(name);
+    //     t_student.setIdNum(&student_id);
+        
+    //     for (int i = 0; i < 3; i++){
+    //         int course;
+    //         int grade;
+    //         std::cin >> course;
+    //         std::cin >> grade;
+    //         //std::cout << "here" << std::endl;
+    //         t_student.enrol(&courseslist[i], grade);
+    //     }
+    //     Students.push_back(&t_student);
+   
+    // }
+    // for(int i = 0; i < 5; i++){
+    //     std::string name;
+    //     Teacher * t_teacher = new Teacher;
+    //     getline(std::cin, name);
+    //     t_teacher->setName(name);
+    //     t_teacher->setIdNum(&teacher_id);
+    //     t_teacher->Person::enrol(&courseslist[i]);
+    // }
+
     while (quit == 0) { // while loop to take user back to login page once finished
         quit = loginfunct(); // calling to login function
+        return 0;
     }
 
     return 0;
