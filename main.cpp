@@ -68,6 +68,7 @@ int teachlogin(int tindex) {
             std::cout << "Printing Timetable..." << std::endl;
             Teachers[tindex]->printTimetable(); // function to print the teachers timetable
             Teachers[tindex]->exportTimetable();
+            std::cout << "Your Timetable has been exported to a CSV file..." << std::endl;
         } else if (teachchoice == 2) {
             std::cout << "Printing Grades..." << std::endl;
             Teachers[tindex]->printGrades(); // calling to printGrades function
