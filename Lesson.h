@@ -20,6 +20,8 @@ private:
 
     ~Lesson();
 
+    // Allows times and dates to be assines to courses
+
     void setTime(int pltime);
 
     int getTime(); 
@@ -27,6 +29,8 @@ private:
     void setDate(int pdate);
 
     int getDate();
+
+    // Allows a course to be chosen out of a set list of avaliable courses
 
     void setLesson(int plesson);
 
