@@ -115,7 +115,7 @@ int studlogin(Course** courseslist, int sindex) {
                 std::string appendcname = "0";
                 std::cout << "Which Course would you like to enrol in: " << std::endl;
                 for (int i=0; i<10; i++) {
-                    std::cout << i+1 << ". " << courseslist[i].getCourseId() << " " << courseslist[i].getName() << std::endl;
+                    std::cout << i+1 << ". " << courseslist[i]->getCourseId() << " " << courseslist[i]->getName() << std::endl;
                 }
                 std::cout << "11. Exit" << std::endl;
                 getline(std::cin, inputcname);
@@ -128,7 +128,7 @@ int studlogin(Course** courseslist, int sindex) {
                     int confirm = 0;
                     while (confirm != 1 && confirm != 2) {
                         std::string appendconfirm = "0";
-                        std::cout << std::endl << "You have chosen to enrol in: " << courseslist[cname-1].getCourseId() << " " << courseslist[cname-1].getName() << std::endl;
+                        std::cout << std::endl << "You have chosen to enrol in: " << courseslist[cname-1]->getCourseId() << " " << courseslist[cname-1]->getName() << std::endl;
                         std::cout << "Is this Correct?" << std::endl;
                         std::cout << "1. Yes" << std::endl << "2. No" << std::endl;
                         getline(std::cin, inputconfirm);
@@ -144,7 +144,7 @@ int studlogin(Course** courseslist, int sindex) {
                 }
             }
             // function to add the course to the student's enrollment
-            Students[sindex]->enrol(&courseslist[cname-1], 100);
+            Students[sindex]->enrol(courseslist[cname-1], 100);
         } else if (studchoice == 4) { // if the student wants to remove a course
             // listing all available courses
             std::string inputcname = "?";
@@ -153,7 +153,7 @@ int studlogin(Course** courseslist, int sindex) {
                 std::string appendcname = "0";
                 std::cout << "Which Course would you like to remove: " << std::endl;
                 for (int i=0; i<10; i++) {
-                    std::cout << i+1 << ". " << courseslist[i].getCourseId() << " " << courseslist[i].getName() << std::endl;
+                    std::cout << i+1 << ". " << courseslist[i]->getCourseId() << " " << courseslist[i]->getName() << std::endl;
                 }
                 std::cout << "11. Exit" << std::endl;
                 getline(std::cin, inputcname);
@@ -166,7 +166,7 @@ int studlogin(Course** courseslist, int sindex) {
                     int confirm = 0;
                     while (confirm != 1 && confirm != 2) {
                         std::string appendconfirm = "0";
-                        std::cout << std::endl << "You have chosen to remove: " << courseslist[cname-1].getCourseId() << " " << courseslist[cname-1].getName() << std::endl;
+                        std::cout << std::endl << "You have chosen to remove: " << courseslist[cname-1]->getCourseId() << " " << courseslist[cname-1]->getName() << std::endl;
                         std::cout << "Is this Correct?" << std::endl;
                         std::cout << "1. Yes" << std::endl << "2. No" << std::endl;
                         getline(std::cin, inputconfirm);
@@ -182,7 +182,7 @@ int studlogin(Course** courseslist, int sindex) {
                 }
             }
             // function to add the course to the student's enrollment
-            Students[sindex]->leaveCourse(&courseslist[cname-1]);
+            Students[sindex]->leaveCourse(courseslist[cname-1]);
         } else if (studchoice == 5) {
             std::cout << "Logging out of session..." << std::endl;
         }
@@ -354,10 +354,46 @@ int main() {
     for(int i = 0; i < course_total; i++){
         std::string course_name;
         std::string course_id;
-        std::cin >> course_name;
-        std::cin >> course_id;
-    }
+        getline(std::cin, course_name);
+        getline(std::cin,course_id);
 
+        for(int i = 0; i < 2; i++){
+            int lesson_time;
+            int lesson_date;
+            int lesson_type;
+
+            std::cin >> lesson_time;
+            std::cin >> lesson_date;
+            std::cin >> lesson_type;
+            Lesson * lesson1 = new Lesson;
+            courseslist[i]->addLesson(lesson1);
+        }
+
+    }
+    for(int i = 0; i < 5; i++){
+        std::string name;
+        Student * t_student = new Student;
+        getline(std::cin, name);
+        t_student->setName(name);
+        t_student->setIdNum(&student_id);
+
+        for (int i = 0; i < 3; i++){
+            int course;
+            int grade;
+            std::cin >> course;
+            std::cin >> grade;
+            t_student->enrol(courseslist[course],grade);
+        }
+        students.push_back(t_student);    
+    }
+    for(int i = 0; i < 5; i++){
+        std::string name;
+        Teacher * t_teacher = new Teacher;
+        getline(std::cin, name);
+        t_teacher->setName(name);
+        t_teacher->setIdNum(&teacher_id);
+        t_teacher->Person::enrol(courseslist[i]);
+    }
 
     while (quit == 0) { // while loop to take user back to login page once finished
         quit = loginfunct(); // calling to login function

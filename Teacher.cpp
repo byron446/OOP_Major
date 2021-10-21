@@ -13,6 +13,7 @@ Teacher::Teacher()
 }
 void Teacher::enrol(Course* new_course, int grade)
 {
+    Person::enrol(new_course);
     return;
 }
 // returns a vector of pointers to people that are enrolled in the course with 

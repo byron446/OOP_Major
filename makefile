@@ -1,3 +1,6 @@
+RunSchool: school
+	./school < data.txt
+
 school: main.cpp Person.o Course.o Teacher.o Student.o Lesson.o
 	g++ -std=c++11 main.cpp Person.o Course.o Teacher.o Student.o Lesson.o -o school
 
