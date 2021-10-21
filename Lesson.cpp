@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 
+// default constructor
 Lesson::Lesson(){
 
     duration[LessonType::Lecture] = 100;
@@ -42,6 +43,7 @@ Lesson::Lesson(int pltime, int plesson, int pdate){
 //     lessonDuration = duration[lesson];   
 // }
 
+// setting the time when a lesson takes place
 void Lesson::setTime(int pltime){
 
     lessonTime = pltime;
@@ -49,17 +51,20 @@ void Lesson::setTime(int pltime){
 
 }
 
+// returning the time when a lesson takes place
 int Lesson::getTime(){
 
     return lessonTime;
 }
 
+// setting the day of the week the lesson takes place on
 void Lesson::setDate(int pdate){
 
     lessonDate = pdate;
 
 }
 
+// returning the day each lesson takes place on
 int Lesson::getDate(){
 
     return lessonDate;
@@ -82,12 +87,14 @@ enum Lesson::LessonType Lesson::getLesson(){
 
 // }
 
+// getting the length of the lesson
 int Lesson::getDuration(){
 
     return lessonDuration;
 
 }
 
+// destructor
 Lesson::~Lesson()
 {
     
