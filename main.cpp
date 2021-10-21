@@ -13,10 +13,9 @@
 // starter ID's created for teacher and student
 int teacher_id = 10000;
 int student_id = 15000;
-std::vector <Student*> students;
+std::vector <Student*> Students;
 Course zero_course;
 Teacher Teacher1[3];
-Student Student1[10];
 int tindex = 0;
 int maxtindex = 0;
 int sindex = 0;
@@ -87,7 +86,7 @@ int studlogin(Course* courseslist, int sindex) {
     // while loop to prevent unavailble choice from being selected
     while (studchoice != 5) {
         std::string cstudchoice = "0";
-        std::cout << "Welcome " << Student1[sindex].getName() << std::endl; // giving options to the student
+        std::cout << "Welcome " << Students[sindex]->getName() << std::endl; // giving options to the student
         std::cout << "1. View Timetable" << std::endl;
         std::cout << "2. View Grade" << std::endl;
         std::cout << "3. Enrol" << std::endl;
@@ -103,10 +102,10 @@ int studlogin(Course* courseslist, int sindex) {
 
         if (studchoice == 1) {
             std::cout << "Printing Timetable..." << std::endl;
-            Student1[sindex].printTimetable(); // function to print students timetable
+            Students[sindex]->printTimetable(); // function to print students timetable
         } else if (studchoice == 2) {
             std::cout << "Printing Grades..." << std::endl;
-            Student1[sindex].printGrades(); // calling to function to show the student their grades
+            Students[sindex]->printGrades(); // calling to function to show the student their grades
         } else if (studchoice == 3) { // if the student wants to enrol in a course
             // listing all available courses
             std::string inputcname = "?";
@@ -144,7 +143,7 @@ int studlogin(Course* courseslist, int sindex) {
                 }
             }
             // function to add the course to the student's enrollment
-            Student1[sindex].enrol(&courseslist[cname-1], 100);
+            Students[sindex]->enrol(&courseslist[cname-1], 100);
         } else if (studchoice == 4) { // if the student wants to remove a course
             // listing all available courses
             std::string inputcname = "?";
@@ -182,7 +181,7 @@ int studlogin(Course* courseslist, int sindex) {
                 }
             }
             // function to add the course to the student's enrollment
-            Student1[sindex].leaveCourse(&courseslist[cname-1]);
+            Students[sindex]->leaveCourse(&courseslist[cname-1]);
         } else if (studchoice == 5) {
             std::cout << "Logging out of session..." << std::endl;
         }
@@ -225,11 +224,11 @@ void newuser() {
             maxtindex++;
         // if they are a student
         } else if (role == 2) {
-            Student1[maxsindex].setName(tname); // storing students name in the student type
-            Student1[maxsindex].setIdNum(&student_id); // creating an ID for the teacher
+            Students[maxsindex]->setName(tname); // storing students name in the student type
+            Students[maxsindex]->setIdNum(&student_id); // creating an ID for the teacher
             // telling the student their ID number
             std::cout << std::endl;
-            std::cout << "Your ID Number is : a" << Student1[maxsindex].getIdNum() << std::endl;
+            std::cout << "Your ID Number is : a" << Students[maxsindex]->getIdNum() << std::endl;
             maxsindex++;
         }
         std::cout << std::endl;
