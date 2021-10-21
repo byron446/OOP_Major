@@ -1,6 +1,6 @@
 5
 Maths
-MATHS 1012
+MATHS_1012
 1000
 0
 0
