@@ -168,7 +168,7 @@ void Person::exportTimetable(){
     timetablefile << "\n";
    
     
-
+    std::string lessons[4] = {"Lecture", "Tutorial", "Workshop", "Practical"};
     for(int time = 900; time < 1800; time+=100){
         timetablefile << time << "          ";
         // loops for each day
