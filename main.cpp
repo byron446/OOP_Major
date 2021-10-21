@@ -352,6 +352,7 @@ int main() {
     std::cin >> course_total;
     courseslist = new Course*[course_total];
     for(int i = 0; i < course_total; i++){
+        
         std::string course_name;
         std::string course_id;
         getline(std::cin, course_name);

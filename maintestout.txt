@@ -60,7 +60,7 @@ Welcome Student1.getName()
 4. Remove
 5. Logout
 
-Which Course would you like to enrol: 
+Which Course would you like to enrol in: 
 1. Maths
 2. Chemistry
 3. Physics
@@ -71,6 +71,12 @@ Which Course would you like to enrol:
 8. Matlab and C
 9. Introduction to Process Engineering
 10. Analog Electronics
+11. Exit
+
+You have chosen to enrol in: Matlab and C
+Is this Correct?
+1. Yes
+2. No
 
 Welcome Student1.getName()
 1. View Timetable
@@ -90,6 +96,12 @@ Which Course would you like to remove:
 8. Matlab and C
 9. Introduction to Process Engineering
 10. Analog Electronics
+11. Exit
+
+You have chosen to remove: Matlab and C
+Is this Correct?
+1. Yes
+2. No
 
 Welcome Student1.getName()
 1. View Timetable

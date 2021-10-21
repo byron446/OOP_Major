@@ -18,6 +18,7 @@ public:
     Course(int lesson_num);
     ~Course();
 
+    //
 
     std::string getCourseId();
 
