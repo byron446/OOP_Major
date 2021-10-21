@@ -1,6 +1,6 @@
 5
 Maths
-MATHS 1012
+MATHS_1012
 1000
 0
 0
@@ -8,7 +8,7 @@ MATHS 1012
 4
 1
 Physics
-PHYSICS 1510
+PHYSICS_1510
 1400
 0
 3
@@ -16,23 +16,23 @@ PHYSICS 1510
 4
 1
 Chemisty
-CHEMISTRY 1200
+CHEMISTRY_1200
 1300
 1
 2
 1200
 2
 3
-Object Oriented Programming
-OOP 1001
-1030
+Object_Oriented_Programming
+OOP_1001
+1000
 4
 0
 1500
 4
 3
-Introduction to Enginering
-ENG 1001
+Introduction_to_Enginering
+ENG_1001
 1200
 4
 0
