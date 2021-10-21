@@ -80,7 +80,7 @@ int teachlogin(int tindex) {
 }
 
 // student login function 
-int studlogin(Course* courseslist, int sindex) {
+int studlogin(Course** courseslist, int sindex) {
     std::string inputstudchoice = "?";
     int studchoice = 0;
 
